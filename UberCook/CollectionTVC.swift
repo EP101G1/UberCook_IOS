@@ -14,6 +14,8 @@ class CollectionTVC: UITableViewController {
     let url_server = URL(string: common_url + "UberCook_Servlet")
     var collection = [Collection]()
     var recipe_no = ""
+    var index = 0
+    var test = [Bool]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,9 @@ class CollectionTVC: UITableViewController {
                     //print("input: \(String(data: data!, encoding: .utf8)!)")
                     if let result = try? decoder.decode([Collection].self, from: data!){
                         self.collection = result
+                        for index in 0...self.collection.count {
+                            self.test.insert(true, at: index)
+                        }
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
@@ -50,10 +55,12 @@ class CollectionTVC: UITableViewController {
         }
     }
     
-    @objc func onChange(sender: UISwitch) {
+    @objc func onChange(sender: Any) {
         // 取得這個 UISwtich 元件
+        let tempSwitch = sender as! UISwitch
         // 依據屬性 on 來為底色變色
-        if sender.isOn {
+        if tempSwitch.isOn {
+            test[self.index] = true
             var requestParam = [String: Any]()
             requestParam["action"] = "insertCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
@@ -71,6 +78,7 @@ class CollectionTVC: UITableViewController {
                 }
             }
         }else{
+            test[self.index] = false
             var requestParam = [String: Any]()
             requestParam["action"] = "deleteCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
@@ -106,11 +114,19 @@ class CollectionTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
         let collectionList = collection[indexPath.row]
-        self.recipe_no = collectionList.recipe_no
-        print(self.recipe_no)
+        cell.index = indexPath.row
+        cell.completionHandler = {(index) in
+            self.index = index
+            self.recipe_no = self.collection[index].recipe_no
+        }
+        if test[indexPath.row] {
+            cell.collectionSwitch.isOn = true
+        }else{
+            cell.collectionSwitch.isOn = false
+        }
+        cell.collectionSwitch.addTarget(self, action: #selector(onChange(sender:)), for: .valueChanged)
         cell.collectionLabel.text = collectionList.recipe_title
         cell.collectionImageView.layer.cornerRadius = 10
-        cell.collectionSwitch.addTarget(self, action: #selector(onChange(sender:)), for: .valueChanged)
         cell.layer.cornerRadius = cell.frame.height/20
         var requestParam = [String: Any]()
         requestParam["action"] = "getRecipeImage"
@@ -159,45 +175,6 @@ class CollectionTVC: UITableViewController {
         collectionDVC.collection = collectionList
         self.navigationController?.pushViewController(collectionDVC, animated: true)
     }
-    
-    
-    
-    
-//    @IBAction func clickToCollection(_ sender: UISwitch) {
-//        if sender.isOn == true{
-//            var requestParam = [String: Any]()
-//            requestParam["action"] = "insertCollect"
-//            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-//            requestParam["recipe_no"] = self.recipe_no
-//            executeTask(url_server!, requestParam) { (data, response, error) in
-//                if error == nil {
-//                    if data != nil {
-//                        let count = String(decoding: data!, as: UTF8.self)
-//                        if count == "1"{
-//                            DispatchQueue.main.async {
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }else{
-//            var requestParam = [String: Any]()
-//            requestParam["action"] = "deleteCollect"
-//            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-//            requestParam["recipe_no"] = self.recipe_no
-//            executeTask(url_server!, requestParam) { (data, response, error) in
-//                if error == nil {
-//                    if data != nil {
-//                        let count = String(decoding: data!, as: UTF8.self)
-//                        if count == "1"{
-//                            DispatchQueue.main.async {
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
     
     
 
