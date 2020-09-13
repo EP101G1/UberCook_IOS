@@ -72,9 +72,9 @@ class StoreValueTableViewController: UITableViewController {
     func generatePayByPrimeForSandBox(prime: String,point : Int) {
         let url_TapPay = URL(string: tapPaySanbox)
         var cardholderDic = [String: String]()
-        cardholderDic["name"] = "Ron Huang"
+        cardholderDic["name"] = "Kira"
         cardholderDic["phone_number"] = "+886912345678"
-        cardholderDic["email"] = "ron@email.com"
+        cardholderDic["email"] = "kira@email.com"
         
         var resultUrlDic = [String: String]()
         resultUrlDic["frontend_redirect_url"] = self.frontend_rediret_url
@@ -87,7 +87,7 @@ class StoreValueTableViewController: UITableViewController {
         paymentDic["amount"] = String(point)
         paymentDic["currency"] = "TWD"
         paymentDic["order_number"] = "SN0001"
-        paymentDic["details"] = "茶葉蛋"
+        paymentDic["details"] = "UberCook點數"
         paymentDic["cardholder"] = cardholderDic
         paymentDic["result_url"] = resultUrlDic
         
@@ -104,8 +104,6 @@ class StoreValueTableViewController: UITableViewController {
                             })
                         }
                     }
-                    
-                    
                     let text = String(data: data!, encoding: .utf8)!
                     print("\n----------Success--------------")
                     print(text)

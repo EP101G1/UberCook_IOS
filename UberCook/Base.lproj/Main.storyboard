@@ -1040,7 +1040,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAV-La-9tF">
-                                            <rect key="frame" x="50" y="21" width="41.5" height="39"/>
+                                            <rect key="frame" x="70" y="21" width="41.5" height="39"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1060,7 +1060,7 @@
                                         <constraint firstItem="ugn-9L-p51" firstAttribute="top" secondItem="l5e-jx-zk3" secondAttribute="topMargin" constant="10" id="6Ab-Uz-5DL"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="BAV-La-9tF" secondAttribute="bottom" constant="10" id="9vC-Ey-keM"/>
                                         <constraint firstItem="BAV-La-9tF" firstAttribute="top" secondItem="l5e-jx-zk3" secondAttribute="topMargin" constant="10" id="HIn-uk-Bae"/>
-                                        <constraint firstItem="BAV-La-9tF" firstAttribute="leading" secondItem="l5e-jx-zk3" secondAttribute="leadingMargin" constant="30" id="Ic7-XI-Vbf"/>
+                                        <constraint firstItem="BAV-La-9tF" firstAttribute="leading" secondItem="l5e-jx-zk3" secondAttribute="leadingMargin" constant="50" id="Ic7-XI-Vbf"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="ugn-9L-p51" secondAttribute="bottom" constant="10" id="PC6-zK-oIu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="ugn-9L-p51" secondAttribute="trailing" constant="30" id="wge-bd-dqg"/>
                                     </constraints>
