@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		228D4FABF3C34AF29F4C6DA2 /* Pods_UberCook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */; };
+		33D2994E250DF02D0026F280 /* StoreValueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */; };
+		33D29950250DF2790026F280 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2994F250DF2790026F280 /* Wallet.swift */; };
+		33D29954250DF8E50026F280 /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D29953250DF8E50026F280 /* WalletCell.swift */; };
+		33D29956250E03290026F280 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D29955250E02F20026F280 /* SafariServices.framework */; };
+		33D29958250E034C0026F280 /* TPDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D29957250E034C0026F280 /* TPDirect.framework */; };
 		E5149528250A037600A7290D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149526250A037600A7290D /* ChatMessage.swift */; };
 		E5149529250A037600A7290D /* StateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149527250A037600A7290D /* StateMessage.swift */; };
 		E514952B250A1B1E00A7290D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952A250A1B1E00A7290D /* Track.swift */; };
@@ -46,6 +51,11 @@
 
 /* Begin PBXFileReference section */
 		0A179A3B26CE5E7A8DFCE1F0 /* Pods-UberCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCook.release.xcconfig"; path = "Target Support Files/Pods-UberCook/Pods-UberCook.release.xcconfig"; sourceTree = "<group>"; };
+		33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreValueTableViewController.swift; sourceTree = "<group>"; };
+		33D2994F250DF2790026F280 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		33D29953250DF8E50026F280 /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
+		33D29955250E02F20026F280 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		33D29957250E034C0026F280 /* TPDirect.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TPDirect.framework; sourceTree = "<group>"; };
 		B45D85793F5E1DD143A49539 /* Pods-UberCook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCook.debug.xcconfig"; path = "Target Support Files/Pods-UberCook/Pods-UberCook.debug.xcconfig"; sourceTree = "<group>"; };
 		C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5149526250A037600A7290D /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
@@ -91,7 +101,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D29956250E03290026F280 /* SafariServices.framework in Frameworks */,
 				228D4FABF3C34AF29F4C6DA2 /* Pods_UberCook.framework in Frameworks */,
+				33D29958250E034C0026F280 /* TPDirect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +113,7 @@
 		63D0FEB4905710840B7A6368 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33D29955250E02F20026F280 /* SafariServices.framework */,
 				C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */,
 			);
 			name = Frameworks;
@@ -127,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				E589F8E32509F31100169A6D /* LoginObj.swift */,
+				33D2994F250DF2790026F280 /* Wallet.swift */,
 				E514952A250A1B1E00A7290D /* Track.swift */,
 				E592F702250BF308003FDF2A /* Collection.swift */,
 				E5925C2E24FFA0B9002D5C4D /* Blog.swift */,
@@ -158,6 +172,7 @@
 				E592F704250BF60F003FDF2A /* CollectionCell.swift */,
 				E592F700250BD778003FDF2A /* TrackCell.swift */,
 				E5925C2C24FF9E5D002D5C4D /* BlogCollectionViewCell.swift */,
+				33D29953250DF8E50026F280 /* WalletCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -188,6 +203,7 @@
 				E529F7572508F7330079A593 /* Vo */,
 				E529F7562508F7190079A593 /* Common */,
 				E59294EB24FA8E7B00C8F9A2 /* AppDelegate.swift */,
+				33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */,
 				E59294ED24FA8E7B00C8F9A2 /* SceneDelegate.swift */,
 				E5925C2A24FF9708002D5C4D /* BlogViewController.swift */,
 				E592950524FABD7700C8F9A2 /* Home.swift */,
@@ -203,6 +219,7 @@
 				E59294F424FA8E7E00C8F9A2 /* Assets.xcassets */,
 				E59294F624FA8E7E00C8F9A2 /* LaunchScreen.storyboard */,
 				E59294F924FA8E7E00C8F9A2 /* Info.plist */,
+				33D29957250E034C0026F280 /* TPDirect.framework */,
 			);
 			path = UberCook;
 			sourceTree = "<group>";
@@ -324,10 +341,12 @@
 				E5AF25C2250A01DA00FBAD9F /* Login.swift in Sources */,
 				E514952F250B4A1800A7290D /* FavoriteTVC.swift in Sources */,
 				E514952B250A1B1E00A7290D /* Track.swift in Sources */,
+				33D29950250DF2790026F280 /* Wallet.swift in Sources */,
 				E5925C392500292A002D5C4D /* RecipesTVCViewController.swift in Sources */,
 				E592950024FAA37700C8F9A2 /* Common.swift in Sources */,
 				E589F8E225094E4D00169A6D /* User_name.swift in Sources */,
 				E5925C3525001617002D5C4D /* RecipeListCell.swift in Sources */,
+				33D2994E250DF02D0026F280 /* StoreValueTableViewController.swift in Sources */,
 				E5925C3124FFF2DE002D5C4D /* BlogHeardReusableView.swift in Sources */,
 				E5925C2D24FF9E5D002D5C4D /* BlogCollectionViewCell.swift in Sources */,
 				E5815F54250BB0A4000D149D /* CollectionTVC.swift in Sources */,
@@ -339,6 +358,7 @@
 				E592F707250D33F0003FDF2A /* CashVC.swift in Sources */,
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
 				E5149529250A037600A7290D /* StateMessage.swift in Sources */,
+				33D29954250DF8E50026F280 /* WalletCell.swift in Sources */,
 				E514952D250B499F00A7290D /* FavoriteTableViewCell.swift in Sources */,
 				E592950824FADED000C8F9A2 /* ChefLeader.swift in Sources */,
 				E5925C2F24FFA0B9002D5C4D /* Blog.swift in Sources */,
@@ -501,6 +521,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W37DT8NA6G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UberCook",
+				);
 				INFOPLIST_FILE = UberCook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,6 +545,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W37DT8NA6G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/UberCook",
+				);
 				INFOPLIST_FILE = UberCook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

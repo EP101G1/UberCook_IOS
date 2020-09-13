@@ -1,6 +1,13 @@
 import Foundation
 import UIKit
 
+let tapPaySanbox = "https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime"
+let appId: Int32 = 17112
+let appKey = "app_AmBc0elDU0lKXTBAYyJWL1sxM6pEbRLOjo7BfHMzXXT8wQ3DkubERQiCKI6z"
+let partnerKey = "partner_82DoMelUIY1HcqKBWMy9qs3MbruYfW9aUfaX64hkMPVVD15vJdPwcPVW"
+let merchantName = "TW_LINE_PAY"
+let merchantId = "huangx10a_LINEPAY"
+
 // 實機
 // let URL_SERVER = "http://192.168.0.101:8080/Spot_MySQL_Web/"
 // 模擬器
