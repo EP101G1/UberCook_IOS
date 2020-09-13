@@ -506,6 +506,9 @@
                                                     <state key="normal" title="即時諮詢" backgroundImage="LoginButton">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="nVw-bB-zDK" kind="show" id="RYo-Vk-o60"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qg6-If-oNn">
                                                     <rect key="frame" x="276" y="0.0" width="128" height="30"/>
@@ -777,6 +780,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="quP-yu-3YN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1649.2753623188407" y="3821.6517857142853"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="IZF-Gx-iUD">
+            <objects>
+                <viewController id="nVw-bB-zDK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="asC-ig-iva">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xA4-aq-QDU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="K1X-LZ-tNg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbT-ON-amj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-796" y="3820"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="B8u-1j-iYb">
