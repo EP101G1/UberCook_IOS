@@ -123,7 +123,7 @@ class TrackTVC: UITableViewController {
     
     
     @IBAction func clickToTrack(_ sender: UISwitch) {
-        if sender.isOn {
+        if sender.isOn == true{
             var requestParam = [String: Any]()
             requestParam["action"] = "insertFollow"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")

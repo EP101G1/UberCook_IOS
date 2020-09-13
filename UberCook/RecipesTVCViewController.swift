@@ -13,6 +13,8 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
     var recipeList = [RecipeList]()
     var reciepLeaderList = [Recipe]()
     let fileManager = FileManager()
+    var flag = [Int]()
+    let userDefault = UserDefaults()
 
 
     override func viewDidLoad() {
@@ -60,6 +62,24 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
 //                            self.tableView.reloadData()
                         }
                     }
+                }
+            }
+        }
+    }
+    
+    
+    func searchTrack(){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "searchTrack"
+        requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+        requestParam["chef_no"] = blog?.chef_no
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    let count = Int(String(decoding: data!, as: UTF8.self)) ?? 0
+                        
+                        DispatchQueue.main.async {
+                        }
                 }
             }
         }

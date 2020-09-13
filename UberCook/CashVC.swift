@@ -1,26 +1,28 @@
 //
-//  FavoriteTVC.swift
+//  CashVC.swift
 //  UberCook
 //
-//  Created by 超 on 2020/9/11.
+//  Created by 超 on 2020/9/13.
 //
 
 import UIKit
 
-class FavoriteTVC: UIViewController{
-
-    @IBOutlet weak var trackSC: UIScrollView!
-    @IBOutlet weak var trackSG: UISegmentedControl!
+class CashVC: UIViewController {
+    
+    @IBOutlet weak var cashSegment: UISegmentedControl!
+    @IBOutlet weak var cashScroll: UIScrollView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
     
-    
-    @IBAction func clickSegment(_ sender: UISegmentedControl) {
-        let x = CGFloat(sender.selectedSegmentIndex) * trackSC.bounds.width
+    @IBAction func changePage(_ sender: UISegmentedControl) {
+        let x = CGFloat(sender.selectedSegmentIndex) * cashScroll.bounds.width
                let offset = CGPoint(x: x, y: 0)
-        trackSC.setContentOffset(offset, animated: true)
+        cashScroll.setContentOffset(offset, animated: true)
     }
     
     /*
@@ -32,11 +34,12 @@ class FavoriteTVC: UIViewController{
         // Pass the selected object to the new view controller.
     }
     */
+
 }
 
-extension FavoriteTVC: UIScrollViewDelegate {
+extension CashVC: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
-        trackSG.selectedSegmentIndex = index
+        cashSegment.selectedSegmentIndex = index
     }
 }

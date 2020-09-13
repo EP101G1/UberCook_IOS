@@ -39,6 +39,8 @@
 		E592F701250BD778003FDF2A /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F700250BD778003FDF2A /* TrackCell.swift */; };
 		E592F703250BF308003FDF2A /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F702250BF308003FDF2A /* Collection.swift */; };
 		E592F705250BF60F003FDF2A /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F704250BF60F003FDF2A /* CollectionCell.swift */; };
+		E592F707250D33F0003FDF2A /* CashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F706250D33EF003FDF2A /* CashVC.swift */; };
+		E592F709250D5BF8003FDF2A /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F708250D5BF8003FDF2A /* PostVC.swift */; };
 		E5AF25C2250A01DA00FBAD9F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF25C1250A01DA00FBAD9F /* Login.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		E592F700250BD778003FDF2A /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		E592F702250BF308003FDF2A /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		E592F704250BF60F003FDF2A /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		E592F706250D33EF003FDF2A /* CashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashVC.swift; sourceTree = "<group>"; };
+		E592F708250D5BF8003FDF2A /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		E5AF25C1250A01DA00FBAD9F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +194,8 @@
 				E514952E250B4A1800A7290D /* FavoriteTVC.swift */,
 				E5815F51250BB07A000D149D /* TrackTVC.swift */,
 				E5815F53250BB0A4000D149D /* CollectionTVC.swift */,
+				E592F708250D5BF8003FDF2A /* PostVC.swift */,
+				E592F706250D33EF003FDF2A /* CashVC.swift */,
 				E5AF25C1250A01DA00FBAD9F /* Login.swift */,
 				E5925C382500292A002D5C4D /* RecipesTVCViewController.swift */,
 				E55F195624FD78E0005C5DBC /* RecipeDetailViewController.swift */,
@@ -330,6 +336,7 @@
 				E592F701250BD778003FDF2A /* TrackCell.swift in Sources */,
 				E5925C2B24FF9708002D5C4D /* BlogViewController.swift in Sources */,
 				E59294EC24FA8E7B00C8F9A2 /* AppDelegate.swift in Sources */,
+				E592F707250D33F0003FDF2A /* CashVC.swift in Sources */,
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
 				E5149529250A037600A7290D /* StateMessage.swift in Sources */,
 				E514952D250B499F00A7290D /* FavoriteTableViewCell.swift in Sources */,
@@ -343,6 +350,7 @@
 				E589F8E42509F31100169A6D /* LoginObj.swift in Sources */,
 				E55F195724FD78E0005C5DBC /* RecipeDetailViewController.swift in Sources */,
 				E5815F52250BB07A000D149D /* TrackTVC.swift in Sources */,
+				E592F709250D5BF8003FDF2A /* PostVC.swift in Sources */,
 				E592950C24FBA1B500C8F9A2 /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

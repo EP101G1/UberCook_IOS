@@ -49,6 +49,46 @@ class CollectionTVC: UITableViewController {
             }
         }
     }
+    
+    @objc func onChange(sender: UISwitch) {
+        // 取得這個 UISwtich 元件
+        // 依據屬性 on 來為底色變色
+        if sender.isOn {
+            var requestParam = [String: Any]()
+            requestParam["action"] = "insertCollect"
+            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+            requestParam["recipe_no"] = self.recipe_no
+            executeTask(url_server!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        let count = String(decoding: data!, as: UTF8.self)
+                        if count == "1"{
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }else{
+            var requestParam = [String: Any]()
+            requestParam["action"] = "deleteCollect"
+            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+            requestParam["recipe_no"] = self.recipe_no
+            executeTask(url_server!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        let count = String(decoding: data!, as: UTF8.self)
+                        if count == "1"{
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -67,8 +107,10 @@ class CollectionTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell", for: indexPath) as! CollectionCell
         let collectionList = collection[indexPath.row]
         self.recipe_no = collectionList.recipe_no
+        print(self.recipe_no)
         cell.collectionLabel.text = collectionList.recipe_title
         cell.collectionImageView.layer.cornerRadius = 10
+        cell.collectionSwitch.addTarget(self, action: #selector(onChange(sender:)), for: .valueChanged)
         cell.layer.cornerRadius = cell.frame.height/20
         var requestParam = [String: Any]()
         requestParam["action"] = "getRecipeImage"
@@ -118,41 +160,44 @@ class CollectionTVC: UITableViewController {
         self.navigationController?.pushViewController(collectionDVC, animated: true)
     }
     
-    @IBAction func clickToCollection(_ sender: UISwitch) {
-        if sender.isOn {
-            var requestParam = [String: Any]()
-            requestParam["action"] = "insertCollect"
-            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = recipe_no
-            executeTask(url_server!, requestParam) { (data, response, error) in
-                if error == nil {
-                    if data != nil {
-                        let count = String(decoding: data!, as: UTF8.self)
-                        if count == "1"{
-                            DispatchQueue.main.async {
-                            }
-                        }
-                    }
-                }
-            }
-        }else{
-            var requestParam = [String: Any]()
-            requestParam["action"] = "deleteCollect"
-            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = recipe_no
-            executeTask(url_server!, requestParam) { (data, response, error) in
-                if error == nil {
-                    if data != nil {
-                        let count = String(decoding: data!, as: UTF8.self)
-                        if count == "1"{
-                            DispatchQueue.main.async {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    
+    
+    
+//    @IBAction func clickToCollection(_ sender: UISwitch) {
+//        if sender.isOn == true{
+//            var requestParam = [String: Any]()
+//            requestParam["action"] = "insertCollect"
+//            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+//            requestParam["recipe_no"] = self.recipe_no
+//            executeTask(url_server!, requestParam) { (data, response, error) in
+//                if error == nil {
+//                    if data != nil {
+//                        let count = String(decoding: data!, as: UTF8.self)
+//                        if count == "1"{
+//                            DispatchQueue.main.async {
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }else{
+//            var requestParam = [String: Any]()
+//            requestParam["action"] = "deleteCollect"
+//            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+//            requestParam["recipe_no"] = self.recipe_no
+//            executeTask(url_server!, requestParam) { (data, response, error) in
+//                if error == nil {
+//                    if data != nil {
+//                        let count = String(decoding: data!, as: UTF8.self)
+//                        if count == "1"{
+//                            DispatchQueue.main.async {
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     
 

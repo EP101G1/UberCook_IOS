@@ -32,6 +32,14 @@ class Login: UIViewController {
     }
     
     
+    @IBAction func magicButton(_ sender: Any) {
+        self.accountTextField.text = "acc001"
+        self.passwordTextField.text = "psw001"
+    }
+    
+    
+    
+    
     @IBAction func clickLogin(_ sender: Any) {
         let account = accountTextField.text == nil ? "" : accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text == nil ? "" : passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)

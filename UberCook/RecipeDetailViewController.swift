@@ -42,14 +42,14 @@ class RecipeDetailViewController: UIViewController {
         showChefIcon()
         showRecipeImage()
         showChefName()
-        searchTrack()
+        searchFollow()
     }
     
-    func searchTrack(){
+    func searchFollow(){
         var requestParam = [String: Any]()
-        requestParam["action"] = "searchTrack"
+        requestParam["action"] = "searchFollow"
         requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam["chef_no"] = recipe?.chef_no ?? collection?.chef_no
+        requestParam["recipe_no"] = recipe?.recipe_no ?? collection?.recipe_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -167,9 +167,9 @@ class RecipeDetailViewController: UIViewController {
         if flag == 0 {
             self.flag = 1
             var requestParam = [String: Any]()
-            requestParam["action"] = "insertFollow"
+            requestParam["action"] = "insertCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["chef_no"] = recipe?.chef_no ?? collection?.chef_no
+            requestParam["recipe_no"] = recipe?.recipe_no ?? collection?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -187,9 +187,9 @@ class RecipeDetailViewController: UIViewController {
         }else{
             self.flag = 0
             var requestParam = [String: Any]()
-            requestParam["action"] = "deleteFollow"
+            requestParam["action"] = "deleteCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["chef_no"] = recipe?.chef_no ?? collection?.chef_no
+            requestParam["recipe_no"] = recipe?.recipe_no ?? collection?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
