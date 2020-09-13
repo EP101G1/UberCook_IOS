@@ -26,6 +26,8 @@ class PostVC: UIViewController {
         recipePointTextField.layer.cornerRadius = 5
     }
     
+    
+    
 
     /*
     // MARK: - Navigation

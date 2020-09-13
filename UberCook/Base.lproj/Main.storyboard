@@ -960,6 +960,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uyV-Xo-leh">
                                             <rect key="frame" x="315" y="30" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="clickCollection:" destination="04H-lA-ED1" eventType="valueChanged" id="Vzd-ZQ-ILj"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <constraints>
