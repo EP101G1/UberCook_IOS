@@ -18,6 +18,7 @@
 		C52B584E250E3EBB000B312A /* MenuOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B584D250E3EBB000B312A /* MenuOrderList.swift */; };
 		C5808F8C250F94FC00CF80FC /* TotalOrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */; };
 		C5808F8E250F974100CF80FC /* TotalOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */; };
+		C5808F90250F9D3300CF80FC /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */; };
 		E5149528250A037600A7290D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149526250A037600A7290D /* ChatMessage.swift */; };
 		E5149529250A037600A7290D /* StateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149527250A037600A7290D /* StateMessage.swift */; };
 		E514952B250A1B1E00A7290D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952A250A1B1E00A7290D /* Track.swift */; };
@@ -68,6 +69,7 @@
 		C52B584D250E3EBB000B312A /* MenuOrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOrderList.swift; sourceTree = "<group>"; };
 		C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderListTableViewCell.swift; sourceTree = "<group>"; };
 		C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderListViewController.swift; sourceTree = "<group>"; };
+		C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		E5149526250A037600A7290D /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		E5149527250A037600A7290D /* StateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMessage.swift; sourceTree = "<group>"; };
 		E514952A250A1B1E00A7290D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				E59294FF24FAA37700C8F9A2 /* Common.swift */,
+				C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				C5808F8C250F94FC00CF80FC /* TotalOrderListTableViewCell.swift in Sources */,
 				E5925C3725001E1E002D5C4D /* RecipeList.swift in Sources */,
 				E59294EE24FA8E7B00C8F9A2 /* SceneDelegate.swift in Sources */,
+				C5808F90250F9D3300CF80FC /* GlobalVariables.swift in Sources */,
 				E589F8E42509F31100169A6D /* LoginObj.swift in Sources */,
 				E55F195724FD78E0005C5DBC /* RecipeDetailViewController.swift in Sources */,
 				E5815F52250BB07A000D149D /* TrackTVC.swift in Sources */,

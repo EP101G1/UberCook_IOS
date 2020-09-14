@@ -9,6 +9,22 @@ import UIKit
 
 class TotalOrderListViewController: UIViewController,UITableViewDataSource {
     
+    @IBOutlet weak var dateTextView: UITextView!
+    
+    @IBOutlet weak var nameTextView: UITextView!
+    
+    @IBOutlet weak var adrsTextView: UITextView!
+    
+    
+    @IBOutlet weak var phoneTextView: UITextView!
+    
+    @IBOutlet weak var remarksTextView: UITextView!
+    
+    
+    @IBOutlet weak var totalMoneyTextView: UILabel!
+    
+    @IBAction func OnClickcalendarcalendar(_  sender: Any) { //點擊日曆
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         <#code#>
