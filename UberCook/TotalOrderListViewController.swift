@@ -7,16 +7,27 @@
 
 import UIKit
 
-class TotalOrderListViewController: UIViewController,UITableViewDataSource {
+
+class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
-    @IBOutlet weak var dateTextView: UITextView!
+    let userDefault = UserDefaults()
     
-    @IBOutlet weak var nameTextView: UITextView!
+    var nextMenuRecipeLists = [MenuRecipeList]()
+
+
+   
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var adrsTextView: UITextView!
+    
+    @IBOutlet weak var dateTextField: UITextField!
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var adrsTextField: UITextField!
     
     
-    @IBOutlet weak var phoneTextView: UITextView!
+    @IBOutlet weak var phoneTextField: UITextField!
+    
     
     @IBOutlet weak var remarksTextView: UITextView!
     
@@ -26,15 +37,26 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource {
     @IBAction func OnClickcalendarcalendar(_  sender: Any) { //點擊日曆
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+<<<<<<< HEAD
         return 1;
+=======
+        return nextMenuRecipeLists.count
+>>>>>>> 962468da865f7011185c6409d08c142a27fcc1b8
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(TotalOrderListTableViewCell.self)", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(TotalOrderListTableViewCell.self)", for: indexPath) as! TotalOrderListTableViewCell
         
+        cell.titleLabel.text = nextMenuRecipeLists[indexPath.row].recipeTitle
+    
+        
+        cell.numberLabel.text = String(self.nextMenuRecipeLists[indexPath.row].number!)
+
+       
 
         return cell
     }
@@ -44,18 +66,15 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nameTextField.text = self.userDefault.value(forKey: "user_name") as? String
+        adrsTextField.text = self.userDefault.value(forKey: "user_adrs") as? String
+        phoneTextField.text = self.userDefault.value(forKey: "user_phone") as? String
+        
+//     print(nextMenuRecipeLists)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
+    
 }
