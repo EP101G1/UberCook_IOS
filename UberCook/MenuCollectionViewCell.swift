@@ -28,8 +28,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     
     @IBAction func onClickaddLess(_ sender: UIStepper) {
-        print("\(addnumber![index!])")
-        print(sender.value)
+//        print("\(addnumber![index!])")
+//        print(sender.value)
         
         if var addnumber = addnumber,
            let didselect = didselect,

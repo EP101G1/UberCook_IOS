@@ -21,6 +21,10 @@ class MenuCollectionViewController: UICollectionViewController {
     
     var addnumber:[Int] = []
     
+    var nextMenuRecipeLists = [MenuRecipeList]()
+     
+    
+ 
     
     
     override func viewDidLoad() {
@@ -31,7 +35,7 @@ class MenuCollectionViewController: UICollectionViewController {
         MenuController.shared.getMenuRecipeLists(chefNo: chefNo!) { (MenuRecipeLists) in
             if let MenuRecipeLists = MenuRecipeLists{
                 
-                print(MenuRecipeLists )
+              
                 self.MenuRecipeLists = MenuRecipeLists
                 
                 for index in 0...MenuRecipeLists.count-1
@@ -80,7 +84,6 @@ class MenuCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? MenuCollectionViewCell
         
-     
         
         if didselect[indexPath.row] {
             cell?.layer.borderColor = UIColor(named: "tiffanyGreen")?.cgColor
@@ -90,10 +93,14 @@ class MenuCollectionViewController: UICollectionViewController {
             //cell?.contentView.backgroundColor = UIColor.systemGray4
             cell?.contentView.layer.cornerRadius = 10
             addnumber[indexPath.row] += 1
-            cell?.numberLabel.text = String(addnumber[indexPath.row])
+            MenuRecipeLists[indexPath.row].number = 1
+            
+            
+            cell?.numberLabel.text = String(addnumber[indexPath.row]) //在下一步按鈕判斷的點選
             cell?.addLessStepper.isHidden = false
             cell?.numberLabel.isHidden = false
             
+           
     
             
         }else{
@@ -104,12 +111,13 @@ class MenuCollectionViewController: UICollectionViewController {
             cell?.contentView.layer.cornerRadius = 10
             
             addnumber[indexPath.row] = 0
-            
+            MenuRecipeLists[indexPath.row].number = 0
             cell?.numberLabel.text = String(addnumber[indexPath.row])
             cell?.numberLabel.isHidden = true
             cell?.addLessStepper.isHidden = true
         }
         
+       
         
         
     }
@@ -136,7 +144,10 @@ class MenuCollectionViewController: UICollectionViewController {
             self.addnumber = addnumber
             if(!self.didselect[index]){
              cell.numberLabel.text = String(self.addnumber[index])
+                self.MenuRecipeLists[indexPath.row].number = self.addnumber[index]
             }
+            
+            print(self.MenuRecipeLists[indexPath.row].number)
         }
         
         
@@ -159,6 +170,8 @@ class MenuCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    
+  
     
     
     // MARK: UICollectionViewDelegate
@@ -191,4 +204,24 @@ class MenuCollectionViewController: UICollectionViewController {
      
      }
      */
+    
+    func collectionView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        
+    }
+    
+    @IBSegueAction func takeTitleAndNumberToTotalList(_ coder: NSCoder) -> TotalOrderListViewController? {
+        nextMenuRecipeLists.removeAll()
+        
+        for index in 0...didselect.count-1 { //去除沒選中的菜單
+            if (!didselect[index]){
+               nextMenuRecipeLists.append(MenuRecipeLists[index])
+            }
+        }
+        
+        let controller = TotalOrderListViewController(coder: coder)
+        controller?.nextMenuRecipeLists = self.nextMenuRecipeLists
+
+        return controller
+    }
+    
 }

@@ -21,6 +21,7 @@ struct MenuRecipeList:Decodable {
     var recipeCon:String
     var recipePoint:Int
     var flag:Int
+    var number:Int?
 }
 
 struct GetRecipeImagePostData: Encodable {
@@ -48,12 +49,12 @@ class MenuController{
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
            // print(String(decoding: data!, as: UTF8.self))
-            print(String(decoding: data!, as: UTF8.self))
+//            print(String(decoding: data!, as: UTF8.self))
              let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             if let data = data,
                let menuRecipeList = try? decoder.decode([MenuRecipeList].self, from: data){
-                print(menuRecipeList[0].chefNo)
+//                print(menuRecipeList[0].chefNo)
                 completion(menuRecipeList)
             }else{
                 completion(nil)

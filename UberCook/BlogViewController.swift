@@ -296,9 +296,9 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
      // Pass the selected object to the new view controller.
      }
      */
-    @IBSegueAction func toChatPage(_ coder: NSCoder) -> UIViewController? {
-        return <#UIViewController(coder: coder)#>
-    }
+//    @IBSegueAction func toChatPage(_ coder: NSCoder) -> UIViewController? {
+//        return <#UIViewController(coder: coder)#>
+//    }
     
     @IBSegueAction func TakeChefNoToMenuOrderList(_ coder: NSCoder) -> MenuCollectionViewController? {
         let controller = MenuCollectionViewController(coder: coder)

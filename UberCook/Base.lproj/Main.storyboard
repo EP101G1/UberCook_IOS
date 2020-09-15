@@ -801,7 +801,8 @@
                     <navigationItem key="navigationItem" title="Title" id="lCo-Fb-Skq">
                         <barButtonItem key="rightBarButtonItem" title="下一步" id="WfQ-kA-Vrr">
                             <connections>
-                                <segue destination="fDN-mA-EwS" kind="show" id="b7C-FF-mMc"/>
+                                <action selector="nextButton:" destination="hD0-pa-xTU" id="gMg-bo-hVG"/>
+                                <segue destination="fDN-mA-EwS" kind="show" destinationCreationSelector="takeTitleAndNumberToTotalList:" id="jty-U8-KVx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -818,7 +819,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Try-Dl-dxh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Try-Dl-dxh">
                                 <rect key="frame" x="0.0" y="173.5" width="414" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -917,6 +918,7 @@
                                     <constraint firstAttribute="height" constant="35" id="Isp-h7-hjE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" red="0.50529885289999998" green="0.82339221240000005" blue="0.82353442909999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button" image="calendar.badge.plus" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
@@ -927,7 +929,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1HY-vA-xxT">
                                 <rect key="frame" x="30" y="405.5" width="312" height="310"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="9Ki-Yz-Zma">
+                                    <stackView opaque="NO" contentMode="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="9Ki-Yz-Zma">
                                         <rect key="frame" x="0.0" y="0.0" width="312" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="預約日期：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkZ-Zb-hMV">
@@ -940,20 +942,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-4q-ZGG">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zCn-G0-NtB">
                                                 <rect key="frame" x="112" y="0.0" width="200" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="oOV-k1-z95"/>
-                                                    <constraint firstAttribute="height" constant="50" id="zEe-qU-GXn"/>
+                                                    <constraint firstAttribute="width" constant="200" id="seF-2y-8hG"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-gH-CHc">
+                                    <stackView opaque="NO" contentMode="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-gH-CHc">
                                         <rect key="frame" x="0.0" y="65" width="312" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="訂購人：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzw-GH-0Ev">
@@ -966,20 +965,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AE7-G2-Ewc">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ACL-hO-Yrr">
                                                 <rect key="frame" x="112" y="0.0" width="200" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="UqV-Kr-XZM"/>
-                                                    <constraint firstAttribute="width" constant="200" id="lVA-CG-K5r"/>
+                                                    <constraint firstAttribute="width" constant="200" id="Xtl-2s-NJ1"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="XN3-Mp-OU3">
+                                    <stackView opaque="NO" contentMode="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="XN3-Mp-OU3">
                                         <rect key="frame" x="0.0" y="130" width="312" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tix-Fm-xxw">
@@ -992,20 +988,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xyg-O2-DwN">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X7M-do-7HP">
                                                 <rect key="frame" x="112" y="0.0" width="200" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="NMz-DH-RLI"/>
-                                                    <constraint firstAttribute="height" constant="50" id="ZU4-Vn-L1G"/>
+                                                    <constraint firstAttribute="width" constant="200" id="3kj-wI-6oc"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bJe-Zc-cPt">
+                                    <stackView opaque="NO" contentMode="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bJe-Zc-cPt">
                                         <rect key="frame" x="0.0" y="195" width="312" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="聯絡電話：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQN-Uh-Zcw">
@@ -1018,20 +1011,17 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Htl-Kz-ike">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XGe-zM-4P6">
                                                 <rect key="frame" x="112" y="0.0" width="200" height="50"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="hEt-Hn-aDK"/>
-                                                    <constraint firstAttribute="width" constant="200" id="tx0-Ip-dB6"/>
+                                                    <constraint firstAttribute="width" constant="200" id="jan-4Z-PQc"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Bi8-Rg-RC4">
+                                    <stackView opaque="NO" contentMode="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Bi8-Rg-RC4">
                                         <rect key="frame" x="0.0" y="260" width="312" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="備註：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rP3-Bn-7Bt">
@@ -1044,13 +1034,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-5l-GaJ">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-5l-GaJ">
                                                 <rect key="frame" x="112" y="0.0" width="200" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="WXh-yp-TZi"/>
-                                                    <constraint firstAttribute="height" constant="50" id="xbg-S0-Xle"/>
-                                                </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1079,13 +1065,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="要拉幾次？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJH-49-U68">
-                                <rect key="frame" x="179" y="818" width="87" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lfQ-pr-acW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1110,17 +1089,18 @@
                         <barButtonItem key="rightBarButtonItem" title="完成" id="7jv-6X-1c9"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="adrsTextView" destination="Xyg-O2-DwN" id="Nub-gD-w7s"/>
-                        <outlet property="dateTextView" destination="hQU-4q-ZGG" id="paq-YA-fM2"/>
-                        <outlet property="nameTextView" destination="AE7-G2-Ewc" id="MUc-VY-YVx"/>
-                        <outlet property="phoneTextView" destination="Htl-Kz-ike" id="hJB-Y1-fVZ"/>
+                        <outlet property="adrsTextField" destination="X7M-do-7HP" id="q5N-B7-Li3"/>
+                        <outlet property="dateTextField" destination="zCn-G0-NtB" id="5Gh-WC-W5e"/>
+                        <outlet property="nameTextField" destination="ACL-hO-Yrr" id="Hzi-kV-6Ax"/>
+                        <outlet property="phoneTextField" destination="XGe-zM-4P6" id="FsZ-hZ-mlp"/>
                         <outlet property="remarksTextView" destination="wCH-5l-GaJ" id="WSf-Il-dd7"/>
+                        <outlet property="tableView" destination="Try-Dl-dxh" id="Uf3-e1-grR"/>
                         <outlet property="totalMoneyTextView" destination="48R-Gq-bHG" id="Tzb-m4-nI9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNt-uN-7ug" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1632" y="4560"/>
+            <point key="canvasLocation" x="-1649" y="4566"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="IZF-Gx-iUD">
