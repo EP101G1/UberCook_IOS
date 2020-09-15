@@ -706,7 +706,7 @@
             </objects>
             <point key="canvasLocation" x="-2526" y="3822"/>
         </scene>
-        <!--Title-->
+        <!--菜單列表-->
         <scene sceneID="4se-Ty-B0H">
             <objects>
                 <collectionViewController id="hD0-pa-xTU" customClass="MenuCollectionViewController" customModule="UberCook" customModuleProvider="target" sceneMemberID="viewController">
@@ -798,7 +798,7 @@
                             <outlet property="delegate" destination="hD0-pa-xTU" id="yTP-av-pQV"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Title" id="lCo-Fb-Skq">
+                    <navigationItem key="navigationItem" title="菜單列表" id="lCo-Fb-Skq">
                         <barButtonItem key="rightBarButtonItem" title="下一步" id="WfQ-kA-Vrr">
                             <connections>
                                 <action selector="nextButton:" destination="hD0-pa-xTU" id="gMg-bo-hVG"/>
@@ -811,7 +811,7 @@
             </objects>
             <point key="canvasLocation" x="-1649.2753623188407" y="3821.6517857142853"/>
         </scene>
-        <!--Title-->
+        <!--訂單清單-->
         <scene sceneID="6Cz-rV-4BN">
             <objects>
                 <viewController id="fDN-mA-EwS" customClass="TotalOrderListViewController" customModule="UberCook" customModuleProvider="target" sceneMemberID="viewController">
@@ -819,7 +819,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Try-Dl-dxh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Try-Dl-dxh">
                                 <rect key="frame" x="0.0" y="173.5" width="414" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1085,7 +1085,7 @@
                             <constraint firstItem="7BP-Zx-qgr" firstAttribute="leading" secondItem="lfQ-pr-acW" secondAttribute="leading" constant="133" id="tO3-14-nMs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="zwY-yF-sOJ">
+                    <navigationItem key="navigationItem" title="訂單清單" id="zwY-yF-sOJ">
                         <barButtonItem key="rightBarButtonItem" title="完成" id="7jv-6X-1c9"/>
                     </navigationItem>
                     <connections>
