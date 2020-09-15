@@ -42,8 +42,10 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return nextMenuRecipeLists.count
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(TotalOrderListTableViewCell.self)", for: indexPath) as! TotalOrderListTableViewCell
