@@ -40,11 +40,8 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-<<<<<<< HEAD
-        return 1;
-=======
+
         return nextMenuRecipeLists.count
->>>>>>> 962468da865f7011185c6409d08c142a27fcc1b8
     }
 
     
