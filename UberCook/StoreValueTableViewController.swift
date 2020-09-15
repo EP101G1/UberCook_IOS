@@ -5,6 +5,20 @@
 //  Created by Kira 2020/9/13.
 //
 
+/*
+ LinePay
+ 1.Info.plist add URL types & LSApplicationQueriesSchemes
+ 2.add TPDirect.framwork & SafariServices.framwork
+ 3.Common set appId,appKey,partnerKey,merchantName,merchantId
+ 4.AppDelegate.swift
+ 5.StoreValueTableViewController
+ 
+ 透過前端呼叫 getPrime 取得 Prime , 把 Prime 送往後端伺服器
+ 從您的後端伺服器將 Prime , frontend_redirect_url , backend_notify_url 送到 TapPay
+ 您的後端取得 payment_url 送往前端使用 TPDLinePay.redirectWithUrl , 讓使用者使用 LINE Pay 付款
+ 付款完成, 透過您設定的 Return URL 回到您的 App , 後端透過 backend_notify_url 路由中收到 TapPay 通知
+*/
+
 import UIKit
 import TPDirect
 
@@ -14,7 +28,10 @@ class StoreValueTableViewController: UITableViewController {
     var linePay: TPDLinePay!
     var wallets = [Wallet]()
     var index = 0
+    let userDefault = UserDefaults()
+    var userPoint : Int = 0
     
+    @IBOutlet weak var lbUserPoint: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         wallets = getWallets()
@@ -25,6 +42,29 @@ class StoreValueTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getUserPoint()
+    }
+    
+    func getUserPoint(){
+            let url_server = URL(string: common_url + "Order_Point_Servlet")
+            let user_no = userDefault.value(forKey: "user_no")
+            var requestParam = [String: Any]()
+            requestParam["action"] = "getUSER_POINTS"
+            requestParam["user_no"] = user_no
+            executeTask(url_server!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        self.userPoint = Int(String(decoding: data!, as: UTF8.self))!
+                        DispatchQueue.main.async {
+                            self.lbUserPoint.text = String(self.userPoint)
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
 
     // MARK: - Table view data source
 
