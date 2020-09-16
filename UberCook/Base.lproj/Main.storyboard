@@ -1250,10 +1250,17 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="394" height="130"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x79-6f-7hA">
+<<<<<<< HEAD
                                                                     <rect key="frame" x="279" y="0.0" width="115" height="104"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PB-EJ-iWx">
                                                                     <rect key="frame" x="361" y="114" width="33" height="16"/>
+=======
+                                                                    <rect key="frame" x="279" y="0.0" width="115" height="104.5"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PB-EJ-iWx">
+                                                                    <rect key="frame" x="361" y="114.5" width="33" height="15.5"/>
+>>>>>>> e0cb279dd3c4e70b68b2b0a42ae5ddc3b08debba
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1704,6 +1711,9 @@
                             <outlet property="delegate" destination="owa-7J-gOQ" id="jew-5M-z1J"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="lbUserPoint" destination="cfX-Ff-fwP" id="MFV-Ry-NcM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wj-hO-CVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
