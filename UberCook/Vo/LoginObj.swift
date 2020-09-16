@@ -13,7 +13,7 @@ struct LoginObj:Decodable {
     var CHEF_NO: String?
     
     
-    enum CodingKeys: CodingKey {
+    enum CodingKeys: CodingKey { //init方法一定要列舉
         case msg
         case Result
         case USER

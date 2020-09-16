@@ -18,10 +18,11 @@
 		B761D6D2251066B100AA0071 /* ChatPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6D1251066B100AA0071 /* ChatPageController.swift */; };
 		C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */; };
 		C52B584C250E3E7F000B312A /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */; };
-		C52B584E250E3EBB000B312A /* MenuOrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B584D250E3EBB000B312A /* MenuOrderList.swift */; };
+		C52B584E250E3EBB000B312A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B584D250E3EBB000B312A /* MenuController.swift */; };
 		C5808F8C250F94FC00CF80FC /* TotalOrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */; };
 		C5808F8E250F974100CF80FC /* TotalOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */; };
 		C5808F90250F9D3300CF80FC /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */; };
+		C5808F962511E24B00CF80FC /* OrderObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F952511E24B00CF80FC /* OrderObj.swift */; };
 		E5149528250A037600A7290D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149526250A037600A7290D /* ChatMessage.swift */; };
 		E5149529250A037600A7290D /* StateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149527250A037600A7290D /* StateMessage.swift */; };
 		E514952B250A1B1E00A7290D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952A250A1B1E00A7290D /* Track.swift */; };
@@ -72,10 +73,11 @@
 		C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
-		C52B584D250E3EBB000B312A /* MenuOrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOrderList.swift; sourceTree = "<group>"; };
+		C52B584D250E3EBB000B312A /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderListTableViewCell.swift; sourceTree = "<group>"; };
 		C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderListViewController.swift; sourceTree = "<group>"; };
 		C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		C5808F952511E24B00CF80FC /* OrderObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderObj.swift; sourceTree = "<group>"; };
 		E5149526250A037600A7290D /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		E5149527250A037600A7290D /* StateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMessage.swift; sourceTree = "<group>"; };
 		E514952A250A1B1E00A7290D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E589F8E32509F31100169A6D /* LoginObj.swift */,
+				C5808F952511E24B00CF80FC /* OrderObj.swift */,
 				33D2994F250DF2790026F280 /* Wallet.swift */,
 				E514952A250A1B1E00A7290D /* Track.swift */,
 				E592F702250BF308003FDF2A /* Collection.swift */,
@@ -194,6 +197,8 @@
 				33D29953250DF8E50026F280 /* WalletCell.swift */,
 				B761D6CD2510663C00AA0071 /* FriendChatCell.swift */,
 				B761D6CF2510664900AA0071 /* MyChatCell.swift */,
+				C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */,
+				C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -237,9 +242,7 @@
 				E5925C382500292A002D5C4D /* RecipesTVCViewController.swift */,
 				E55F195624FD78E0005C5DBC /* RecipeDetailViewController.swift */,
 				E59294F124FA8E7B00C8F9A2 /* Main.storyboard */,
-				C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */,
-				C52B584D250E3EBB000B312A /* MenuOrderList.swift */,
-				C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */,
+				C52B584D250E3EBB000B312A /* MenuController.swift */,
 				C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */,
 				C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */,
 				E59294F424FA8E7E00C8F9A2 /* Assets.xcassets */,
@@ -373,7 +376,7 @@
 				E592950024FAA37700C8F9A2 /* Common.swift in Sources */,
 				B761D6D2251066B100AA0071 /* ChatPageController.swift in Sources */,
 				E589F8E225094E4D00169A6D /* User_name.swift in Sources */,
-				C52B584E250E3EBB000B312A /* MenuOrderList.swift in Sources */,
+				C52B584E250E3EBB000B312A /* MenuController.swift in Sources */,
 				E5925C3525001617002D5C4D /* RecipeListCell.swift in Sources */,
 				33D2994E250DF02D0026F280 /* StoreValueTableViewController.swift in Sources */,
 				E5925C3124FFF2DE002D5C4D /* BlogHeardReusableView.swift in Sources */,
@@ -397,6 +400,7 @@
 				E592950824FADED000C8F9A2 /* ChefLeader.swift in Sources */,
 				E5925C2F24FFA0B9002D5C4D /* Blog.swift in Sources */,
 				E592F703250BF308003FDF2A /* Collection.swift in Sources */,
+				C5808F962511E24B00CF80FC /* OrderObj.swift in Sources */,
 				E5149528250A037600A7290D /* ChatMessage.swift in Sources */,
 				E592950E24FC2C9700C8F9A2 /* Recipe.swift in Sources */,
 				C5808F8C250F94FC00CF80FC /* TotalOrderListTableViewCell.swift in Sources */,

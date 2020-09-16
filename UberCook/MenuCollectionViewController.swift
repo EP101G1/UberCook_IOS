@@ -30,7 +30,7 @@ class MenuCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // print(chefNo!)
+         print(chefNo!)
         
         MenuController.shared.getMenuRecipeLists(chefNo: chefNo!) { (MenuRecipeLists) in
             if let MenuRecipeLists = MenuRecipeLists{
@@ -93,14 +93,14 @@ class MenuCollectionViewController: UICollectionViewController {
             //cell?.contentView.backgroundColor = UIColor.systemGray4
             cell?.contentView.layer.cornerRadius = 10
             addnumber[indexPath.row] += 1
-            MenuRecipeLists[indexPath.row].number = 1
+            MenuRecipeLists[indexPath.row].count = 1
             
             
             cell?.numberLabel.text = String(addnumber[indexPath.row]) //在下一步按鈕判斷的點選
             cell?.addLessStepper.isHidden = false
             cell?.numberLabel.isHidden = false
             
-           
+            
     
             
         }else{
@@ -111,7 +111,7 @@ class MenuCollectionViewController: UICollectionViewController {
             cell?.contentView.layer.cornerRadius = 10
             
             addnumber[indexPath.row] = 0
-            MenuRecipeLists[indexPath.row].number = 0
+            MenuRecipeLists[indexPath.row].count = 0
             cell?.numberLabel.text = String(addnumber[indexPath.row])
             cell?.numberLabel.isHidden = true
             cell?.addLessStepper.isHidden = true
@@ -144,10 +144,10 @@ class MenuCollectionViewController: UICollectionViewController {
             self.addnumber = addnumber
             if(!self.didselect[index]){
              cell.numberLabel.text = String(self.addnumber[index])
-                self.MenuRecipeLists[indexPath.row].number = self.addnumber[index]
+                self.MenuRecipeLists[indexPath.row].count = self.addnumber[index]
             }
             
-            print(self.MenuRecipeLists[indexPath.row].number)
+            print(self.MenuRecipeLists[indexPath.row].count)
         }
         
         
@@ -220,6 +220,9 @@ class MenuCollectionViewController: UICollectionViewController {
         
         let controller = TotalOrderListViewController(coder: coder)
         controller?.nextMenuRecipeLists = self.nextMenuRecipeLists
+        controller?.chefNo = self.chefNo
+
+         
 
         return controller
     }

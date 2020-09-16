@@ -21,7 +21,7 @@ struct MenuRecipeList:Decodable {
     var recipeCon:String
     var recipePoint:Int
     var flag:Int
-    var number:Int?
+    var count:Int?
 }
 
 struct GetRecipeImagePostData: Encodable {
@@ -44,7 +44,7 @@ class MenuController{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type") //add key value
         let getMenuRecipeList = GetPostMenuRecipeListData(chefNo: chefNo) //包chefno
         let encoder = JSONEncoder() //編碼
-        encoder.keyEncodingStrategy = .convertToSnakeCase //大小寫 去底線
+        encoder.keyEncodingStrategy = .convertToSnakeCase
         request.httpBody = try? encoder.encode(getMenuRecipeList)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -79,6 +79,8 @@ class MenuController{
             }
         }.resume()
     }
+    
+    
     
     
 }
