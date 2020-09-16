@@ -84,7 +84,7 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
             request.httpMethod = "POST" //包post
             request.addValue("application/json", forHTTPHeaderField: "Content-Type") //add key value
             let encoder = JSONEncoder() //編碼
-            request.httpBody = try! String(data: JSONSerialization().encode(OrderInsertObj), encoding: .utf8)
+//            request.httpBody = try! String(data: JSONSerialization().encode(OrderInsertObj), encoding: .utf8)
             
             URLSession.shared.dataTask(with: request) { (data, response, error) in
                // print(String(decoding: data!, as: UTF8.self))
