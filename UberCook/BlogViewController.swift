@@ -307,6 +307,22 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
      // Pass the selected object to the new view controller.
      }
      */
+
+    @IBSegueAction func toChatPage(_ coder: NSCoder) -> ChatPageController? {
+        let controller = ChatPageController(coder: coder)
+        controller?.friend_no = chefLeader?.chef_no
+        
+        return controller
+    }
+
+    
+    @IBSegueAction func TakeChefNoToMenuOrderList(_ coder: NSCoder) -> MenuCollectionViewController? {
+        let controller = MenuCollectionViewController(coder: coder)
+        controller?.chefNo = chefLeader?.chef_no
+           
+        return controller
+    }
+    
     
 }
 

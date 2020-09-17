@@ -19,7 +19,7 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
     let userDefault = UserDefaults()
     let url_server = URL(string: common_url + "UberCook_Servlet")
     var socket: WebSocket!
-    let socket_server = "ws://127.0.0.1:8080/UberCook_Server/TwoChatServer/"
+    let socket_server = GlobalVariables.shared.socket_server
     let fileManager = FileManager()
     var chefLeaderList = [ChefLeader]()
     var reciepLeaderList = [Recipe]()
@@ -33,9 +33,10 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
         fullScreenSize = UIScreen.main.bounds.size
         collectionView.backgroundColor = UIColor.white
         collectionView2.backgroundColor = UIColor.white
-        socket = WebSocket(url: URL(string: socket_server + user_no)!)
+      
+        GlobalVariables.shared.socket = WebSocket(url: URL(string: socket_server + user_no)!)
         addSocketCallBacks()
-        socket.connect()
+        GlobalVariables.shared.socket.connect()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,15 +47,15 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
     
     // 也可使用closure偵測WebSocket狀態
     func addSocketCallBacks() {
-        socket.onConnect = {
+        GlobalVariables.shared.socket.onConnect = {
             print("websocket is connected")
         }
 
-        socket.onDisconnect = { (error: Error?) in
+        GlobalVariables.shared.socket.onDisconnect = { (error: Error?) in
             print("websocket is disconnected: \(error?.localizedDescription ?? "")")
         }
         
-        socket.onText = { (text: String) in
+        GlobalVariables.shared.socket.onText = { (text: String) in
             if let stateMessage = try? JSONDecoder().decode(StateMessage.self, from: text.data(using: .utf8)!) {
                 let type = stateMessage.type
                 let friend = stateMessage.user
@@ -83,7 +84,7 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
           
         }
 
-        socket.onData = { (data: Data) in
+        GlobalVariables.shared.socket.onData = { (data: Data) in
             print("\(self.tag) got some data: \(data.count)")
         }
     }

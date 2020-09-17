@@ -1,16 +1,20 @@
 PODS:
+  - DatePickerDialog (3.0)
   - Starscream (3.0.6)
 
 DEPENDENCIES:
+  - DatePickerDialog
   - Starscream (~> 3.0.2)
 
 SPEC REPOS:
   trunk:
+    - DatePickerDialog
     - Starscream
 
 SPEC CHECKSUMS:
+  DatePickerDialog: 03dbb8350bfa80302ab2a8c83cee1fec70184444
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: 73fd31b7bb3ec6064bfe036d8fda1eddc2c3c923
+PODFILE CHECKSUM: d163f8fd5d1d7e58d8a7b602d5b5eb7a5732e586
 
 COCOAPODS: 1.9.3

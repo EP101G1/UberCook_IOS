@@ -7,4 +7,5 @@ target 'UberCook' do
 
   # Pods for UberCook
   pod 'Starscream', '~> 3.0.2'
+  pod 'DatePickerDialog'
 end
