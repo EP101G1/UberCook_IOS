@@ -379,11 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMk-1Z-3WQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-4906" y="3028"/>
-=======
-            <point key="canvasLocation" x="-3561" y="3082"/>
->>>>>>> f7200afe9320b7ac866e63dd124ce79061fc00ce
         </scene>
         <!--Blog View Controller-->
         <scene sceneID="jSk-3R-lZr">
@@ -1639,22 +1635,65 @@
             </objects>
             <point key="canvasLocation" x="-351" y="3028"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Waitting Table View Controller-->
         <scene sceneID="le9-Tr-WKN">
             <objects>
-                <tableViewController id="pVG-zt-3CR" sceneMemberID="viewController">
+                <tableViewController id="pVG-zt-3CR" customClass="WaittingTableViewController" customModule="UberCook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QPl-0a-sgf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="lEk-16-gjU">
-                                <rect key="frame" x="0.0" y="28" width="414" height="128"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WaittingTableViewCell" rowHeight="116" id="lEk-16-gjU" customClass="WaittingTableViewCell" customModule="UberCook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lEk-16-gjU" id="J1C-Cu-Gwv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="HIj-Ag-b54">
+                                            <rect key="frame" x="30" y="21" width="354" height="74"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ss-fy-rQI">
+                                                    <rect key="frame" x="0.0" y="27" width="60" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="U2k-fr-ExO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERo-FE-bS3">
+                                                    <rect key="frame" x="90" y="27" width="60" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="muR-Ty-Y8n"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlx-Ez-dXz">
+                                                    <rect key="frame" x="180" y="27" width="174" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="HIj-Ag-b54" firstAttribute="top" secondItem="J1C-Cu-Gwv" secondAttribute="topMargin" constant="10" id="9K2-ld-sQO"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HIj-Ag-b54" secondAttribute="bottom" constant="10" id="FuB-er-EB5"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="HIj-Ag-b54" secondAttribute="trailing" constant="10" id="PKu-Xf-2oC"/>
+                                        <constraint firstItem="HIj-Ag-b54" firstAttribute="leading" secondItem="J1C-Cu-Gwv" secondAttribute="leadingMargin" constant="10" id="xTj-Y2-G0c"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="NameLebel" destination="ERo-FE-bS3" id="whm-Rr-dd5"/>
+                                    <outlet property="dateLabel" destination="Jlx-Ez-dXz" id="0qx-jG-Wpb"/>
+                                    <outlet property="idLabel" destination="5Ss-fy-rQI" id="8b6-sO-VVt"/>
+                                    <segue destination="iy1-tK-PYh" kind="showDetail" id="6sF-bV-7Zc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1665,7 +1704,29 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FwN-rq-Rk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508.69565217391306" y="3003.6830357142858"/>
+            <point key="canvasLocation" x="440.57971014492756" y="3001.6741071428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h4i-SC-e1o">
+            <objects>
+                <viewController id="iy1-tK-PYh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRS-Di-fqr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="621"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQP-ct-H8P">
+                                <rect key="frame" x="158" y="253" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="審核按鈕"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ex4-hW-UoB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nH-dr-iBn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="441" y="3599"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="FC1-Q9-wrQ">
@@ -1693,7 +1754,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efc-ny-ApK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182.608695652174" y="3013.7276785714284"/>
+            <point key="canvasLocation" x="1123" y="3002"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="YFc-Fg-1YU">
@@ -1721,7 +1782,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PbD-qh-8Gh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900.0000000000002" y="3002.34375"/>
+            <point key="canvasLocation" x="1874" y="3002"/>
         </scene>
         <!--Store Value Table View Controller-->
         <scene sceneID="LaE-In-3gS">
@@ -1933,7 +1994,7 @@
             </objects>
             <point key="canvasLocation" x="-943.47826086956525" y="2335.7142857142858"/>
         </scene>
-        <!--View Controller-->
+        <!--訂單總表-->
         <scene sceneID="Kjp-z6-iWk">
             <objects>
                 <viewController id="ic7-Bs-hEE" sceneMemberID="viewController">
@@ -1943,6 +2004,7 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Zt-p8-8p7">
                                 <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tC4-BY-LTU"/>
                                 </constraints>
@@ -1951,6 +2013,7 @@
                                     <segment title="進行中"/>
                                     <segment title="已完成"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" name="tiffanyGreen"/>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsL-wn-2e6">
                                 <rect key="frame" x="0.0" y="138" width="414" height="675"/>
@@ -2010,7 +2073,7 @@
                             <constraint firstItem="2Zt-p8-8p7" firstAttribute="leading" secondItem="UIz-Zs-msc" secondAttribute="leading" id="qll-Q4-FJW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="L7Y-ap-Sxn"/>
+                    <navigationItem key="navigationItem" title="訂單總表" id="Uys-dN-M1U"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dd1-lN-6Bd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2244,11 +2307,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8X-Sc-Lks" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-4175" y="3028"/>
-=======
-            <point key="canvasLocation" x="-2691" y="3082"/>
->>>>>>> f7200afe9320b7ac866e63dd124ce79061fc00ce
         </scene>
     </scenes>
     <resources>
