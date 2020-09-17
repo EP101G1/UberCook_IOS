@@ -16,6 +16,7 @@ class BlogHeardReusableView: UICollectionReusableView {
     @IBOutlet weak var reserveButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var trackButton: UIButton!
+    @IBOutlet weak var postButton: UIButton!
     
     
     

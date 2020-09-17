@@ -78,33 +78,35 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
         var OrderInsertObj = OrderObj(action: "InsertOrder", userName: nameTextField.text, order: orderinfo, orderList: orderListinfo)
         
         
-            let baseURL = URL(string: "http://127.0.0.1:8080/UberCook_Server")!
-            let url = baseURL.appendingPathComponent("Order_Servlet") //連網址
-            var request = URLRequest(url: url) //送請求
-            request.httpMethod = "POST" //包post
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type") //add key value
-            let encoder = JSONEncoder() //編碼
-//            request.httpBody = try! String(data: JSONSerialization().encode(OrderInsertObj), encoding: .utf8)
+        let baseURL = URL(string: "http://127.0.0.1:8080/UberCook_Server")!
+        let url = baseURL.appendingPathComponent("Order_Servlet") //連網址
+        var request = URLRequest(url: url) //送請求
+        request.httpMethod = "POST" //包post
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type") //add key value
+        let encoder = JSONEncoder() //編碼
+      
+        
+        request.httpBody = try? encoder.encode(OrderInsertObj)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            // print(String(decoding: data!, as: UTF8.self))
+            //            print(String(decoding: data!, as: UTF8.self))
+            let decoder = JSONDecoder()
             
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-               // print(String(decoding: data!, as: UTF8.self))
-    //            print(String(decoding: data!, as: UTF8.self))
-                 let decoder = JSONDecoder()
-           
-                if let data = data,
-                   let point = try? decoder.decode(Int.self, from: data){
-    //                print(menuRecipeList[0].chefNo)
-                    print(String(point))
-                }else{
-                    
-                }
-            }.resume()
-            
+            if let data = data,
+               let point = try? decoder.decode(Int.self, from: data){
+                //                print(menuRecipeList[0].chefNo)
+                print(String(point))
+            }else{
+                
+            }
+        }.resume()
+        
         
         
     }
     
-   
+    
     
     
     

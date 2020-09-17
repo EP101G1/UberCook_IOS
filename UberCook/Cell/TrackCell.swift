@@ -12,6 +12,8 @@ class TrackCell: UITableViewCell {
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var trackLabel: UILabel!
     @IBOutlet weak var trackSwitch: UISwitch!
+    var index:Int?
+    var completionHandler:((Int) -> Void)?
     
 
     override func awakeFromNib() {
@@ -24,5 +26,12 @@ class TrackCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func clickTrack(_ sender: UISwitch) {
+        if let index = index {
+            completionHandler?(index)
+        }
+    }
+    
 
 }

@@ -13,6 +13,38 @@ struct OrderObj:Encodable { //下載是decodable解碼 上傳就是encodable編�
     var order:Order?
     var orderList:[OrderList]?
     
+    enum CodingKeys: String,CodingKey{
+        case action
+        case userName
+        case order
+        case orderList
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(action, forKey: .action)
+        try container.encode(userName, forKey: .userName)
+        let encoder = JSONEncoder() //編碼
+        
+        encoder.dateEncodingStrategy = .custom({ (date, encoder) in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM d, yyyy h:mm:ss a"
+            let stringData = formatter.string(from: date)
+            var container = encoder.singleValueContainer()
+            try container.encode(stringData)
+        })
+        
+        if let order = try? encoder.encode(order),
+           let orderString = String(data:order, encoding: .utf8){
+            try container.encode(orderString, forKey: .order)
+        }
+        
+        if let orderList = try? JSONEncoder().encode(orderList),
+           let orderListString = String(data:orderList, encoding: .utf8){
+            try container.encode(orderListString, forKey: .orderList)
+        }
+    }
     
     
 }
@@ -31,6 +63,7 @@ struct Order:Codable {
     var address:String
     var phone:String
     var user_name:String
+    
 }
 
 

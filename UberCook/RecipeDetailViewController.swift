@@ -20,20 +20,28 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     let userDefault = UserDefaults()
     var recipe:Recipe?
+    var recipeList:RecipeList?
     var collection:Collection?
     var flag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fullScreenSize = UIScreen.main.bounds.size
-        if collection == nil {
-            recipeConLabel.text = recipe?.recipe_con
-            recipeTitleLabel.text = recipe?.recipe_title
-            recipePointLabel.text = "$ \(String(recipe?.recipe_point ?? 0))"
-        }else{
+        
+        
+        
+        if collection == nil && recipe == nil{
+            recipeConLabel.text = recipeList?.recipe_con
+            recipeTitleLabel.text = recipeList?.recipe_title
+            recipePointLabel.text = "$ \(String(recipeList?.recipe_point ?? 0))"
+        }else if recipe == nil && recipeList == nil{
             recipeConLabel.text = collection?.recipe_con
             recipeTitleLabel.text = collection?.recipe_title
             recipePointLabel.text = "$ \(String(collection?.recipe_point ?? 0))"
+        }else{
+            recipeConLabel.text = recipe?.recipe_con
+            recipeTitleLabel.text = recipe?.recipe_title
+            recipePointLabel.text = "$ \(String(recipe?.recipe_point ?? 0))"
         }
         
     }
@@ -49,7 +57,7 @@ class RecipeDetailViewController: UIViewController {
         var requestParam = [String: Any]()
         requestParam["action"] = "searchFollow"
         requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam["recipe_no"] = recipe?.recipe_no ?? collection?.recipe_no
+        requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -75,7 +83,7 @@ class RecipeDetailViewController: UIViewController {
     func showChefIcon(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserImageForRecipeDetail"
-        requestParam["chef_no"] = recipe?.chef_no ?? collection?.chef_no
+        requestParam["chef_no"] = (recipeList?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
         requestParam["imageSize"] = 240
         var image: UIImage?
 //        let imageUrl = fileInCaches(fileName: recipe.)
@@ -109,10 +117,10 @@ class RecipeDetailViewController: UIViewController {
     func showRecipeImage(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getRecipeImage"
-        requestParam["recipe_no"] = recipe?.recipe_no ?? collection?.recipe_no
+        requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
         requestParam["imageSize"] = 720
         var image: UIImage?
-        let imageUrl = fileInCaches(fileName: (recipe?.recipe_no ?? collection?.recipe_no) ?? "")
+        let imageUrl = fileInCaches(fileName: ((recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no) ?? "")
         if self.fileManager.fileExists(atPath: imageUrl.path) {
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
@@ -149,7 +157,7 @@ class RecipeDetailViewController: UIViewController {
     func showChefName(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserNameforRecipeDetail"
-        requestParam["chef_no"] = recipe?.chef_no ?? collection?.chef_no
+        requestParam["chef_no"] = (recipeList?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -169,7 +177,7 @@ class RecipeDetailViewController: UIViewController {
             var requestParam = [String: Any]()
             requestParam["action"] = "insertCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = recipe?.recipe_no ?? collection?.recipe_no
+            requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -189,7 +197,7 @@ class RecipeDetailViewController: UIViewController {
             var requestParam = [String: Any]()
             requestParam["action"] = "deleteCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = recipe?.recipe_no ?? collection?.recipe_no
+            requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {

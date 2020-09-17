@@ -14,7 +14,14 @@ class RecipeListCell: UITableViewCell {
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipePointLabel: UILabel!
     @IBOutlet weak var recipeConLabel: UILabel!
+    @IBOutlet weak var recipeCollectionButton: UIButton!
     
+    
+    
+    
+    
+    var index:Int?
+    var completionHandler:((Int) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,5 +33,19 @@ class RecipeListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
+    @IBAction func clickCollection(_ sender: UIButton) {
+        print("123")
+        if let index = index {
+            completionHandler?(index)
+        }
+    }
+    
+    
+    
+    
+    
 
 }
