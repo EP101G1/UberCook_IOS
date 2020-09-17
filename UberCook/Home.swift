@@ -113,7 +113,6 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
         requestParam["action"] = "getRecipes"
         requestParam["getRecipeLeaderType"] = "ChefAll"
         executeTask(url_server!, requestParam) { (data, response, error) in
-            //            let decoder = JSONDecoder()
             if error == nil {
                 if data != nil {
                     //                    print("input: \(String(data: data!, encoding: .utf8)!)")
@@ -210,7 +209,7 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
             var requestParam = [String: Any]()
             requestParam["action"] = "getRecipeImage"
             requestParam["recipe_no"] = recipeLeader.recipe_no
-            requestParam["imageSize"] = 720
+            requestParam["imageSize"] = 1440
             var image: UIImage?
             let imageUrl = fileInCaches(fileName: recipeLeader.recipe_no!)
             if self.fileManager.fileExists(atPath: imageUrl.path) {
@@ -223,7 +222,7 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
             }else{
                 executeTask(url_server!, requestParam) { (data, response, error) in
 //                    print("input: \(String(data: data!, encoding: .utf8)!)")
-                    if error == nil {
+                    if error == nil {   
                         if data != nil {
                             image = UIImage(data: data!)
                             DispatchQueue.main.async {
