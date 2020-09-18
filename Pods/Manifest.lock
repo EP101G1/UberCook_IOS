@@ -1,20 +1,33 @@
 PODS:
   - DatePickerDialog (3.0)
+  - GoogleMaps (3.10.0):
+    - GoogleMaps/Maps (= 3.10.0)
+  - GoogleMaps/Base (3.10.0)
+  - GoogleMaps/Maps (3.10.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.10.0):
+    - GoogleMaps/Base (= 3.10.0)
   - Starscream (3.0.6)
 
 DEPENDENCIES:
   - DatePickerDialog
+  - GoogleMaps
+  - GooglePlaces
   - Starscream (~> 3.0.2)
 
 SPEC REPOS:
   trunk:
     - DatePickerDialog
+    - GoogleMaps
+    - GooglePlaces
     - Starscream
 
 SPEC CHECKSUMS:
   DatePickerDialog: 03dbb8350bfa80302ab2a8c83cee1fec70184444
+  GoogleMaps: 8c080862ff2748ece9929471b30feb56a6c5079d
+  GooglePlaces: 9a6f5f3a0c88da2aa1bf7426a65d3e004f5e69a1
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: d163f8fd5d1d7e58d8a7b602d5b5eb7a5732e586
+PODFILE CHECKSUM: f64f0e5b5b18462db36c0c50fcf0fb0665053c48
 
 COCOAPODS: 1.9.3
