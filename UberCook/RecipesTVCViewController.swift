@@ -23,12 +23,17 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
          super.viewDidLoad()
-        
-//        getRecipeList()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        getRecipeList()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for subview in self.view.subviews {
+            if subview is UITableView {
+                let tableView = subview as? UITableView
+                tableView?.reloadData()
+                tableView?.scrollToRow(at: IndexPath(row: self.indexForRow!, section: 0), at: .top, animated: false)
+            }
+        }
     }
     
 //    func getRecipeList(){
@@ -43,13 +48,7 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
 //                    if let result = try? decoder.decode([RecipeList].self, from: data!){
 //                        self.recipeList = result
 //                        DispatchQueue.main.async {
-//                            for subview in self.view.subviews {
-//                                if subview is UITableView {
-//                                    let tableView = subview as? UITableView
-//                                    tableView?.reloadData()
-//                                    tableView?.scrollToRow(at: IndexPath(row: self.indexForRow!, section: 0), at: .top, animated: false)
-//                                }
-//                            }
+//
 //                        }
 //                    }
 //                }
@@ -249,8 +248,8 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
         let recipeDetail = self.storyboard?.instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
 //        let recipe = reciepLeaderList[indexPath.row]
 //        recipeDetail.recipe = recipe
-        let recipe = recipeList[indexPath.row]
-        recipeDetail.recipeList = recipe
+        let recipe = blog[indexPath.row]
+        recipeDetail.blog = recipe
         self.navigationController?.pushViewController(recipeDetail, animated: true)
     }
 
