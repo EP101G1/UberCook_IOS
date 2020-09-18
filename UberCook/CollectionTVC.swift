@@ -16,10 +16,11 @@ class CollectionTVC: UITableViewController {
     var recipe_no = ""
     var index = 0
     var test = [Bool]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -30,6 +31,8 @@ class CollectionTVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         getCollection()
     }
+
+    
     
     func getCollection(){
         let user_no = userDefault.value(forKey: "user_no")

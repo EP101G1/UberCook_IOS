@@ -73,7 +73,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 if data != nil {
                     self.trackNum = Int(String(decoding: data!, as: UTF8.self))!
                         DispatchQueue.main.async {
-//                            self.collectionView.reloadData()
+                            self.collectionView.reloadData()
                         }
                 }
             }
@@ -92,7 +92,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     if let result = try? decoder.decode([Blog].self, from: data!){
                         self.blogList = result
                         DispatchQueue.main.async {
-//                            self.collectionView.reloadData()
+                            self.collectionView.reloadData()
                         }
                     }
                 }
@@ -135,9 +135,8 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if self.fileManager.fileExists(atPath: imageUrl.path) {
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
-                DispatchQueue.main.async {
                     cell.BlogImageView.image = image
-                }
+                
             }
         }else{
         executeTask(url_server!, requestParam) { (data, response, error) in
@@ -207,9 +206,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if self.fileManager.fileExists(atPath: imageUrl.path) {
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
-                DispatchQueue.main.async {
-                    self.reusableView?.chefImageView.image = image
-                }
+                self.reusableView?.chefImageView.image = image
             }
         }else{
         executeTask(url_server!, requestParam) { (data, response, error) in
@@ -235,7 +232,9 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let chefBlog = self.storyboard?.instantiateViewController(withIdentifier: "RecipesTVCViewController") as! RecipesTVCViewController
         let blog = blogList[indexPath.row]
-        chefBlog.blog = blog
+        chefBlog.blog = blogList
+        chefBlog.indexForRow = indexPath.row
+        chefBlog.user_name = chefLeader?.user_name
         self.navigationController?.pushViewController(chefBlog, animated: true)
     }
     
@@ -350,6 +349,9 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
            
         return controller
     }
+    
+    
+    
     
     
 }

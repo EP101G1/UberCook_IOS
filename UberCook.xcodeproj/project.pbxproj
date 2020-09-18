@@ -31,6 +31,8 @@
 		E514952D250B499F00A7290D /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952C250B499E00A7290D /* FavoriteTableViewCell.swift */; };
 		E514952F250B4A1800A7290D /* FavoriteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952E250B4A1800A7290D /* FavoriteTVC.swift */; };
 		E529F70225037E610079A593 /* Caches.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529F70125037E610079A593 /* Caches.swift */; };
+		E551F78325147E0A0047D3D2 /* MessageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551F78225147E0A0047D3D2 /* MessageTVC.swift */; };
+		E551F78525147E370047D3D2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551F78425147E370047D3D2 /* MessageCell.swift */; };
 		E55F195724FD78E0005C5DBC /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55F195624FD78E0005C5DBC /* RecipeDetailViewController.swift */; };
 		E5815F52250BB07A000D149D /* TrackTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5815F51250BB07A000D149D /* TrackTVC.swift */; };
 		E5815F54250BB0A4000D149D /* CollectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5815F53250BB0A4000D149D /* CollectionTVC.swift */; };
@@ -88,6 +90,8 @@
 		E514952C250B499E00A7290D /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		E514952E250B4A1800A7290D /* FavoriteTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTVC.swift; sourceTree = "<group>"; };
 		E529F70125037E610079A593 /* Caches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caches.swift; sourceTree = "<group>"; };
+		E551F78225147E0A0047D3D2 /* MessageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; };
+		E551F78425147E370047D3D2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		E55F195624FD78E0005C5DBC /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		E5815F51250BB07A000D149D /* TrackTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTVC.swift; sourceTree = "<group>"; };
 		E5815F53250BB0A4000D149D /* CollectionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTVC.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				E5925C3425001617002D5C4D /* RecipeListCell.swift */,
 				E592950B24FBA1B500C8F9A2 /* HomeCollectionViewCell.swift */,
 				E5925C3024FFF2DE002D5C4D /* BlogHeardReusableView.swift */,
+				E551F78425147E370047D3D2 /* MessageCell.swift */,
 				E514952C250B499E00A7290D /* FavoriteTableViewCell.swift */,
 				E592F704250BF60F003FDF2A /* CollectionCell.swift */,
 				E592F700250BD778003FDF2A /* TrackCell.swift */,
@@ -244,6 +249,7 @@
 				E592F706250D33EF003FDF2A /* CashVC.swift */,
 				E5AF25C1250A01DA00FBAD9F /* Login.swift */,
 				E5925C382500292A002D5C4D /* RecipesTVCViewController.swift */,
+				E551F78225147E0A0047D3D2 /* MessageTVC.swift */,
 				E55F195624FD78E0005C5DBC /* RecipeDetailViewController.swift */,
 				E59294F124FA8E7B00C8F9A2 /* Main.storyboard */,
 				C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */,
@@ -400,10 +406,12 @@
 				E592F707250D33F0003FDF2A /* CashVC.swift in Sources */,
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
 				C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */,
+				E551F78325147E0A0047D3D2 /* MessageTVC.swift in Sources */,
 				B761D6CE2510663C00AA0071 /* FriendChatCell.swift in Sources */,
 				E5149529250A037600A7290D /* StateMessage.swift in Sources */,
 				B761D6D02510664900AA0071 /* MyChatCell.swift in Sources */,
 				33D29954250DF8E50026F280 /* WalletCell.swift in Sources */,
+				E551F78525147E370047D3D2 /* MessageCell.swift in Sources */,
 				E514952D250B499F00A7290D /* FavoriteTableViewCell.swift in Sources */,
 				E592950824FADED000C8F9A2 /* ChefLeader.swift in Sources */,
 				E5925C2F24FFA0B9002D5C4D /* Blog.swift in Sources */,
