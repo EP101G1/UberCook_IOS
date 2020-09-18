@@ -63,7 +63,6 @@ struct Order:Codable {
     var address:String
     var phone:String
     var user_name:String
-<<<<<<< HEAD
     
 //    enum CodingKeys:CodingKey {
 //        case order_no
@@ -107,9 +106,8 @@ struct Order:Codable {
     
     
     
-=======
->>>>>>> 17dc7ce1c1e1b6fd6a686bb57e481c4eaf36b6e6
 }
+
 
 
 struct OrderList:Codable {

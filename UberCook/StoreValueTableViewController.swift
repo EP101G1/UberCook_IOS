@@ -30,13 +30,17 @@ class StoreValueTableViewController: UITableViewController {
     var index = 0
     let userDefault = UserDefaults()
     var userPoint : Int = 0
-    var count : Int = 0
-    var newPoint : Int = 0
     
     @IBOutlet weak var lbUserPoint: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         wallets = getWallets()
+//        self.tableView.reloadData()
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -143,9 +147,6 @@ class StoreValueTableViewController: UITableViewController {
                     let text = String(data: data!, encoding: .utf8)!
                     print("\n----------Success--------------")
                     print(text)
-                    
-                    self.updatePoint(point: point)
-                    
                 }
             }
         }
@@ -168,28 +169,6 @@ class StoreValueTableViewController: UITableViewController {
         } else {
             print("executeTask error")
         }
-    }
-    
-    func updatePoint(point: Int){
-        let url_server = URL(string: common_url + "Order_Point_Servlet")
-        let user_no = userDefault.value(forKey: "user_no") as! String
-        let order_point = Order_Point(user_no, point, 0)
-        var requestParam = [String: Any]()
-        requestParam["action"] = "InsertOrderPoint"
-        requestParam["order_point"] = order_point
-        
-        executeTask(url_server!, requestParam) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-                    self.newPoint = Int(String(decoding: data!, as: UTF8.self)) ?? 0
-                    DispatchQueue.main.async {
-                        self.lbUserPoint.text = String(self.newPoint)
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        }
-        
     }
     
     
