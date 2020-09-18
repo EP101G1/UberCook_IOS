@@ -11,6 +11,7 @@ class RecipeDetailViewController: UIViewController {
     let url_server = URL(string: common_url + "UberCook_Servlet")
     var fullScreenSize :CGSize!
     let fileManager = FileManager()
+    var blog:Blog?
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeConLabel: UILabel!
     @IBOutlet weak var recipePointLabel: UILabel!
@@ -21,7 +22,7 @@ class RecipeDetailViewController: UIViewController {
     let userDefault = UserDefaults()
     var recipeDetail:Recipe?
     var recipe:Recipe?
-    var recipeList:RecipeList?
+//    var recipeList:RecipeList?
     var collection:Collection?
     var flag = 0
     
@@ -57,7 +58,7 @@ class RecipeDetailViewController: UIViewController {
     func getRecipeDetail(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getRecipeDetail"
-        requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+        requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -79,7 +80,7 @@ class RecipeDetailViewController: UIViewController {
         var requestParam = [String: Any]()
         requestParam["action"] = "searchFollow"
         requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+        requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -105,7 +106,7 @@ class RecipeDetailViewController: UIViewController {
     func showChefIcon(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserImageForRecipeDetail"
-        requestParam["chef_no"] = (recipeList?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
+        requestParam["chef_no"] = (blog?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
         requestParam["imageSize"] = 240
         var image: UIImage?
 //        let imageUrl = fileInCaches(fileName: recipe.)
@@ -139,10 +140,10 @@ class RecipeDetailViewController: UIViewController {
     func showRecipeImage(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getRecipeImage"
-        requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+        requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
         requestParam["imageSize"] = 720
         var image: UIImage?
-        let imageUrl = fileInCaches(fileName: ((recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no) ?? "")
+        let imageUrl = fileInCaches(fileName: ((blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no) ?? "")
         if self.fileManager.fileExists(atPath: imageUrl.path) {
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
@@ -179,7 +180,7 @@ class RecipeDetailViewController: UIViewController {
     func showChefName(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserNameforRecipeDetail"
-        requestParam["chef_no"] = (recipeList?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
+        requestParam["chef_no"] = (blog?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -199,7 +200,7 @@ class RecipeDetailViewController: UIViewController {
             var requestParam = [String: Any]()
             requestParam["action"] = "insertCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+            requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -219,7 +220,7 @@ class RecipeDetailViewController: UIViewController {
             var requestParam = [String: Any]()
             requestParam["action"] = "deleteCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+            requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -254,6 +255,7 @@ class RecipeDetailViewController: UIViewController {
     
     @IBSegueAction func clickToMessage(_ coder: NSCoder) -> MessageTVC? {
         let controller = MessageTVC(coder: coder)
+        controller?.recipe_no = recipe?.recipe_no ?? collection?.recipe_no ?? blog?.recipe_no
         return controller
     }
     
@@ -268,7 +270,7 @@ class RecipeDetailViewController: UIViewController {
         controller?.point = point?.trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: CharacterSet(charactersIn: "$"))
         controller?.flag = 1
         controller?.image = recipeImageview.image
-        controller?.recipe_no = recipe?.recipe_no ?? collection?.recipe_no ?? recipeList?.recipe_no
+        controller?.recipe_no = recipe?.recipe_no ?? collection?.recipe_no ?? blog?.recipe_no
         return controller
     }
     

@@ -8,19 +8,34 @@
 import UIKit
 
 class MessageTVC: UITableViewController {
+    
+    let url_server = URL(string: common_url + "UberCook_Servlet")
+    var message = [Message]()
+    var recipe_no:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userImage = UIImageView()
-        userImage.contentMode = .scaleToFill
-        userImage.frame = CGRect(x: 15, y: 5, width: 87, height: 87)
-        userImage.image = UIImage(named: "noImage.jpg")
-        tableView.addSubview(userImage)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func getMessage(){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "getMessage"
+        requestParam["recipe_no"] = self.recipe_no
+        executeTask(url_server!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+//                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    if let result = try? JSONDecoder().decode([Message].self, from: data!){
+                        self.message = result
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -32,18 +47,17 @@ class MessageTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return message.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
+        let msg = message[indexPath.row]
+
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

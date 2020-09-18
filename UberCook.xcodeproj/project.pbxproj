@@ -30,6 +30,7 @@
 		E514952B250A1B1E00A7290D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952A250A1B1E00A7290D /* Track.swift */; };
 		E514952D250B499F00A7290D /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952C250B499E00A7290D /* FavoriteTableViewCell.swift */; };
 		E514952F250B4A1800A7290D /* FavoriteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952E250B4A1800A7290D /* FavoriteTVC.swift */; };
+		E526D81E2514ABD6003B3E8A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E526D81D2514ABD6003B3E8A /* Message.swift */; };
 		E529F70225037E610079A593 /* Caches.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529F70125037E610079A593 /* Caches.swift */; };
 		E551F78325147E0A0047D3D2 /* MessageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551F78225147E0A0047D3D2 /* MessageTVC.swift */; };
 		E551F78525147E370047D3D2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551F78425147E370047D3D2 /* MessageCell.swift */; };
@@ -89,6 +90,7 @@
 		E514952A250A1B1E00A7290D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E514952C250B499E00A7290D /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		E514952E250B4A1800A7290D /* FavoriteTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTVC.swift; sourceTree = "<group>"; };
+		E526D81D2514ABD6003B3E8A /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E529F70125037E610079A593 /* Caches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caches.swift; sourceTree = "<group>"; };
 		E551F78225147E0A0047D3D2 /* MessageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; };
 		E551F78425147E370047D3D2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				E589F8E32509F31100169A6D /* LoginObj.swift */,
 				C5808F952511E24B00CF80FC /* OrderObj.swift */,
 				33D2994F250DF2790026F280 /* Wallet.swift */,
+				E526D81D2514ABD6003B3E8A /* Message.swift */,
 				E514952A250A1B1E00A7290D /* Track.swift */,
 				E592F702250BF308003FDF2A /* Collection.swift */,
 				E5925C2E24FFA0B9002D5C4D /* Blog.swift */,
@@ -407,6 +410,7 @@
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
 				C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */,
 				E551F78325147E0A0047D3D2 /* MessageTVC.swift in Sources */,
+				E526D81E2514ABD6003B3E8A /* Message.swift in Sources */,
 				B761D6CE2510663C00AA0071 /* FriendChatCell.swift in Sources */,
 				E5149529250A037600A7290D /* StateMessage.swift in Sources */,
 				B761D6D02510664900AA0071 /* MyChatCell.swift in Sources */,
@@ -577,7 +581,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N6SZVS35NU;
+				DEVELOPMENT_TEAM = W37DT8NA6G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UberCook",
@@ -602,8 +606,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N6SZVS35NU;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UberCook",

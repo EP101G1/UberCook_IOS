@@ -28,11 +28,11 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         getBlog()
         title = chefLeader?.user_name ?? track?.user_name
-        UIView.performWithoutAnimation {
-                   CATransaction.setDisableActions(false)
-                   self.collectionView.reloadData()
-                   CATransaction.commit()
-               }
+//        UIView.performWithoutAnimation {
+//                   CATransaction.setDisableActions(false)
+//                   self.collectionView.reloadData()
+//                   CATransaction.commit()
+//               }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,7 +136,6 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
                     cell.BlogImageView.image = image
-                
             }
         }else{
         executeTask(url_server!, requestParam) { (data, response, error) in
