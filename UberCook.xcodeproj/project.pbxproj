@@ -18,6 +18,14 @@
 		B761D6D2251066B100AA0071 /* ChatPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6D1251066B100AA0071 /* ChatPageController.swift */; };
 		C51F73E025134F3C004FB72C /* WaittingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */; };
 		C51F73E225134F63004FB72C /* WaittingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */; };
+		C51F73E425138E1C004FB72C /* WaittingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E325138E1C004FB72C /* WaittingDetailViewController.swift */; };
+		C51F73E6251459DD004FB72C /* WaittingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E5251459DD004FB72C /* WaittingDetailTableViewCell.swift */; };
+		C51F73E82514613D004FB72C /* OrderInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E72514613D004FB72C /* OrderInfoTableViewController.swift */; };
+		C51F73EA25149C4D004FB72C /* StartingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E925149C4C004FB72C /* StartingDetailViewController.swift */; };
+		C51F73EC2514A0D1004FB72C /* StartingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73EB2514A0D1004FB72C /* StartingTableViewController.swift */; };
+		C51F73EE2514A25F004FB72C /* StartingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73ED2514A25F004FB72C /* StartingTableViewCell.swift */; };
+		C51F73F02514C027004FB72C /* startingOrderInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73EF2514C026004FB72C /* startingOrderInfoTableViewController.swift */; };
+		C51F73F22514D6AC004FB72C /* OrderListParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73F12514D6AB004FB72C /* OrderListParentViewController.swift */; };
 		C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */; };
 		C52B584C250E3E7F000B312A /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */; };
 		C52B584E250E3EBB000B312A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B584D250E3EBB000B312A /* MenuController.swift */; };
@@ -75,6 +83,14 @@
 		C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingTableViewController.swift; sourceTree = "<group>"; };
 		C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingTableViewCell.swift; sourceTree = "<group>"; };
+		C51F73E325138E1C004FB72C /* WaittingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingDetailViewController.swift; sourceTree = "<group>"; };
+		C51F73E5251459DD004FB72C /* WaittingDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		C51F73E72514613D004FB72C /* OrderInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfoTableViewController.swift; sourceTree = "<group>"; };
+		C51F73E925149C4C004FB72C /* StartingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingDetailViewController.swift; sourceTree = "<group>"; };
+		C51F73EB2514A0D1004FB72C /* StartingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingTableViewController.swift; sourceTree = "<group>"; };
+		C51F73ED2514A25F004FB72C /* StartingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingTableViewCell.swift; sourceTree = "<group>"; };
+		C51F73EF2514C026004FB72C /* startingOrderInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startingOrderInfoTableViewController.swift; sourceTree = "<group>"; };
+		C51F73F12514D6AB004FB72C /* OrderListParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListParentViewController.swift; sourceTree = "<group>"; };
 		C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		C52B584D250E3EBB000B312A /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -176,6 +192,7 @@
 				E5149527250A037600A7290D /* StateMessage.swift */,
 				E592950724FADED000C8F9A2 /* ChefLeader.swift */,
 				E592950D24FC2C9600C8F9A2 /* Recipe.swift */,
+				C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */,
 			);
 			path = Vo;
 			sourceTree = "<group>";
@@ -246,13 +263,20 @@
 				E5925C382500292A002D5C4D /* RecipesTVCViewController.swift */,
 				E55F195624FD78E0005C5DBC /* RecipeDetailViewController.swift */,
 				E59294F124FA8E7B00C8F9A2 /* Main.storyboard */,
+				C51F73F12514D6AB004FB72C /* OrderListParentViewController.swift */,
+				C51F73EF2514C026004FB72C /* startingOrderInfoTableViewController.swift */,
+				C51F73ED2514A25F004FB72C /* StartingTableViewCell.swift */,
+				C51F73EB2514A0D1004FB72C /* StartingTableViewController.swift */,
+				C51F73E925149C4C004FB72C /* StartingDetailViewController.swift */,
+				C51F73E72514613D004FB72C /* OrderInfoTableViewController.swift */,
+				C51F73E5251459DD004FB72C /* WaittingDetailTableViewCell.swift */,
+				C51F73E325138E1C004FB72C /* WaittingDetailViewController.swift */,
 				C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */,
-				C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */,
 				C52B584D250E3EBB000B312A /* MenuController.swift */,
+				E59294F624FA8E7E00C8F9A2 /* LaunchScreen.storyboard */,
 				C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */,
 				C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */,
 				E59294F424FA8E7E00C8F9A2 /* Assets.xcassets */,
-				E59294F624FA8E7E00C8F9A2 /* LaunchScreen.storyboard */,
 				E59294F924FA8E7E00C8F9A2 /* Info.plist */,
 				33D29957250E034C0026F280 /* TPDirect.framework */,
 				B761D6D1251066B100AA0071 /* ChatPageController.swift */,
@@ -379,12 +403,15 @@
 				E514952B250A1B1E00A7290D /* Track.swift in Sources */,
 				33D29950250DF2790026F280 /* Wallet.swift in Sources */,
 				C51F73E025134F3C004FB72C /* WaittingTableViewController.swift in Sources */,
+				C51F73EE2514A25F004FB72C /* StartingTableViewCell.swift in Sources */,
 				E5925C392500292A002D5C4D /* RecipesTVCViewController.swift in Sources */,
+				C51F73EC2514A0D1004FB72C /* StartingTableViewController.swift in Sources */,
 				E592950024FAA37700C8F9A2 /* Common.swift in Sources */,
 				B761D6D2251066B100AA0071 /* ChatPageController.swift in Sources */,
 				E589F8E225094E4D00169A6D /* User_name.swift in Sources */,
 				C52B584E250E3EBB000B312A /* MenuController.swift in Sources */,
 				E5925C3525001617002D5C4D /* RecipeListCell.swift in Sources */,
+				C51F73E6251459DD004FB72C /* WaittingDetailTableViewCell.swift in Sources */,
 				33D2994E250DF02D0026F280 /* StoreValueTableViewController.swift in Sources */,
 				C51F73E225134F63004FB72C /* WaittingTableViewCell.swift in Sources */,
 				E5925C3124FFF2DE002D5C4D /* BlogHeardReusableView.swift in Sources */,
@@ -395,17 +422,22 @@
 				E592F705250BF60F003FDF2A /* CollectionCell.swift in Sources */,
 				E529F70225037E610079A593 /* Caches.swift in Sources */,
 				E592F701250BD778003FDF2A /* TrackCell.swift in Sources */,
+				C51F73E425138E1C004FB72C /* WaittingDetailViewController.swift in Sources */,
 				E5925C2B24FF9708002D5C4D /* BlogViewController.swift in Sources */,
+				C51F73EA25149C4D004FB72C /* StartingDetailViewController.swift in Sources */,
 				E59294EC24FA8E7B00C8F9A2 /* AppDelegate.swift in Sources */,
 				E592F707250D33F0003FDF2A /* CashVC.swift in Sources */,
+				C51F73F22514D6AC004FB72C /* OrderListParentViewController.swift in Sources */,
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
 				C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */,
+				C51F73F02514C027004FB72C /* startingOrderInfoTableViewController.swift in Sources */,
 				B761D6CE2510663C00AA0071 /* FriendChatCell.swift in Sources */,
 				E5149529250A037600A7290D /* StateMessage.swift in Sources */,
 				B761D6D02510664900AA0071 /* MyChatCell.swift in Sources */,
 				33D29954250DF8E50026F280 /* WalletCell.swift in Sources */,
 				E514952D250B499F00A7290D /* FavoriteTableViewCell.swift in Sources */,
 				E592950824FADED000C8F9A2 /* ChefLeader.swift in Sources */,
+				C51F73E82514613D004FB72C /* OrderInfoTableViewController.swift in Sources */,
 				E5925C2F24FFA0B9002D5C4D /* Blog.swift in Sources */,
 				E592F703250BF308003FDF2A /* Collection.swift in Sources */,
 				C5808F962511E24B00CF80FC /* OrderObj.swift in Sources */,

@@ -64,6 +64,7 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
         var orderinfo = Order(order_no: nil, user_no: self.userDefault.value(forKey: "user_no")as! String, chef_no: chefNo!, remark: remarksTextView.text, order_date: Date(), flag: 0, deal_date: datepickerview.date, total_point: sumtotal, user_star: nil, chef_star: nil, address: adrsTextField.text!, phone: phoneTextField.text!, user_name: nameTextField.text!)
         
         
+        
         //把訂單包成陣列
         var orderListinfo = [OrderList]()
         for index in 0...nextMenuRecipeLists.count-1  {

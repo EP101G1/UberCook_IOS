@@ -53,4 +53,8 @@ func showToast(view: UIView, message : String) {
     }, completion: {(isCompleted) in
         toastLabel.removeFromSuperview()
     })
+    
+    
+    
+    
 }

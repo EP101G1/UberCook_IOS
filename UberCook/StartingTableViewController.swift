@@ -1,13 +1,13 @@
 //
-//  WaittingTableViewController.swift
+//  StartingTableViewController.swift
 //  UberCook
 //
-//  Created by Hsuan on 2020/9/17.
+//  Created by Hsuan on 2020/9/18.
 //
 
 import UIKit
 
-class WaittingTableViewController: UITableViewController {
+class StartingTableViewController: UITableViewController {
     
     let userDefault = UserDefaults()
     var orderList = [Order]()
@@ -15,7 +15,7 @@ class WaittingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getOrder()
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,7 +28,7 @@ class WaittingTableViewController: UITableViewController {
         requestParam["action"] = "getOrder"
         requestParam["chef_no"] = self.userDefault.value(forKey: "chef_no") ?? 0
         requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam["flag"] = 0
+        requestParam["flag"] = 1
     
         executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
             let decoder = JSONDecoder()
@@ -66,39 +66,18 @@ class WaittingTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return orderList.count
     }
-    
-    
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(WaittingTableViewCell.self)", for: indexPath) as! WaittingTableViewCell
-        
-        cell.idLabel.text = String(orderList[indexPath.row].order_no!)
-        cell.NameLebel.text = orderList[indexPath.row].user_name
-        
-       let dateTostr = orderList[indexPath.row].deal_date
-        cell.dateLabel.text = dateConvertString(date: dateTostr)
 
-        
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(StartingTableViewCell.self)", for: indexPath) as! StartingTableViewCell
+
+        cell.idLabel.text = String(orderList[indexPath.row].order_no!)
+        cell.NameLabel.text = orderList[indexPath.row].user_name
+        let dateTostr = orderList[indexPath.row].deal_date
+        cell.DateLabel.text = dateConvertString(date: dateTostr)
 
         return cell
     }
-    
-    
-
-    
-    
-    
-    @IBSegueAction func TakeOrderToDetail(_ coder: NSCoder) -> WaittingDetailViewController? {
-        let controller = WaittingDetailViewController(coder: coder)
-        if let row = tableView.indexPathForSelectedRow?.row {
-            controller?.orderList = orderList[row]
-        }
-        return controller
-    }
-    
-    
-    
     
     func dateConvertString(date:Date, dateFormat:String="yyyy-MM-dd HH:mm:ss") -> String { //date型態轉string
         
@@ -106,19 +85,15 @@ class WaittingTableViewController: UITableViewController {
 
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.string(from: date)
-     
-        
-//           let timeZone = TimeZone.init(identifier: "UTC")
-//           let formatter = DateFormatter()
-//           formatter.timeZone = timeZone
-//           formatter.locale = Locale.init(identifier: "zh_CN")
-//           formatter.dateFormat = dateFormat
-//           let date = formatter.string(from: date)
-//           return date.components(separatedBy: " ").first!
-       }
+    }
     
-    
-
+    @IBSegueAction func TakeOrderTostartDetail(_ coder: NSCoder) -> StartingDetailViewController? {
+        let controller = StartingDetailViewController(coder: coder)
+        if let row = tableView.indexPathForSelectedRow?.row {
+            controller?.orderList = orderList[row]
+        }
+        return controller
+    }
     
 
     /*
