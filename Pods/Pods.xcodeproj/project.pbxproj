@@ -6,74 +6,128 @@
 	objectVersion = 51;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0C1885900810601510E0C632060FAF26 /* GooglePlaces */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E215DFB4EAE26646AFED2C4861A55C32 /* Build configuration list for PBXAggregateTarget "GooglePlaces" */;
+			buildPhases = (
+			);
+			dependencies = (
+				09FDBDAAF2351B6D4004A532F2F51FBC /* PBXTargetDependency */,
+			);
+			name = GooglePlaces;
+		};
+		E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = GoogleMaps;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		068E5963381B58D7D8CD321462F567ED /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401FF4C21E4B4CAE2BC410DE914BEDC8 /* Compression.swift */; };
-		1627E6FA0453D6DB472BA444F1D32AE7 /* SSLClientCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BCF1EA4CEBF3ADFA348BD67B775EB /* SSLClientCertificate.swift */; };
-		294D61E8A195B6A1F6AEDCF0F73599A5 /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C12343BAE99A25B00616D4F0239FDB5 /* Starscream-dummy.m */; };
-		5ADF661439E9AFD0C79E9763C432B588 /* Pods-UberCook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 214577AB4E4CFB6A01F2D1D2B6E3AB68 /* Pods-UberCook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F538483A518221ED7943F0B1B7C838A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		6134CEAF6C4FB83813AF9FE5B54874DA /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306427EFCBEE23DC62D2E41AC2B47CED /* DatePickerDialog.swift */; };
-		77B3BBE9D68C4FDA61682884726A01F6 /* DatePickerDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B9E130DCF568E500B7094E245830DE4 /* DatePickerDialog-dummy.m */; };
+		068E5963381B58D7D8CD321462F567ED /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E243511B47274E5AFF73570BE72163B /* Compression.swift */; };
+		1627E6FA0453D6DB472BA444F1D32AE7 /* SSLClientCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27C0C246B90D1A421A7C5C51821BD0 /* SSLClientCertificate.swift */; };
+		199C07B25DE5C5F0D7F7555697C3BDD4 /* Pods-UberCook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B39C21BCEF4B85F43E1FF505CECBE20F /* Pods-UberCook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		294D61E8A195B6A1F6AEDCF0F73599A5 /* Starscream-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB28CE299443BFF2961ED197CF05075B /* Starscream-dummy.m */; };
+		32FB2F4CCA3A60C3C445A3766F5E8772 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		6134CEAF6C4FB83813AF9FE5B54874DA /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283ABAFA78D79A3D0C4B4655DA57874 /* DatePickerDialog.swift */; };
+		77B3BBE9D68C4FDA61682884726A01F6 /* DatePickerDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7924D3CE69B3E2B3384D0F2F4C9EB66A /* DatePickerDialog-dummy.m */; };
 		80CA2C0FEE21DB3E4F86876FDC648100 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		8B3350D96B15B975184C8EE0819F9623 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F13A1A946B5CE45C27284C6206985 /* SSLSecurity.swift */; };
-		91C71C1B022D57E00A35D00C2AE3A139 /* DatePickerDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E321E9117ACE4A115A29EAA5C39C1D95 /* DatePickerDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B3350D96B15B975184C8EE0819F9623 /* SSLSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD68F3B3CA0D255B9136CF1340EAC8 /* SSLSecurity.swift */; };
+		91C71C1B022D57E00A35D00C2AE3A139 /* DatePickerDialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 212677DDFB25C4B62EB77580E751DEE6 /* DatePickerDialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96D67F9A7630A34944B6EAAD47F785E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		AA518E357716484EF29DE52636CE6CBC /* Pods-UberCook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA9A5D785F0142DA89B55CDC0A0B5F9 /* Pods-UberCook-dummy.m */; };
-		B4A6283FDFA04E3A7B6FD0C13B6FEF32 /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AB673A56AC06BD1AC4C0F5D9AB8EB52 /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C02D9FEB295BDA1359D2F52C80F8E75A /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36FE3D997F72552180DC21DD89A5C2B /* WebSocket.swift */; };
+		B4A6283FDFA04E3A7B6FD0C13B6FEF32 /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 02E2D506CDE0F4C2598DB8ACF7744FB3 /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C02D9FEB295BDA1359D2F52C80F8E75A /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BE28AC5D67AE449F0A2CA39CC4C0CD /* WebSocket.swift */; };
+		C3B94EACD9B87EAA4B0CFD243AE9B95B /* Pods-UberCook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB1FB88E9D76CA2FA71098A35FCCF2 /* Pods-UberCook-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DF5B2638279D0D0C6736882A3C1DE93F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 977B67E6ADDDC9C183DE6B6E33F17FCC;
-			remoteInfo = DatePickerDialog;
-		};
-		E781488C3A43D6EAFE00382AE2E72A69 /* PBXContainerItemProxy */ = {
+		57BBA78BF4B259940DDFCF0D1A169F0F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9B78EE4AF6AE03E79D88886319853FF7;
 			remoteInfo = Starscream;
 		};
+		80BAC1A5B0468F1098E4903AA15F39B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
+		8D5F9252A236C46C678A1C73B18EBF7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C1885900810601510E0C632060FAF26;
+			remoteInfo = GooglePlaces;
+		};
+		8E321E36C8E518371A8E640A061958FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 977B67E6ADDDC9C183DE6B6E33F17FCC;
+			remoteInfo = DatePickerDialog;
+		};
+		B4DA316615E36B83610C449B69024A13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5B4BBC6DD552AC8943C7E22772FC1D3;
+			remoteInfo = GoogleMaps;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0382D5E3CE03D11D999F886F867208C6 /* Pods-UberCook-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UberCook-acknowledgements.plist"; sourceTree = "<group>"; };
+		02E2D506CDE0F4C2598DB8ACF7744FB3 /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
+		051340063E781CB7436A18F9E5B80FA5 /* Pods-UberCook-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UberCook-frameworks.sh"; sourceTree = "<group>"; };
+		095FE4D226B2B514E6545249F56AE0D2 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
 		0969EB51C1E293C173141D48DC24C3B8 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DatePickerDialog.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A3BCF1EA4CEBF3ADFA348BD67B775EB /* SSLClientCertificate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLClientCertificate.swift; path = Sources/Starscream/SSLClientCertificate.swift; sourceTree = "<group>"; };
-		1B9E130DCF568E500B7094E245830DE4 /* DatePickerDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DatePickerDialog-dummy.m"; sourceTree = "<group>"; };
-		1C14BA6426B699983516AC6F2133D36C /* Starscream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.release.xcconfig; sourceTree = "<group>"; };
-		214577AB4E4CFB6A01F2D1D2B6E3AB68 /* Pods-UberCook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UberCook-umbrella.h"; sourceTree = "<group>"; };
-		306427EFCBEE23DC62D2E41AC2B47CED /* DatePickerDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerDialog.swift; path = Sources/DatePickerDialog.swift; sourceTree = "<group>"; };
+		1D34757222E2F3BA3BCCD43F42BBC107 /* GoogleMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.release.xcconfig; sourceTree = "<group>"; };
+		212677DDFB25C4B62EB77580E751DEE6 /* DatePickerDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-umbrella.h"; sourceTree = "<group>"; };
+		24E1AAADCBBC2742FB192E6A8B9F1AE4 /* Pods-UberCook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UberCook.debug.xcconfig"; sourceTree = "<group>"; };
+		284DFA33C62CAAAC2BF4F933606C7387 /* Pods-UberCook-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UberCook-acknowledgements.plist"; sourceTree = "<group>"; };
+		2A3BA8DDD65472D4952B29080DA1D36E /* Starscream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.release.xcconfig; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3C7C4C6FC19188CB113C705572B8A67B /* Starscream-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Starscream-Info.plist"; sourceTree = "<group>"; };
-		401FF4C21E4B4CAE2BC410DE914BEDC8 /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Starscream/Compression.swift; sourceTree = "<group>"; };
-		4669D95C34F9747FD194FD75C1E10056 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
-		4C12343BAE99A25B00616D4F0239FDB5 /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
-		5AB673A56AC06BD1AC4C0F5D9AB8EB52 /* Starscream-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-umbrella.h"; sourceTree = "<group>"; };
-		5B404F86C9D5BF2085C2F89666DDABEB /* DatePickerDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-prefix.pch"; sourceTree = "<group>"; };
-		5E5F13A1A946B5CE45C27284C6206985 /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Sources/Starscream/SSLSecurity.swift; sourceTree = "<group>"; };
-		72199BB4EC89911AD3A7878BE63A2E01 /* Pods-UberCook-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UberCook-acknowledgements.markdown"; sourceTree = "<group>"; };
+		35EA6F01317CA3318E4E9258D575A03B /* Pods-UberCook-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UberCook-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3CF9F72B8DE684E7A7ACDB9E1639CB7A /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		46036DDB09A6E4693CBB7A8EF531F1FC /* GooglePlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GooglePlaces.debug.xcconfig; sourceTree = "<group>"; };
+		4F40D4EB83CE4B42280C42129D746541 /* Starscream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.debug.xcconfig; sourceTree = "<group>"; };
+		524C216D9FD0AF15AE720D80F5552BE7 /* DatePickerDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-prefix.pch"; sourceTree = "<group>"; };
+		5283ABAFA78D79A3D0C4B4655DA57874 /* DatePickerDialog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerDialog.swift; path = Sources/DatePickerDialog.swift; sourceTree = "<group>"; };
+		52937B46ECE75DE875C0B8E2D27AECCD /* DatePickerDialog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DatePickerDialog-Info.plist"; sourceTree = "<group>"; };
+		5A27C0C246B90D1A421A7C5C51821BD0 /* SSLClientCertificate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLClientCertificate.swift; path = Sources/Starscream/SSLClientCertificate.swift; sourceTree = "<group>"; };
+		5F197085032235AAA876C26F95FBB8FD /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		62AE630514314D012FB078CA46949141 /* DatePickerDialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.debug.xcconfig; sourceTree = "<group>"; };
+		7924D3CE69B3E2B3384D0F2F4C9EB66A /* DatePickerDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DatePickerDialog-dummy.m"; sourceTree = "<group>"; };
+		7B477E9F79BD16F400C63E76AA5890C3 /* Starscream-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Starscream-Info.plist"; sourceTree = "<group>"; };
+		7DCB1FB88E9D76CA2FA71098A35FCCF2 /* Pods-UberCook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UberCook-dummy.m"; sourceTree = "<group>"; };
+		7E243511B47274E5AFF73570BE72163B /* Compression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Starscream/Compression.swift; sourceTree = "<group>"; };
+		82E0221930518D588CAC3F64DA655982 /* GooglePlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GooglePlaces.release.xcconfig; sourceTree = "<group>"; };
+		84B9AA6FCF2E64D9D80DAA5EE1775A33 /* Pods-UberCook-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UberCook-resources.sh"; sourceTree = "<group>"; };
+		88BE28AC5D67AE449F0A2CA39CC4C0CD /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/Starscream/WebSocket.swift; sourceTree = "<group>"; };
 		891B2270823847ED23F2ECFC28F935EC /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Starscream.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B3FFAA13A9ACE05BA248AC3E1CF4786 /* DatePickerDialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.release.xcconfig; sourceTree = "<group>"; };
+		98B1D92582D89CFBC03DD0A5A6F8AAC3 /* Pods-UberCook-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UberCook-Info.plist"; sourceTree = "<group>"; };
+		9AC05BC6AB287279578DE72088633AF1 /* GoogleMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.debug.xcconfig; sourceTree = "<group>"; };
+		9D0C262AF6E8D3AADEB3F2520FD405B2 /* DatePickerDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DatePickerDialog.modulemap; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1759BE4371C2691BF84A9FCBF521643 /* Pods-UberCook-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UberCook-Info.plist"; sourceTree = "<group>"; };
-		A44305F2C9DE9A3DAE410B22DD0195F7 /* Starscream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.debug.xcconfig; sourceTree = "<group>"; };
+		A23761EA5AB3B189A255356FD2212A84 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
+		A23ED55AEA304DCB7615EC8BC23A601C /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		A88238FA5A8AB05C55F78547CE01C286 /* Pods_UberCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UberCook.framework; path = "Pods-UberCook.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA1665011F71A820DDB3935B1FA07D7A /* DatePickerDialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.debug.xcconfig; sourceTree = "<group>"; };
-		AEA9A5D785F0142DA89B55CDC0A0B5F9 /* Pods-UberCook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UberCook-dummy.m"; sourceTree = "<group>"; };
-		B8189E910F7E586AE19697F334F5C28D /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
-		BB5BD5C4B0281BD791291FC627E623E1 /* Pods-UberCook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UberCook.modulemap"; sourceTree = "<group>"; };
-		C36FE3D997F72552180DC21DD89A5C2B /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/Starscream/WebSocket.swift; sourceTree = "<group>"; };
-		D5BE142AF76DF797E0FE9EDA24886767 /* DatePickerDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DatePickerDialog.modulemap; sourceTree = "<group>"; };
-		DF3133FC8420BD0F146F76D009F3A943 /* Pods-UberCook-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UberCook-frameworks.sh"; sourceTree = "<group>"; };
-		E1BB911B823DC5445A373D88E7D7B270 /* DatePickerDialog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DatePickerDialog-Info.plist"; sourceTree = "<group>"; };
-		E321E9117ACE4A115A29EAA5C39C1D95 /* DatePickerDialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DatePickerDialog-umbrella.h"; sourceTree = "<group>"; };
-		E7FBB7F5F08A41D4850F2EEFB47BD78B /* Pods-UberCook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UberCook.debug.xcconfig"; sourceTree = "<group>"; };
-		F1283602AA9DE7B756225E24B3087EB2 /* Pods-UberCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UberCook.release.xcconfig"; sourceTree = "<group>"; };
+		ABAD68F3B3CA0D255B9136CF1340EAC8 /* SSLSecurity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSLSecurity.swift; path = Sources/Starscream/SSLSecurity.swift; sourceTree = "<group>"; };
+		B39C21BCEF4B85F43E1FF505CECBE20F /* Pods-UberCook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UberCook-umbrella.h"; sourceTree = "<group>"; };
+		BB28CE299443BFF2961ED197CF05075B /* Starscream-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Starscream-dummy.m"; sourceTree = "<group>"; };
+		D3B09FB601D489B8317406096198F51A /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		D423086CD199B11FAABD14050D4169B1 /* Starscream.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Starscream.modulemap; sourceTree = "<group>"; };
+		EE549B5D00B070B767BF16E7B5CD1DE5 /* Pods-UberCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UberCook.release.xcconfig"; sourceTree = "<group>"; };
+		EEB0DDA8CF3DBDA1A8CB081199F09189 /* DatePickerDialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DatePickerDialog.release.xcconfig; sourceTree = "<group>"; };
+		FA25BE1D2885A14FD99302497FE65A91 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		FDAB0B5737E0E8640D6E46A250ADFDEF /* Pods-UberCook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UberCook.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +139,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		158030C2FD49CC0291ECE477F27FB33F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5F538483A518221ED7943F0B1B7C838A /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2C57BB6F9C12A01BD53B32B4F4DB710F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,66 +147,99 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E35F5EE6EE7AAC22891930425FBAAC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32FB2F4CCA3A60C3C445A3766F5E8772 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B6B7E7F20BB08FFB26544AE0CEF9D4F /* Pods */ = {
+		0EE9B51FAF21696F8605A39650B94B17 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				37C9702F3263F7909A58B4990C8DCF4D /* DatePickerDialog */,
-				9EE15E2E49B462A22C3C079590D6BC3E /* Starscream */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		0BB859B30D593135F4D12D26B5287303 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D5BE142AF76DF797E0FE9EDA24886767 /* DatePickerDialog.modulemap */,
-				1B9E130DCF568E500B7094E245830DE4 /* DatePickerDialog-dummy.m */,
-				E1BB911B823DC5445A373D88E7D7B270 /* DatePickerDialog-Info.plist */,
-				5B404F86C9D5BF2085C2F89666DDABEB /* DatePickerDialog-prefix.pch */,
-				E321E9117ACE4A115A29EAA5C39C1D95 /* DatePickerDialog-umbrella.h */,
-				AA1665011F71A820DDB3935B1FA07D7A /* DatePickerDialog.debug.xcconfig */,
-				8B3FFAA13A9ACE05BA248AC3E1CF4786 /* DatePickerDialog.release.xcconfig */,
+				46036DDB09A6E4693CBB7A8EF531F1FC /* GooglePlaces.debug.xcconfig */,
+				82E0221930518D588CAC3F64DA655982 /* GooglePlaces.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/DatePickerDialog";
+			path = "../Target Support Files/GooglePlaces";
 			sourceTree = "<group>";
 		};
-		37C9702F3263F7909A58B4990C8DCF4D /* DatePickerDialog */ = {
+		327E679C1996C97D493495FF4E824313 /* Pods-UberCook */ = {
 			isa = PBXGroup;
 			children = (
-				306427EFCBEE23DC62D2E41AC2B47CED /* DatePickerDialog.swift */,
-				0BB859B30D593135F4D12D26B5287303 /* Support Files */,
-			);
-			name = DatePickerDialog;
-			path = DatePickerDialog;
-			sourceTree = "<group>";
-		};
-		4459135BD2AD39BF5F86D2262FAB1162 /* Pods-UberCook */ = {
-			isa = PBXGroup;
-			children = (
-				BB5BD5C4B0281BD791291FC627E623E1 /* Pods-UberCook.modulemap */,
-				72199BB4EC89911AD3A7878BE63A2E01 /* Pods-UberCook-acknowledgements.markdown */,
-				0382D5E3CE03D11D999F886F867208C6 /* Pods-UberCook-acknowledgements.plist */,
-				AEA9A5D785F0142DA89B55CDC0A0B5F9 /* Pods-UberCook-dummy.m */,
-				DF3133FC8420BD0F146F76D009F3A943 /* Pods-UberCook-frameworks.sh */,
-				A1759BE4371C2691BF84A9FCBF521643 /* Pods-UberCook-Info.plist */,
-				214577AB4E4CFB6A01F2D1D2B6E3AB68 /* Pods-UberCook-umbrella.h */,
-				E7FBB7F5F08A41D4850F2EEFB47BD78B /* Pods-UberCook.debug.xcconfig */,
-				F1283602AA9DE7B756225E24B3087EB2 /* Pods-UberCook.release.xcconfig */,
+				FDAB0B5737E0E8640D6E46A250ADFDEF /* Pods-UberCook.modulemap */,
+				35EA6F01317CA3318E4E9258D575A03B /* Pods-UberCook-acknowledgements.markdown */,
+				284DFA33C62CAAAC2BF4F933606C7387 /* Pods-UberCook-acknowledgements.plist */,
+				7DCB1FB88E9D76CA2FA71098A35FCCF2 /* Pods-UberCook-dummy.m */,
+				051340063E781CB7436A18F9E5B80FA5 /* Pods-UberCook-frameworks.sh */,
+				98B1D92582D89CFBC03DD0A5A6F8AAC3 /* Pods-UberCook-Info.plist */,
+				84B9AA6FCF2E64D9D80DAA5EE1775A33 /* Pods-UberCook-resources.sh */,
+				B39C21BCEF4B85F43E1FF505CECBE20F /* Pods-UberCook-umbrella.h */,
+				24E1AAADCBBC2742FB192E6A8B9F1AE4 /* Pods-UberCook.debug.xcconfig */,
+				EE549B5D00B070B767BF16E7B5CD1DE5 /* Pods-UberCook.release.xcconfig */,
 			);
 			name = "Pods-UberCook";
 			path = "Target Support Files/Pods-UberCook";
 			sourceTree = "<group>";
 		};
-		501BB02C0DADD533E9D10F5625B7BA09 /* Targets Support Files */ = {
+		49C613D109F62FFE861C2573D0669140 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4459135BD2AD39BF5F86D2262FAB1162 /* Pods-UberCook */,
+				D423086CD199B11FAABD14050D4169B1 /* Starscream.modulemap */,
+				BB28CE299443BFF2961ED197CF05075B /* Starscream-dummy.m */,
+				7B477E9F79BD16F400C63E76AA5890C3 /* Starscream-Info.plist */,
+				A23761EA5AB3B189A255356FD2212A84 /* Starscream-prefix.pch */,
+				02E2D506CDE0F4C2598DB8ACF7744FB3 /* Starscream-umbrella.h */,
+				4F40D4EB83CE4B42280C42129D746541 /* Starscream.debug.xcconfig */,
+				2A3BA8DDD65472D4952B29080DA1D36E /* Starscream.release.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = "Support Files";
+			path = "../Target Support Files/Starscream";
+			sourceTree = "<group>";
+		};
+		4F6CD430C2458A2266A2DB00F98F044F /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				F8E7C7A3EFED2BBD786EA3726C3E4CDF /* Frameworks */,
+				D9AC0428F30CDDE57B205BE513247562 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		531E4E962FAD1F2C1CE9447CB5E5A525 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E44C0B73755631A155366B6D7EDDBCB /* DatePickerDialog */,
+				F5EBB5B4FA303B2694F954EF6E4634C6 /* GoogleMaps */,
+				D8BEA18351CD95AC066B2F932099DC35 /* GooglePlaces */,
+				6034C99948DE2EF65EF2FC52CE14C072 /* Starscream */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6034C99948DE2EF65EF2FC52CE14C072 /* Starscream */ = {
+			isa = PBXGroup;
+			children = (
+				7E243511B47274E5AFF73570BE72163B /* Compression.swift */,
+				5A27C0C246B90D1A421A7C5C51821BD0 /* SSLClientCertificate.swift */,
+				ABAD68F3B3CA0D255B9136CF1340EAC8 /* SSLSecurity.swift */,
+				88BE28AC5D67AE449F0A2CA39CC4C0CD /* WebSocket.swift */,
+				49C613D109F62FFE861C2573D0669140 /* Support Files */,
+			);
+			name = Starscream;
+			path = Starscream;
+			sourceTree = "<group>";
+		};
+		6323F2B496B6002431BD9BCC8690D0FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3CF9F72B8DE684E7A7ACDB9E1639CB7A /* GooglePlaces.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		6BB828EDD8012015052200C129E8B8AC /* Products */ = {
@@ -173,17 +252,63 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9EE15E2E49B462A22C3C079590D6BC3E /* Starscream */ = {
+		8B4D4A61ED5ADF7E48F3B830F4D6B2D2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				401FF4C21E4B4CAE2BC410DE914BEDC8 /* Compression.swift */,
-				0A3BCF1EA4CEBF3ADFA348BD67B775EB /* SSLClientCertificate.swift */,
-				5E5F13A1A946B5CE45C27284C6206985 /* SSLSecurity.swift */,
-				C36FE3D997F72552180DC21DD89A5C2B /* WebSocket.swift */,
-				DEB5AE298886ED789A478047F46B5898 /* Support Files */,
+				9D0C262AF6E8D3AADEB3F2520FD405B2 /* DatePickerDialog.modulemap */,
+				7924D3CE69B3E2B3384D0F2F4C9EB66A /* DatePickerDialog-dummy.m */,
+				52937B46ECE75DE875C0B8E2D27AECCD /* DatePickerDialog-Info.plist */,
+				524C216D9FD0AF15AE720D80F5552BE7 /* DatePickerDialog-prefix.pch */,
+				212677DDFB25C4B62EB77580E751DEE6 /* DatePickerDialog-umbrella.h */,
+				62AE630514314D012FB078CA46949141 /* DatePickerDialog.debug.xcconfig */,
+				EEB0DDA8CF3DBDA1A8CB081199F09189 /* DatePickerDialog.release.xcconfig */,
 			);
-			name = Starscream;
-			path = Starscream;
+			name = "Support Files";
+			path = "../Target Support Files/DatePickerDialog";
+			sourceTree = "<group>";
+		};
+		8E44C0B73755631A155366B6D7EDDBCB /* DatePickerDialog */ = {
+			isa = PBXGroup;
+			children = (
+				5283ABAFA78D79A3D0C4B4655DA57874 /* DatePickerDialog.swift */,
+				8B4D4A61ED5ADF7E48F3B830F4D6B2D2 /* Support Files */,
+			);
+			name = DatePickerDialog;
+			path = DatePickerDialog;
+			sourceTree = "<group>";
+		};
+		9CFC543FDCF44801DD141A1982696851 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AC05BC6AB287279578DE72088633AF1 /* GoogleMaps.debug.xcconfig */,
+				1D34757222E2F3BA3BCCD43F42BBC107 /* GoogleMaps.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GoogleMaps";
+			sourceTree = "<group>";
+		};
+		A0C45249B972DCC3B27DBA72931EAAE3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				327E679C1996C97D493495FF4E824313 /* Pods-UberCook */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A9F27C16FC8C4B17D8A5A1B29EF19C31 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B586EE078BDE44134662BA5B9020D56B /* Frameworks */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		B586EE078BDE44134662BA5B9020D56B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA25BE1D2885A14FD99302497FE65A91 /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
@@ -199,9 +324,9 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				0B6B7E7F20BB08FFB26544AE0CEF9D4F /* Pods */,
+				531E4E962FAD1F2C1CE9447CB5E5A525 /* Pods */,
 				6BB828EDD8012015052200C129E8B8AC /* Products */,
-				501BB02C0DADD533E9D10F5625B7BA09 /* Targets Support Files */,
+				A0C45249B972DCC3B27DBA72931EAAE3 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,29 +338,61 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DEB5AE298886ED789A478047F46B5898 /* Support Files */ = {
+		D8BEA18351CD95AC066B2F932099DC35 /* GooglePlaces */ = {
 			isa = PBXGroup;
 			children = (
-				4669D95C34F9747FD194FD75C1E10056 /* Starscream.modulemap */,
-				4C12343BAE99A25B00616D4F0239FDB5 /* Starscream-dummy.m */,
-				3C7C4C6FC19188CB113C705572B8A67B /* Starscream-Info.plist */,
-				B8189E910F7E586AE19697F334F5C28D /* Starscream-prefix.pch */,
-				5AB673A56AC06BD1AC4C0F5D9AB8EB52 /* Starscream-umbrella.h */,
-				A44305F2C9DE9A3DAE410B22DD0195F7 /* Starscream.debug.xcconfig */,
-				1C14BA6426B699983516AC6F2133D36C /* Starscream.release.xcconfig */,
+				E537B8D2BDC4D2E886D2E44980935980 /* Frameworks */,
+				6323F2B496B6002431BD9BCC8690D0FD /* Resources */,
+				0EE9B51FAF21696F8605A39650B94B17 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Starscream";
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		D9AC0428F30CDDE57B205BE513247562 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A23ED55AEA304DCB7615EC8BC23A601C /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E537B8D2BDC4D2E886D2E44980935980 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F197085032235AAA876C26F95FBB8FD /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5EBB5B4FA303B2694F954EF6E4634C6 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				A9F27C16FC8C4B17D8A5A1B29EF19C31 /* Base */,
+				4F6CD430C2458A2266A2DB00F98F044F /* Maps */,
+				9CFC543FDCF44801DD141A1982696851 /* Support Files */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		F8E7C7A3EFED2BBD786EA3726C3E4CDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3B09FB601D489B8317406096198F51A /* GoogleMaps.framework */,
+				095FE4D226B2B514E6545249F56AE0D2 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2437F79EACED369457B0051DDA891004 /* Headers */ = {
+		3E90D622F0BD8EAC82B28AC97E39DA3F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ADF661439E9AFD0C79E9763C432B588 /* Pods-UberCook-umbrella.h in Headers */,
+				199C07B25DE5C5F0D7F7555697C3BDD4 /* Pods-UberCook-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,18 +453,20 @@
 		};
 		AEE42FC6D6387431846044A2278F7E7C /* Pods-UberCook */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BBF2A20B3E9976121EB96B07CCB9F53 /* Build configuration list for PBXNativeTarget "Pods-UberCook" */;
+			buildConfigurationList = C4A72C6B462A978CCBCEFF6A99775BD3 /* Build configuration list for PBXNativeTarget "Pods-UberCook" */;
 			buildPhases = (
-				2437F79EACED369457B0051DDA891004 /* Headers */,
-				7ADFE1A0D5474D05CFEC984FE549C6DB /* Sources */,
-				158030C2FD49CC0291ECE477F27FB33F /* Frameworks */,
-				F5133AE8B60AB8F7EDF0F105D96BF8DA /* Resources */,
+				3E90D622F0BD8EAC82B28AC97E39DA3F /* Headers */,
+				8EEF4104B299F4920A6012B3A13B4992 /* Sources */,
+				8E35F5EE6EE7AAC22891930425FBAAC6 /* Frameworks */,
+				BD36C50D710780ECBB29669A61439FC3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D6B19660929F2FA4699500965A2DF6D0 /* PBXTargetDependency */,
-				CD013E9E607B81BF1F123BF877A17A9E /* PBXTargetDependency */,
+				BF92E6D195835EAF583F97DEB48BCC09 /* PBXTargetDependency */,
+				E2CE56C9923D33A3622472BA0B9B504A /* PBXTargetDependency */,
+				28FACC9D6D36B954BE0CD639AAD50E90 /* PBXTargetDependency */,
+				3FF817108597C492B22DD61CBDB267D8 /* PBXTargetDependency */,
 			);
 			name = "Pods-UberCook";
 			productName = "Pods-UberCook";
@@ -337,6 +496,8 @@
 			projectRoot = "";
 			targets = (
 				977B67E6ADDDC9C183DE6B6E33F17FCC /* DatePickerDialog */,
+				E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */,
+				0C1885900810601510E0C632060FAF26 /* GooglePlaces */,
 				AEE42FC6D6387431846044A2278F7E7C /* Pods-UberCook */,
 				9B78EE4AF6AE03E79D88886319853FF7 /* Starscream */,
 			);
@@ -344,14 +505,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BE174469BA3F43D1B5CE60520CA93EB3 /* Resources */ = {
+		BD36C50D710780ECBB29669A61439FC3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F5133AE8B60AB8F7EDF0F105D96BF8DA /* Resources */ = {
+		BE174469BA3F43D1B5CE60520CA93EB3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -389,35 +550,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ADFE1A0D5474D05CFEC984FE549C6DB /* Sources */ = {
+		8EEF4104B299F4920A6012B3A13B4992 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA518E357716484EF29DE52636CE6CBC /* Pods-UberCook-dummy.m in Sources */,
+				C3B94EACD9B87EAA4B0CFD243AE9B95B /* Pods-UberCook-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CD013E9E607B81BF1F123BF877A17A9E /* PBXTargetDependency */ = {
+		09FDBDAAF2351B6D4004A532F2F51FBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = 80BAC1A5B0468F1098E4903AA15F39B6 /* PBXContainerItemProxy */;
+		};
+		28FACC9D6D36B954BE0CD639AAD50E90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GooglePlaces;
+			target = 0C1885900810601510E0C632060FAF26 /* GooglePlaces */;
+			targetProxy = 8D5F9252A236C46C678A1C73B18EBF7F /* PBXContainerItemProxy */;
+		};
+		3FF817108597C492B22DD61CBDB267D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Starscream;
 			target = 9B78EE4AF6AE03E79D88886319853FF7 /* Starscream */;
-			targetProxy = E781488C3A43D6EAFE00382AE2E72A69 /* PBXContainerItemProxy */;
+			targetProxy = 57BBA78BF4B259940DDFCF0D1A169F0F /* PBXContainerItemProxy */;
 		};
-		D6B19660929F2FA4699500965A2DF6D0 /* PBXTargetDependency */ = {
+		BF92E6D195835EAF583F97DEB48BCC09 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DatePickerDialog;
 			target = 977B67E6ADDDC9C183DE6B6E33F17FCC /* DatePickerDialog */;
-			targetProxy = DF5B2638279D0D0C6736882A3C1DE93F /* PBXContainerItemProxy */;
+			targetProxy = 8E321E36C8E518371A8E640A061958FE /* PBXContainerItemProxy */;
+		};
+		E2CE56C9923D33A3622472BA0B9B504A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GoogleMaps;
+			target = E5B4BBC6DD552AC8943C7E22772FC1D3 /* GoogleMaps */;
+			targetProxy = B4DA316615E36B83610C449B69024A13 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11DFAB9A9E9179E467CFA980DDAFF6E4 /* Release */ = {
+		0430D9DA74B938BF9CACA8690DE18F12 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1283602AA9DE7B756225E24B3087EB2 /* Pods-UberCook.release.xcconfig */;
+			baseConfigurationReference = EE549B5D00B070B767BF16E7B5CD1DE5 /* Pods-UberCook.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -454,47 +633,9 @@
 			};
 			name = Release;
 		};
-		1E72573DB7103C7E9E6308095D9816C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7FBB7F5F08A41D4850F2EEFB47BD78B /* Pods-UberCook.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-UberCook/Pods-UberCook-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-UberCook/Pods-UberCook.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		2DD8A0771FEDD4BDED07B6D49657E8B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B3FFAA13A9ACE05BA248AC3E1CF4786 /* DatePickerDialog.release.xcconfig */;
+			baseConfigurationReference = EEB0DDA8CF3DBDA1A8CB081199F09189 /* DatePickerDialog.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -530,7 +671,7 @@
 		};
 		35C0DADA8835E6BD2776739D09A01636 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA1665011F71A820DDB3935B1FA07D7A /* DatePickerDialog.debug.xcconfig */;
+			baseConfigurationReference = 62AE630514314D012FB078CA46949141 /* DatePickerDialog.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -565,7 +706,7 @@
 		};
 		3E06D9461032CC4CE41B933D8A6B717A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C14BA6426B699983516AC6F2133D36C /* Starscream.release.xcconfig */;
+			baseConfigurationReference = 2A3BA8DDD65472D4952B29080DA1D36E /* Starscream.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -601,7 +742,7 @@
 		};
 		511CE8D2C675AEB3E4FB2B1CA5A91C09 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A44305F2C9DE9A3DAE410B22DD0195F7 /* Starscream.debug.xcconfig */;
+			baseConfigurationReference = 4F40D4EB83CE4B42280C42129D746541 /* Starscream.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -628,6 +769,44 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5720F01CD4EDD8F11E922630C8941773 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24E1AAADCBBC2742FB192E6A8B9F1AE4 /* Pods-UberCook.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-UberCook/Pods-UberCook-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-UberCook/Pods-UberCook.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -698,6 +877,23 @@
 			};
 			name = Debug;
 		};
+		8CE5BA3EF4F6FABF028CE30772ECDA11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D34757222E2F3BA3BCCD43F42BBC107 /* GoogleMaps.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		AF1F8D2941B0228930706FA0F2C9BB78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -758,9 +954,67 @@
 			};
 			name = Release;
 		};
+		E1E452060D51DF935547186CE54B26CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AC05BC6AB287279578DE72088633AF1 /* GoogleMaps.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F612EF94A7DB77BEC9A01721B62A809E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46036DDB09A6E4693CBB7A8EF531F1FC /* GooglePlaces.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE15983873284AD94B26A75BCDAE5E5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E0221930518D588CAC3F64DA655982 /* GooglePlaces.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		46921981F609C5BA3CB72EC4EA41299D /* Build configuration list for PBXAggregateTarget "GoogleMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1E452060D51DF935547186CE54B26CC /* Debug */,
+				8CE5BA3EF4F6FABF028CE30772ECDA11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -770,20 +1024,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BBF2A20B3E9976121EB96B07CCB9F53 /* Build configuration list for PBXNativeTarget "Pods-UberCook" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1E72573DB7103C7E9E6308095D9816C1 /* Debug */,
-				11DFAB9A9E9179E467CFA980DDAFF6E4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A4D558CD916807A4099E254989022729 /* Build configuration list for PBXNativeTarget "DatePickerDialog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35C0DADA8835E6BD2776739D09A01636 /* Debug */,
 				2DD8A0771FEDD4BDED07B6D49657E8B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4A72C6B462A978CCBCEFF6A99775BD3 /* Build configuration list for PBXNativeTarget "Pods-UberCook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5720F01CD4EDD8F11E922630C8941773 /* Debug */,
+				0430D9DA74B938BF9CACA8690DE18F12 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E215DFB4EAE26646AFED2C4861A55C32 /* Build configuration list for PBXAggregateTarget "GooglePlaces" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F612EF94A7DB77BEC9A01721B62A809E /* Debug */,
+				FE15983873284AD94B26A75BCDAE5E5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
