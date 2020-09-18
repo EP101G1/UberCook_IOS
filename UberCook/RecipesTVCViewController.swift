@@ -9,49 +9,54 @@ import UIKit
 
 class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let url_server = URL(string: common_url + "UberCook_Servlet")
-    var blog: Blog?
+//    var blog: Blog?
+    var blog = [Blog]()  // test
     var recipeList = [RecipeList]()
     let fileManager = FileManager()
     var flag = [Int]()
     let userDefault = UserDefaults()
     var index = 0
     var recipe_no = ""
-    var cell:RecipeListCell?
+    var user_name:String?
+    var indexForRow:Int?
 
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+         super.viewDidLoad()
+        
+//        getRecipeList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getRecipeList()
-//        searchTrack()
+//        getRecipeList()
     }
     
-    func getRecipeList(){
-        var requestParam = [String: Any]()
-        requestParam["action"] = "getRecipeDetailForRV"
-        requestParam["chef_no"] = blog?.chef_no
-        executeTask(url_server!, requestParam) { (data, response, error) in
-            let decoder = JSONDecoder()
-            if error == nil {
-                if data != nil {
-//                    print("input: \(String(data: data!, encoding: .utf8)!)")
-                    if let result = try? decoder.decode([RecipeList].self, from: data!){
-                        self.recipeList = result
-                        DispatchQueue.main.async {
-//                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    func getRecipeList(){
+//        var requestParam = [String: Any]()
+//        requestParam["action"] = "getRecipeDetailForRV"
+//        requestParam["chef_no"] = blog?.chef_no
+//        executeTask(url_server!, requestParam) { (data, response, error) in
+//            let decoder = JSONDecoder()
+//            if error == nil {
+//                if data != nil {
+////                    print("input: \(String(data: data!, encoding: .utf8)!)")
+//                    if let result = try? decoder.decode([RecipeList].self, from: data!){
+//                        self.recipeList = result
+//                        DispatchQueue.main.async {
+//                            for subview in self.view.subviews {
+//                                if subview is UITableView {
+//                                    let tableView = subview as? UITableView
+//                                    tableView?.reloadData()
+//                                    tableView?.scrollToRow(at: IndexPath(row: self.indexForRow!, section: 0), at: .top, animated: false)
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
     
-    
-    func searchTrack(){
-       
-    }
 
 
 
@@ -62,99 +67,18 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return recipeList.count
+        return blog.count
     }
 
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        self.cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeListCell
-        let recipes = recipeList[indexPath.row]
-        cell?.chefNameLabel.text = recipes.user_name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeListCell
+        let recipes = blog[indexPath.row]
+        
+        
+        cell?.chefNameLabel.text = user_name ?? ""
         cell?.recipeConLabel.text = recipes.recipe_con
         cell?.recipePointLabel.text = "$ \(recipes.recipe_point ?? 0)"
         cell?.recipeTitleLabel.text = recipes.recipe_title
-        
-        
-        cell?.index = indexPath.row
-        cell?.completionHandler = {(index) in
-            self.index = index
-            
-            switch self.flag[self.index] {
-            case 0:
-                var requestParam = [String: Any]()
-                requestParam["action"] = "insertCollect"
-                requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-                requestParam["recipe_no"] = self.recipeList[indexPath.row].recipe_no!
-                executeTask(self.url_server!, requestParam) { (data, response, error) in
-                    if error == nil {
-                        if data != nil {
-                            let count = String(decoding: data!, as: UTF8.self)
-                            if count == "1"{
-                                DispatchQueue.main.async {
-                                    self.cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                                    self.cell?.recipeCollectionButton.tintColor = .red
-                                }
-                            }
-                        }
-                    }
-                }
-                break
-            default:
-                var requestParam = [String: Any]()
-                requestParam["action"] = "deleteCollect"
-                requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-                requestParam["recipe_no"] = self.recipeList[indexPath.row].recipe_no!
-                executeTask(self.url_server!, requestParam) { (data, response, error) in
-                    if error == nil {
-                        if data != nil {
-                            let count = String(decoding: data!, as: UTF8.self)
-                            if count == "1"{
-                                DispatchQueue.main.async {
-                                    self.cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                                    self.cell?.recipeCollectionButton.tintColor = .black
-                                }
-                            }
-                        }
-                    }
-                }
-            }       
-        }
-            
-        
-        
-        var requestParam0 = [String: Any]()
-        requestParam0["action"] = "searchFollow"
-        requestParam0["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam0["recipe_no"] = blog?.recipe_no
-        executeTask(url_server!, requestParam0) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-                    let count = Int(String(decoding: data!, as: UTF8.self)) ?? 0
-                    if count == 1 {
-//                        self.flag[indexPath.row] = 1
-                        self.cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                        self.cell?.recipeCollectionButton.tintColor = .red
-                        
-                    }else{
-//                        self.flag[indexPath.row] = 0
-                        self.cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                        self.cell?.recipeCollectionButton.tintColor = .black
-                    }
-                }
-            }
-        }
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         var requestParam = [String: Any]()
@@ -164,20 +88,22 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
         var image: UIImage?
         let imageUrl = fileInCaches(fileName: recipes.recipe_no!)
         if self.fileManager.fileExists(atPath: imageUrl.path) {
+            print("Exist")
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
-                DispatchQueue.main.async {
-                    self.cell?.recipeImageView.image = image
-                }
+                cell?.recipeImageView.image = image
+                
             }
         }else{
+            print("not Exist")
+
             executeTask(url_server!, requestParam) { (data, response, error) in
                 //            print("input: \(String(data: data!, encoding: .utf8)!)")
                 if error == nil {
                     if data != nil {
                         image = UIImage(data: data!)
                         DispatchQueue.main.async {
-                            self.cell?.recipeImageView.image = image
+                            cell?.recipeImageView.image = image
                         }
                         if let image = image?.jpegData(compressionQuality: 1.0) {
                             try? image.write(to: imageUrl, options: .atomic)
@@ -186,7 +112,7 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
                     if image == nil {
                         image = UIImage(named: "noImage.jpg")
                         DispatchQueue.main.async {
-                            self.cell?.recipeImageView.image = image
+                            cell?.recipeImageView.image = image
                         }
                     }
                 } else {
@@ -194,6 +120,105 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         }
+        
+        
+        
+        
+        
+        
+        cell?.index = indexPath.row
+        cell?.completionHandler = {(index) in
+            self.index = index
+            
+            switch self.recipeList[self.index].flag {
+            case 0:
+                var requestParam = [String: Any]()
+                requestParam["action"] = "insertCollect"
+                requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+                requestParam["recipe_no"] = self.recipeList[self.index].recipe_no!
+                executeTask(self.url_server!, requestParam) { (data, response, error) in
+                    if error == nil {
+                        if data != nil {
+                            let count = String(decoding: data!, as: UTF8.self)
+                            if count == "1"{
+                                self.recipeList[self.index].flag = 1
+                                DispatchQueue.main.async {
+                                    cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                                    cell?.recipeCollectionButton.tintColor = .red
+                                }
+                            }
+                        }
+                    }
+                }
+                break
+            case 1:
+                var requestParam = [String: Any]()
+                requestParam["action"] = "deleteCollect"
+                requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+                requestParam["recipe_no"] = self.recipeList[self.index].recipe_no!
+                executeTask(self.url_server!, requestParam) { (data, response, error) in
+                    if error == nil {
+                        if data != nil {
+                            let count = String(decoding: data!, as: UTF8.self)
+                            if count == "1"{
+                                self.recipeList[self.index].flag = 0
+                                DispatchQueue.main.async {
+                                    cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                                    cell?.recipeCollectionButton.tintColor = .black
+                                }
+                            }
+                        }
+                    }
+                }
+                break
+            default:
+                break
+            }
+        }
+            
+        
+        
+        var requestParam0 = [String: Any]()
+        requestParam0["action"] = "searchFollow"
+        requestParam0["user_no"] = self.userDefault.value(forKey: "user_no")
+        requestParam0["recipe_no"] = self.blog[indexPath.row].recipe_no!
+        executeTask(url_server!, requestParam0) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    let count = Int(String(decoding: data!, as: UTF8.self)) ?? 0
+                    if count == 1 {
+                        DispatchQueue.main.async {
+                            self.blog[indexPath.row].flag = 1
+                            cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                            cell?.recipeCollectionButton.tintColor = .red
+                        }
+                    }else{
+//                        self.flag[indexPath.row] = 0
+                        DispatchQueue.main.async {
+                            self.blog[indexPath.row].flag = 0
+                            cell?.recipeCollectionButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                            cell?.recipeCollectionButton.tintColor = .black
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         var requestParam_2 = [String: Any]()
         requestParam_2["action"] = "getUserImageForRecipeDetail"
@@ -210,8 +235,8 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
                     image_2 = UIImage(named: "noImage.jpg")
                 }
                 DispatchQueue.main.async {
-                    self.cell?.chefImageView.layer.cornerRadius = (self.cell?.chefImageView.frame.height)!/2
-                    self.cell?.chefImageView.image = image_2
+                    cell?.chefImageView.layer.cornerRadius = (cell?.chefImageView.frame.height)!/2
+                    cell?.chefImageView.image = image_2
                 }
             } else {
                 print(error!.localizedDescription)
