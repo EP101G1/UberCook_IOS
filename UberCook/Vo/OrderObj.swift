@@ -64,44 +64,7 @@ struct Order:Codable {
     var phone:String
     var user_name:String
     
-<<<<<<< HEAD
-    
-    
-    
-    
-    
-=======
-    enum CodingKeys:CodingKey {
-        case order_no
-        case user_no
-        case chef_no
-        case remark
-        case order_date
-        case flag
-        case deal_date
-        case total_point
-        case user_star
-        case chef_star
-        case address
-        case phone
-        case user_name
-        
-        
-        init(from decoder:Decoder)throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-             
-            order_no =  try container.decode(Int.self, forKey: .action)
-            user_no = try container.decode(String.self, forKey: .user_no)
-            chef_no = try container.decode(String.self, forKey: .chef_no)
-            remark = try container.decode(String.self, forKey: .remark)
-            order_date = try container.decode(<#T##type: Bool.Type##Bool.Type#>, forKey: .order_date)
-        }
-        
-    }
->>>>>>> 9fad2713fc7f29c87454f17052c7217172512b09
-    
 }
-
 
 
 struct OrderList:Codable {

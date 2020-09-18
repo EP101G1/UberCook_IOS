@@ -38,11 +38,8 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewWillAppear(_ animated: Bool) {
         getTrack()
         searchTrack()
-<<<<<<< HEAD
         checkChatRoom()
         title = chefLeader?.user_name ?? track?.user_name
-=======
->>>>>>> 9fad2713fc7f29c87454f17052c7217172512b09
     }
     
     

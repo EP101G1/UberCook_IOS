@@ -1376,7 +1376,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRM-m5-QSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692.75362318840587" y="3860.4910714285711"/>
+            <point key="canvasLocation" x="-1155" y="3838"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="B8u-1j-iYb">
@@ -1548,11 +1548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3w-PP-FZB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="-79.710144927536234" y="3095.7589285714284"/>
-=======
             <point key="canvasLocation" x="-1900" y="3060"/>
->>>>>>> 7a1a65bb67b3a7d9c617d8250317aa91c229a7ad
         </scene>
         <!--TrackTVC-->
         <scene sceneID="5BF-CI-2gm">
@@ -1618,11 +1614,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdt-xo-dPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="860.86956521739137" y="3102.7901785714284"/>
-=======
             <point key="canvasLocation" x="-991" y="3028"/>
->>>>>>> 7a1a65bb67b3a7d9c617d8250317aa91c229a7ad
         </scene>
         <!--CollectionTVC-->
         <scene sceneID="Uup-cw-F5u">
@@ -1688,9 +1680,6 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q1S-Wa-ZIO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="1505.7971014492755" y="3102.7901785714284"/>
-=======
             <point key="canvasLocation" x="-351" y="3028"/>
         </scene>
         <!--Waitting Table View Controller-->
@@ -1841,7 +1830,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PbD-qh-8Gh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1874" y="3002"/>
->>>>>>> 7a1a65bb67b3a7d9c617d8250317aa91c229a7ad
         </scene>
         <!--Store Value Table View Controller-->
         <scene sceneID="LaE-In-3gS">
@@ -1936,11 +1924,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wj-hO-CVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="2581.1594202898555" y="3069.9776785714284"/>
-=======
             <point key="canvasLocation" x="2939" y="3020"/>
->>>>>>> 7a1a65bb67b3a7d9c617d8250317aa91c229a7ad
         </scene>
         <!--View Controller-->
         <scene sceneID="Gkc-1l-RJC">
@@ -1955,11 +1939,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f4b-ue-cPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="3289.8550724637685" y="3012.3883928571427"/>
-=======
             <point key="canvasLocation" x="3712" y="3021"/>
->>>>>>> 7a1a65bb67b3a7d9c617d8250317aa91c229a7ad
         </scene>
         <!--View Controller-->
         <scene sceneID="uaS-36-DAe">
@@ -1974,11 +1954,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4j-b6-RFs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="4026.0869565217395" y="3025.78125"/>
-=======
             <point key="canvasLocation" x="4552" y="3021"/>
->>>>>>> 7a1a65bb67b3a7d9c617d8250317aa91c229a7ad
         </scene>
         <!--FavoriteTVC-->
         <scene sceneID="jTl-P0-EOt">
