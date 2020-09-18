@@ -335,6 +335,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         controller?.friend_no = chefLeader?.chef_no  ?? track?.chef_no
         controller?.chatRoomNo = self.chatRoomNo
         controller?.friend_name = chefLeader?.user_name ?? track?.user_name
+        controller?.NoForSelectPhoto = chefLeader?.user_no ?? track?.user_no
         controller?.role = "U"
         
         return controller
