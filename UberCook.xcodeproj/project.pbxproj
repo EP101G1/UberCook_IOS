@@ -15,7 +15,6 @@
 		B761D6CE2510663C00AA0071 /* FriendChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6CD2510663C00AA0071 /* FriendChatCell.swift */; };
 		B761D6D02510664900AA0071 /* MyChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6CF2510664900AA0071 /* MyChatCell.swift */; };
 		B761D6D2251066B100AA0071 /* ChatPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6D1251066B100AA0071 /* ChatPageController.swift */; };
-		B77ABBD82514AB67003694C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBD72514AB67003694C7 /* AppDelegate.swift */; };
 		B77ABBDA2514AB93003694C7 /* StoreValueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBD92514AB93003694C7 /* StoreValueTableViewController.swift */; };
 		B77ABBDD2514ABAC003694C7 /* Order_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBDB2514ABAC003694C7 /* Order_Point.swift */; };
 		B77ABBDE2514ABAC003694C7 /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBDC2514ABAC003694C7 /* MapPath.swift */; };
@@ -66,6 +65,7 @@
 		E592F707250D33F0003FDF2A /* CashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F706250D33EF003FDF2A /* CashVC.swift */; };
 		E592F709250D5BF8003FDF2A /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F708250D5BF8003FDF2A /* PostVC.swift */; };
 		E5AF25C2250A01DA00FBAD9F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF25C1250A01DA00FBAD9F /* Login.swift */; };
+		E5AFEAE92514B52200E06B0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AFEAE82514B52200E06B0F /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +78,6 @@
 		B761D6CD2510663C00AA0071 /* FriendChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendChatCell.swift; sourceTree = "<group>"; };
 		B761D6CF2510664900AA0071 /* MyChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatCell.swift; sourceTree = "<group>"; };
 		B761D6D1251066B100AA0071 /* ChatPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageController.swift; sourceTree = "<group>"; };
-		B77ABBD72514AB67003694C7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Downloads/AppDelegate.swift; sourceTree = "<group>"; };
 		B77ABBD92514AB93003694C7 /* StoreValueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreValueTableViewController.swift; sourceTree = "<group>"; };
 		B77ABBDB2514ABAC003694C7 /* Order_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order_Point.swift; sourceTree = "<group>"; };
 		B77ABBDC2514ABAC003694C7 /* MapPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		E592F706250D33EF003FDF2A /* CashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashVC.swift; sourceTree = "<group>"; };
 		E592F708250D5BF8003FDF2A /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		E5AF25C1250A01DA00FBAD9F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E5AFEAE82514B52200E06B0F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,8 +250,8 @@
 				E529F7582508F7570079A593 /* Cache */,
 				E529F7572508F7330079A593 /* Vo */,
 				E529F7562508F7190079A593 /* Common */,
-				B77ABBD72514AB67003694C7 /* AppDelegate.swift */,
 				E59294ED24FA8E7B00C8F9A2 /* SceneDelegate.swift */,
+				E5AFEAE82514B52200E06B0F /* AppDelegate.swift */,
 				E5925C2A24FF9708002D5C4D /* BlogViewController.swift */,
 				B77ABBE02514ABBD003694C7 /* ChefGoogleMapVC.swift */,
 				B77ABBDF2514ABBD003694C7 /* GoogleMapVC.swift */,
@@ -426,7 +426,6 @@
 				C52B584E250E3EBB000B312A /* MenuController.swift in Sources */,
 				B77ABBDE2514ABAC003694C7 /* MapPath.swift in Sources */,
 				E5925C3525001617002D5C4D /* RecipeListCell.swift in Sources */,
-				B77ABBD82514AB67003694C7 /* AppDelegate.swift in Sources */,
 				B77ABBE22514ABBD003694C7 /* ChefGoogleMapVC.swift in Sources */,
 				C51F73E225134F63004FB72C /* WaittingTableViewCell.swift in Sources */,
 				E5925C3124FFF2DE002D5C4D /* BlogHeardReusableView.swift in Sources */,
@@ -466,6 +465,7 @@
 				E5815F52250BB07A000D149D /* TrackTVC.swift in Sources */,
 				E592F709250D5BF8003FDF2A /* PostVC.swift in Sources */,
 				E592950C24FBA1B500C8F9A2 /* HomeCollectionViewCell.swift in Sources */,
+				E5AFEAE92514B52200E06B0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
