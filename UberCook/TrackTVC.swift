@@ -14,6 +14,8 @@ class TrackTVC: UITableViewController {
     var track = [Track]()
     let fileManager = FileManager()
     var chef_no = ""
+    var index = 0
+    var test = [Bool]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +46,55 @@ class TrackTVC: UITableViewController {
                     //print("input: \(String(data: data!, encoding: .utf8)!)")
                     if let result = try? decoder.decode([Track].self, from: data!){
                         self.track = result
+                        for index in 0...self.track.count {
+                            self.test.insert(true, at: index)
+                        }
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    @objc func onChange(sender: Any) {
+        // 取得這個 UISwtich 元件
+        let tempSwitch = sender as! UISwitch
+        // 依據屬性 on 來為底色變色
+        if tempSwitch.isOn {
+            test[self.index] = true
+            var requestParam = [String: Any]()
+            requestParam["action"] = "insertFollow"
+            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+            requestParam["chef_no"] = self.chef_no
+            executeTask(url_server!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        let count = String(decoding: data!, as: UTF8.self)
+                        if count == "1"{
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }else{
+            test[self.index] = false
+            var requestParam = [String: Any]()
+            requestParam["action"] = "deleteFollow"
+            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+            requestParam["chef_no"] = self.chef_no
+            executeTask(url_server!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                        let count = String(decoding: data!, as: UTF8.self)
+                        if count == "1"{
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
                         }
                     }
                 }
@@ -69,7 +118,17 @@ class TrackTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as! TrackCell
         let trackList = track[indexPath.row]
-        self.chef_no = trackList.chef_no
+        cell.index = indexPath.row
+        cell.completionHandler = {(index) in
+            self.index = index
+            self.chef_no = self.track[index].chef_no
+        }
+        if test[indexPath.row] {
+            cell.trackSwitch.isOn = true
+        }else{
+            cell.trackSwitch.isOn = false
+        }
+        cell.trackSwitch.addTarget(self, action: #selector(onChange(sender:)), for: .valueChanged)
         cell.trackImageView.layer.cornerRadius = 10
         cell.layer.cornerRadius = cell.frame.height/20
         cell.trackLabel.text = trackList.user_name
@@ -122,41 +181,41 @@ class TrackTVC: UITableViewController {
     }
     
     
-    @IBAction func clickToTrack(_ sender: UISwitch) {
-        if sender.isOn == true{
-            var requestParam = [String: Any]()
-            requestParam["action"] = "insertFollow"
-            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["chef_no"] = chef_no
-            executeTask(url_server!, requestParam) { (data, response, error) in
-                if error == nil {
-                    if data != nil {
-                        let count = String(decoding: data!, as: UTF8.self)
-                        if count == "1"{
-                            DispatchQueue.main.async {
-                            }
-                        }
-                    }
-                }
-            }
-        }else{
-            var requestParam = [String: Any]()
-            requestParam["action"] = "deleteFollow"
-            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["chef_no"] = chef_no
-            executeTask(url_server!, requestParam) { (data, response, error) in
-                if error == nil {
-                    if data != nil {
-                        let count = String(decoding: data!, as: UTF8.self)
-                        if count == "1"{
-                            DispatchQueue.main.async {
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    @IBAction func clickToTrack(_ sender: UISwitch) {
+//        if sender.isOn == true{
+//            var requestParam = [String: Any]()
+//            requestParam["action"] = "insertFollow"
+//            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+//            requestParam["chef_no"] = chef_no
+//            executeTask(url_server!, requestParam) { (data, response, error) in
+//                if error == nil {
+//                    if data != nil {
+//                        let count = String(decoding: data!, as: UTF8.self)
+//                        if count == "1"{
+//                            DispatchQueue.main.async {
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }else{
+//            var requestParam = [String: Any]()
+//            requestParam["action"] = "deleteFollow"
+//            requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+//            requestParam["chef_no"] = chef_no
+//            executeTask(url_server!, requestParam) { (data, response, error) in
+//                if error == nil {
+//                    if data != nil {
+//                        let count = String(decoding: data!, as: UTF8.self)
+//                        if count == "1"{
+//                            DispatchQueue.main.async {
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     /*
     // Override to support conditional editing of the table view.

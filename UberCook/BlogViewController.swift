@@ -10,9 +10,7 @@ import UIKit
 
 class BlogViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    
-    
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
     let url_server = URL(string: common_url + "UberCook_Servlet")
     var chefLeader: ChefLeader?
@@ -29,10 +27,22 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         getBlog()
+        title = chefLeader?.user_name ?? track?.user_name
+        UIView.performWithoutAnimation {
+                   CATransaction.setDisableActions(false)
+                   self.collectionView.reloadData()
+                   CATransaction.commit()
+               }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getTrack()
         searchTrack()
+<<<<<<< HEAD
         checkChatRoom()
         title = chefLeader?.user_name ?? track?.user_name
+=======
+>>>>>>> 9fad2713fc7f29c87454f17052c7217172512b09
     }
     
     
@@ -66,7 +76,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 if data != nil {
                     self.trackNum = Int(String(decoding: data!, as: UTF8.self))!
                         DispatchQueue.main.async {
-                            self.collectionView.reloadData()
+//                            self.collectionView.reloadData()
                         }
                 }
             }
@@ -85,7 +95,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     if let result = try? decoder.decode([Blog].self, from: data!){
                         self.blogList = result
                         DispatchQueue.main.async {
-                            self.collectionView.reloadData()
+//                            self.collectionView.reloadData()
                         }
                     }
                 }
@@ -116,15 +126,13 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    
         let bolg = blogList[indexPath.row]
-        //        postNumberLabel.text = String(blogList.count)
-        //        followingNumberLabel.text = String(bolg.recipe_total ?? 0)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BlogCell", for: indexPath) as! BlogCollectionViewCell
         var requestParam = [String: Any]()
         requestParam["action"] = "getRecipeImage_chef_no"
         requestParam["recipe_no"] = bolg.recipe_no
-        requestParam["imageSize"] = cell.frame.width
+        requestParam["imageSize"] = 1440
         var image: UIImage?
         let imageUrl = fileInCaches(fileName: bolg.recipe_no!)
         if self.fileManager.fileExists(atPath: imageUrl.path) {
@@ -170,6 +178,13 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         reusableView?.chefName.text = chefLeader?.user_name ?? track?.user_name
         reusableView?.postLabel.text = String(blogList.count)
         reusableView?.followLabel.text = String(self.trackNum)
+        let chef_no = userDefault.value(forKey: "chef_no") as? String
+        if chefLeader?.chef_no == chef_no || track?.chef_no == chef_no{
+            reusableView?.postButton.isHidden = false
+            reusableView?.chatButton.isHidden = true
+            reusableView?.trackButton.isHidden = true
+            reusableView?.reserveButton.isHidden = true
+        }
         test = indexPath
         
         if flag == 0 {
@@ -189,7 +204,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserImage"
         requestParam["user_no"] = chefLeader?.user_no ?? track?.user_no
-        requestParam["imageSize"] = 240
+        requestParam["imageSize"] = 1440
         var image: UIImage?
         let imageUrl = fileInCaches(fileName: (chefLeader?.user_no ?? track?.user_no) ?? "")
         if self.fileManager.fileExists(atPath: imageUrl.path) {
