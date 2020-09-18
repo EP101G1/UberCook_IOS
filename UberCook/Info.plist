@@ -79,6 +79,8 @@
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>Privacy - Location Always Usage Description</string>
+		<string>Privacy - Location When In Use Usage Description</string>
 		<string>line</string>
 	</array>
 </dict>

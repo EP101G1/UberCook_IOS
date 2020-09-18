@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		228D4FABF3C34AF29F4C6DA2 /* Pods_UberCook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */; };
-		33D2994E250DF02D0026F280 /* StoreValueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */; };
 		33D29950250DF2790026F280 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2994F250DF2790026F280 /* Wallet.swift */; };
 		33D29954250DF8E50026F280 /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D29953250DF8E50026F280 /* WalletCell.swift */; };
 		33D29956250E03290026F280 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D29955250E02F20026F280 /* SafariServices.framework */; };
@@ -16,6 +15,12 @@
 		B761D6CE2510663C00AA0071 /* FriendChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6CD2510663C00AA0071 /* FriendChatCell.swift */; };
 		B761D6D02510664900AA0071 /* MyChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6CF2510664900AA0071 /* MyChatCell.swift */; };
 		B761D6D2251066B100AA0071 /* ChatPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6D1251066B100AA0071 /* ChatPageController.swift */; };
+		B77ABBD82514AB67003694C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBD72514AB67003694C7 /* AppDelegate.swift */; };
+		B77ABBDA2514AB93003694C7 /* StoreValueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBD92514AB93003694C7 /* StoreValueTableViewController.swift */; };
+		B77ABBDD2514ABAC003694C7 /* Order_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBDB2514ABAC003694C7 /* Order_Point.swift */; };
+		B77ABBDE2514ABAC003694C7 /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBDC2514ABAC003694C7 /* MapPath.swift */; };
+		B77ABBE12514ABBD003694C7 /* GoogleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBDF2514ABBD003694C7 /* GoogleMapVC.swift */; };
+		B77ABBE22514ABBD003694C7 /* ChefGoogleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77ABBE02514ABBD003694C7 /* ChefGoogleMapVC.swift */; };
 		C51F73E025134F3C004FB72C /* WaittingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */; };
 		C51F73E225134F63004FB72C /* WaittingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */; };
 		C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */; };
@@ -45,7 +50,6 @@
 		E5925C3525001617002D5C4D /* RecipeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5925C3425001617002D5C4D /* RecipeListCell.swift */; };
 		E5925C3725001E1E002D5C4D /* RecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5925C3625001E1E002D5C4D /* RecipeList.swift */; };
 		E5925C392500292A002D5C4D /* RecipesTVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5925C382500292A002D5C4D /* RecipesTVCViewController.swift */; };
-		E59294EC24FA8E7B00C8F9A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59294EB24FA8E7B00C8F9A2 /* AppDelegate.swift */; };
 		E59294EE24FA8E7B00C8F9A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59294ED24FA8E7B00C8F9A2 /* SceneDelegate.swift */; };
 		E59294F324FA8E7B00C8F9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59294F124FA8E7B00C8F9A2 /* Main.storyboard */; };
 		E59294F524FA8E7E00C8F9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59294F424FA8E7E00C8F9A2 /* Assets.xcassets */; };
@@ -65,7 +69,6 @@
 
 /* Begin PBXFileReference section */
 		0A179A3B26CE5E7A8DFCE1F0 /* Pods-UberCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCook.release.xcconfig"; path = "Target Support Files/Pods-UberCook/Pods-UberCook.release.xcconfig"; sourceTree = "<group>"; };
-		33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreValueTableViewController.swift; sourceTree = "<group>"; };
 		33D2994F250DF2790026F280 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		33D29953250DF8E50026F280 /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
 		33D29955250E02F20026F280 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
@@ -74,6 +77,12 @@
 		B761D6CD2510663C00AA0071 /* FriendChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendChatCell.swift; sourceTree = "<group>"; };
 		B761D6CF2510664900AA0071 /* MyChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatCell.swift; sourceTree = "<group>"; };
 		B761D6D1251066B100AA0071 /* ChatPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageController.swift; sourceTree = "<group>"; };
+		B77ABBD72514AB67003694C7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../Downloads/AppDelegate.swift; sourceTree = "<group>"; };
+		B77ABBD92514AB93003694C7 /* StoreValueTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreValueTableViewController.swift; sourceTree = "<group>"; };
+		B77ABBDB2514ABAC003694C7 /* Order_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order_Point.swift; sourceTree = "<group>"; };
+		B77ABBDC2514ABAC003694C7 /* MapPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
+		B77ABBDF2514ABBD003694C7 /* GoogleMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapVC.swift; sourceTree = "<group>"; };
+		B77ABBE02514ABBD003694C7 /* ChefGoogleMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefGoogleMapVC.swift; sourceTree = "<group>"; };
 		C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingTableViewController.swift; sourceTree = "<group>"; };
 		C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,7 +114,6 @@
 		E5925C3625001E1E002D5C4D /* RecipeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeList.swift; sourceTree = "<group>"; };
 		E5925C382500292A002D5C4D /* RecipesTVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTVCViewController.swift; sourceTree = "<group>"; };
 		E59294E824FA8E7B00C8F9A2 /* UberCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E59294EB24FA8E7B00C8F9A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E59294ED24FA8E7B00C8F9A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E59294F224FA8E7B00C8F9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E59294F424FA8E7E00C8F9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +186,8 @@
 				E589F8E125094E4D00169A6D /* User_name.swift */,
 				E5149526250A037600A7290D /* ChatMessage.swift */,
 				E5149527250A037600A7290D /* StateMessage.swift */,
+				B77ABBDC2514ABAC003694C7 /* MapPath.swift */,
+				B77ABBDB2514ABAC003694C7 /* Order_Point.swift */,
 				E592950724FADED000C8F9A2 /* ChefLeader.swift */,
 				E592950D24FC2C9600C8F9A2 /* Recipe.swift */,
 			);
@@ -237,10 +247,12 @@
 				E529F7582508F7570079A593 /* Cache */,
 				E529F7572508F7330079A593 /* Vo */,
 				E529F7562508F7190079A593 /* Common */,
-				E59294EB24FA8E7B00C8F9A2 /* AppDelegate.swift */,
-				33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */,
+				B77ABBD72514AB67003694C7 /* AppDelegate.swift */,
 				E59294ED24FA8E7B00C8F9A2 /* SceneDelegate.swift */,
 				E5925C2A24FF9708002D5C4D /* BlogViewController.swift */,
+				B77ABBE02514ABBD003694C7 /* ChefGoogleMapVC.swift */,
+				B77ABBDF2514ABBD003694C7 /* GoogleMapVC.swift */,
+				B77ABBD92514AB93003694C7 /* StoreValueTableViewController.swift */,
 				E592950524FABD7700C8F9A2 /* Home.swift */,
 				E514952E250B4A1800A7290D /* FavoriteTVC.swift */,
 				E5815F51250BB07A000D149D /* TrackTVC.swift */,
@@ -278,6 +290,7 @@
 				E59294E524FA8E7B00C8F9A2 /* Frameworks */,
 				E59294E624FA8E7B00C8F9A2 /* Resources */,
 				C203826A5044B67317D85655 /* [CP] Embed Pods Frameworks */,
+				F10E0DB206C60FD13BEE8A59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -373,6 +386,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UberCook/Pods-UberCook-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F10E0DB206C60FD13BEE8A59 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UberCook/Pods-UberCook-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UberCook/Pods-UberCook-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UberCook/Pods-UberCook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -387,22 +417,26 @@
 				C51F73E025134F3C004FB72C /* WaittingTableViewController.swift in Sources */,
 				E5925C392500292A002D5C4D /* RecipesTVCViewController.swift in Sources */,
 				E592950024FAA37700C8F9A2 /* Common.swift in Sources */,
+				B77ABBDA2514AB93003694C7 /* StoreValueTableViewController.swift in Sources */,
 				B761D6D2251066B100AA0071 /* ChatPageController.swift in Sources */,
 				E589F8E225094E4D00169A6D /* User_name.swift in Sources */,
 				C52B584E250E3EBB000B312A /* MenuController.swift in Sources */,
+				B77ABBDE2514ABAC003694C7 /* MapPath.swift in Sources */,
 				E5925C3525001617002D5C4D /* RecipeListCell.swift in Sources */,
-				33D2994E250DF02D0026F280 /* StoreValueTableViewController.swift in Sources */,
+				B77ABBD82514AB67003694C7 /* AppDelegate.swift in Sources */,
+				B77ABBE22514ABBD003694C7 /* ChefGoogleMapVC.swift in Sources */,
 				C51F73E225134F63004FB72C /* WaittingTableViewCell.swift in Sources */,
 				E5925C3124FFF2DE002D5C4D /* BlogHeardReusableView.swift in Sources */,
 				E5925C2D24FF9E5D002D5C4D /* BlogCollectionViewCell.swift in Sources */,
+				B77ABBE12514ABBD003694C7 /* GoogleMapVC.swift in Sources */,
 				C52B584C250E3E7F000B312A /* MenuCollectionViewCell.swift in Sources */,
 				C5808F8E250F974100CF80FC /* TotalOrderListViewController.swift in Sources */,
 				E5815F54250BB0A4000D149D /* CollectionTVC.swift in Sources */,
+				B77ABBDD2514ABAC003694C7 /* Order_Point.swift in Sources */,
 				E592F705250BF60F003FDF2A /* CollectionCell.swift in Sources */,
 				E529F70225037E610079A593 /* Caches.swift in Sources */,
 				E592F701250BD778003FDF2A /* TrackCell.swift in Sources */,
 				E5925C2B24FF9708002D5C4D /* BlogViewController.swift in Sources */,
-				E59294EC24FA8E7B00C8F9A2 /* AppDelegate.swift in Sources */,
 				E592F707250D33F0003FDF2A /* CashVC.swift in Sources */,
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
 				C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */,
