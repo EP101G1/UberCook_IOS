@@ -13,9 +13,12 @@ class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDel
     let userDefault = UserDefaults()
     var chatMessageList = [ChatMessage]()
     var friend_no:String?
+    let fileManager = FileManager()
     var chatRoomNo:Int?
+    var NoForSelectPhoto:String?
     var role:String?
     var friend_name:String?
+    var image: UIImage?
     @IBOutlet weak var chatTable: UITableView!
     @IBOutlet weak var msgTextField: UITextField!
     @IBOutlet weak var msgSendBtn: UIButton!
@@ -37,11 +40,42 @@ class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDel
         updateReadStatus()
         SendReadChatMessage()
         getAllChat()
+        getPhoto()
         
         
-        self.title = "friend: \(friend_no!)"
+        //self.title = "friend: \(friend_no!)"
     }
     
+    
+    func getPhoto(){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "getUserImage"
+        requestParam["user_no"] = NoForSelectPhoto
+        requestParam["imageSize"] = 1440
+        let imageUrl = fileInCaches(fileName: NoForSelectPhoto!)
+        if self.fileManager.fileExists(atPath: imageUrl.path) {
+            if let imageCaches = try? Data(contentsOf: imageUrl) {
+                image = UIImage(data: imageCaches)
+            }
+        }else{
+            executeTask(URL(string: common_url + "UberCook_Servlet")!, requestParam) { (data, response, error) in
+            // print("input: \(String(data: data!, encoding: .utf8)!)")
+            if error == nil {
+                if data != nil {
+                    self.image = UIImage(data: data!)
+                    if let image = self.image?.jpegData(compressionQuality: 1.0) {
+                        try? image.write(to: imageUrl, options: .atomic)
+                    }
+                }
+                if self.image == nil {
+                    self.image = UIImage(named: "noImage.jpg")
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        }
+    }
     
     func getAllChat(){
         var requestParam = [String: Any]()
@@ -145,6 +179,8 @@ class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDel
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendChat", for: indexPath) as! FriendChatCell
             
             if(chatMessage?.type == "chat"){
+                cell.FriendPhoto.layer.cornerRadius = 25
+                cell.FriendPhoto.image = self.image
                 cell.FriendMsg.text = chatMessage?.message
                 cell.FriendMsgState.text = chatMessage?.dateStr
             

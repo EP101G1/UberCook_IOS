@@ -63,10 +63,6 @@ struct Order:Codable {
     var address:String
     var phone:String
     var user_name:String
-<<<<<<< HEAD
-=======
-    
->>>>>>> 2ac3196a9413ee69265ddbc8be605d544badb1ec
 }
 
 
