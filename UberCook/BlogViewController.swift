@@ -24,13 +24,36 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let userDefault = UserDefaults()
     var flag = 0
     var track:Track?
+    var chatRoomNo:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getBlog()
         getTrack()
         searchTrack()
+        checkChatRoom()
         title = chefLeader?.user_name ?? track?.user_name
+    }
+    
+    
+    func checkChatRoom(){
+        var requestParam = [String: Any]()
+        requestParam["type"] = "getChatRoom"
+        requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
+        requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no
+        requestParam["user_name"] = self.userDefault.value(forKey: "user_name")
+        requestParam["chef_name"] = chefLeader?.user_name ?? track?.user_name
+        executeTask(URL(string: common_url + "Chat_Servlet")!, requestParam) { (data, response, error) in
+                           
+            if error == nil {
+                if data != nil {
+                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    dump(String(data: data!, encoding: .utf8)!)
+                    let room = String(data: data!, encoding: .utf8)!.trimmingCharacters(in: .whitespacesAndNewlines)
+                    self.chatRoomNo = Int(room) ?? 0
+                }
+            }
+        }
     }
     
     
@@ -113,7 +136,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }else{
         executeTask(url_server!, requestParam) { (data, response, error) in
-            //            print("input: \(String(data: data!, encoding: .utf8)!)")
+            // print("input: \(String(data: data!, encoding: .utf8)!)")
             if error == nil {
                 if data != nil {
                     image = UIImage(data: data!)
@@ -178,7 +201,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }else{
         executeTask(url_server!, requestParam) { (data, response, error) in
-            //            print("input: \(String(data: data!, encoding: .utf8)!)")
+            //print("input: \(String(data: data!, encoding: .utf8)!)")
             if error == nil {
                 if data != nil {
                     image = UIImage(data: data!)
@@ -299,7 +322,10 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBSegueAction func toChatPage(_ coder: NSCoder) -> ChatPageController? {
         let controller = ChatPageController(coder: coder)
-        controller?.friend_no = chefLeader?.chef_no
+        controller?.friend_no = chefLeader?.chef_no  ?? track?.chef_no
+        controller?.chatRoomNo = self.chatRoomNo
+        controller?.friend_name = chefLeader?.user_name ?? track?.user_name
+        controller?.role = "U"
         
         return controller
     }
@@ -307,7 +333,8 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBSegueAction func TakeChefNoToMenuOrderList(_ coder: NSCoder) -> MenuCollectionViewController? {
         let controller = MenuCollectionViewController(coder: coder)
-        controller?.chefNo = chefLeader?.chef_no
+        controller?.chefNo = chefLeader?.chef_no  ?? track?.chef_no
+     
            
         return controller
     }

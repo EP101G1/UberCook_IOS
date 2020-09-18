@@ -8,26 +8,94 @@
 import UIKit
 import Starscream
 
-class ChatPageController : UIViewController,UITableViewDataSource {
+class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDelegate {
     let tag = "ChatPageTVC"
     let userDefault = UserDefaults()
     var chatMessageList = [ChatMessage]()
     var friend_no:String?
-    var user_no = ""
+    var chatRoomNo:Int?
+    var role:String?
+    var friend_name:String?
+    @IBOutlet weak var chatTable: UITableView!
+    @IBOutlet weak var msgTextField: UITextField!
+    @IBOutlet weak var msgSendBtn: UIButton!
+    var role_no = ""
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        user_no = userDefault.value(forKey: "user_no") as! String
+        
+        if(role == "U"){
+            role_no = userDefault.value(forKey: "user_no") as! String
+        }else{
+            role_no = userDefault.value(forKey: "chef_no") as! String
+        }
+       
         addKeyboardObserver()
         addSocketCallBacks()
+        updateReadStatus()
+        SendReadChatMessage()
+        getAllChat()
+        
+        
         self.title = "friend: \(friend_no!)"
     }
     
     
+    func getAllChat(){
+        var requestParam = [String: Any]()
+        requestParam["type"] = "getAll"
+        requestParam["chatRoom"] = chatRoomNo
+        executeTask(URL(string: common_url + "Chat_Servlet")!, requestParam) { (data, response, error) in
+            let decoder = JSONDecoder()
+            if error == nil {
+                if data != nil {
+                print("input: \(String(data: data!, encoding: .utf8)!)")
+                    if let result = try? decoder.decode([ChatMessage].self, from: data!){
+                        self.chatMessageList = result
+                        DispatchQueue.main.async {
+                            self.chatTable.reloadData()
+                            self.chatTable.scrollToRow(at: IndexPath(row: self.chatMessageList.count-1, section: 0), at: .bottom, animated: false)
+                        }
+                       
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateReadStatus(){
+        var requestParam = [String: Any]()
+        requestParam["type"] = "read"
+        requestParam["friend"] = friend_name
+        requestParam["chatRoom"] = chatRoomNo
+       
+        executeTask(URL(string: common_url + "Chat_Servlet")!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    print(String("update success"))
+                }
+            }
+        }
+    }
+    
+    func SendReadChatMessage(){
+        let SendReadChatMessage = ChatMessage(chatRoom: chatRoomNo!,type: "read", sender: role_no, receiver: friend_no!, message: "read",read: "read",base64: nil,dateStr: nil,myName: userDefault.value(forKey: "user_name") as! String);
+              
+        if let jsonData = try? JSONEncoder().encode(SendReadChatMessage) {
+            let text = String(data: jsonData, encoding: .utf8)
+            GlobalVariables.shared.socket.write(string: text!)
+            // debug用
+            print("\(tag) send messages: \(text!)")
+        }
+    }
+    
     // 也可使用closure偵測WebSocket狀態
     func addSocketCallBacks() {
-        GlobalVariables.shared.socket.onText = { (text: String) in
+    
+        
+        GlobalVariables.shared.socket.onText = { [self] (text: String) in
             if let chatMessage = try? JSONDecoder().decode(ChatMessage.self, from: text.data(using: .utf8)!) {
                 let sender = chatMessage.sender
                 let type = chatMessage.type
@@ -37,13 +105,19 @@ class ChatPageController : UIViewController,UITableViewDataSource {
                 case "chat","img":
                     if sender == self.friend_no {
                         self.chatMessageList.append(chatMessage)
+                        self.chatTable.reloadData()
+                        self.chatTable.scrollToRow(at: IndexPath(row: self.chatMessageList.count-1, section: 0), at: .bottom, animated: false)
+                        print(chatMessage.message)
+                        SendReadChatMessage()
                     }
                 case "read":
-                    for index in 0...self.chatMessageList.count-1 {
+                    for index in 0..<self.chatMessageList.count {
                         if(self.chatMessageList[index].sender != self.friend_no){
-                            self.chatMessageList[index].dateStr =  self.chatMessageList[index].dateStr! + " 已讀"
+                            self.chatMessageList[index].read =   "已讀"
                         }
                     }
+                    self.chatTable.reloadData()
+                    self.chatTable.scrollToRow(at: IndexPath(row: self.chatMessageList.count-1, section: 0), at: .bottom, animated: false)
                 default:
                     print("default")
                 }
@@ -54,6 +128,8 @@ class ChatPageController : UIViewController,UITableViewDataSource {
         }
 
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chatMessageList.count
@@ -67,15 +143,57 @@ class ChatPageController : UIViewController,UITableViewDataSource {
         
         if(chatMessage!.sender == friend_no){
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendChat", for: indexPath) as! FriendChatCell
+            
+            if(chatMessage?.type == "chat"){
+                cell.FriendMsg.text = chatMessage?.message
+                cell.FriendMsgState.text = chatMessage?.dateStr
+            
+            }
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "mydChat", for: indexPath) as! MyChatCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "myChat", for: indexPath) as! MyChatCell
+            if(chatMessage?.type == "chat"){
+                cell.MyMsg.text = chatMessage?.message
+                
+                cell.MyMsgState.text = chatMessage!.read + " " +  (chatMessage?.dateStr)!
+            }
             return cell
         }
         
         
     }
     
+    @IBAction func msgSend(_ sender: Any) {
+        let message = msgTextField.text
+        // 訊息不可為nil或""
+        if message == nil || message!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return
+        }
+        
+        let now = Date()
+         
+        // 创建一个日期格式器
+        let dformatter = DateFormatter()
+        dformatter.dateFormat = "HH:mm:ss"
+        
+        let chatMessage = ChatMessage(chatRoom: chatRoomNo!,type: "chat", sender: role_no, receiver: friend_no!, message: message!,read: "",base64: nil,dateStr: dformatter.string(from: now),myName: userDefault.value(forKey: "user_name") as! String);
+        
+        if let jsonData = try? JSONEncoder().encode(chatMessage) {
+            let text = String(data: jsonData, encoding: .utf8)
+            GlobalVariables.shared.socket.write(string: text!)
+            // debug用
+            print("\(tag) send messages: \(text!)")
+            self.chatMessageList.append(chatMessage)
+            self.chatTable.reloadData()
+            self.chatTable.scrollToRow(at: IndexPath(row: self.chatMessageList.count-1, section: 0), at: .bottom, animated: false)
+            // 將欲傳送訊息顯示在text view上
+            //showMessage(textView: tvMessage, message: "\(sender!): \(message!)")
+            // 將輸入的訊息清空
+            msgTextField.text = nil
+        }
+        // 隱藏鍵盤
+        msgTextField.resignFirstResponder()
+    }
 }
 
 

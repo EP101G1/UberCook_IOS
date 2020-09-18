@@ -1277,6 +1277,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="nVw-bB-zDK" id="KGa-VE-yuF"/>
+                                    <outlet property="delegate" destination="nVw-bB-zDK" id="xoe-x2-4gl"/>
                                 </connections>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUB-w8-P1h">
@@ -1293,6 +1294,9 @@
                                     <constraint firstAttribute="width" constant="36" id="ML1-hb-rvI"/>
                                 </constraints>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="msgSend:" destination="nVw-bB-zDK" eventType="touchUpInside" id="BdS-GL-wcL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRp-ih-ebg">
                                 <rect key="frame" x="289" y="726" width="31" height="22"/>
@@ -1317,6 +1321,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K1X-LZ-tNg"/>
+                    <connections>
+                        <outlet property="chatTable" destination="3t4-6y-060" id="c3X-Bz-qiC"/>
+                        <outlet property="msgSendBtn" destination="E1b-MY-m2i" id="wzx-ws-WYL"/>
+                        <outlet property="msgTextField" destination="EUB-w8-P1h" id="Q6f-2S-tj2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbT-ON-amj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
