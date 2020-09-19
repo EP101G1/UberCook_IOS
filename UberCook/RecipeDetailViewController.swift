@@ -11,7 +11,6 @@ class RecipeDetailViewController: UIViewController {
     let url_server = URL(string: common_url + "UberCook_Servlet")
     var fullScreenSize :CGSize!
     let fileManager = FileManager()
-    var blog:Blog?
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeConLabel: UILabel!
     @IBOutlet weak var recipePointLabel: UILabel!
@@ -20,29 +19,30 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var chefNameLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     let userDefault = UserDefaults()
-    var recipeDetail:Recipe?
     var recipe:Recipe?
-//    var recipeList:RecipeList?
+    var recipeList:RecipeList?
     var collection:Collection?
     var flag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fullScreenSize = UIScreen.main.bounds.size
-        getRecipeDetail()
-//        if collection == nil && recipe == nil{
-//            recipeConLabel.text = recipeList?.recipe_con
-//            recipeTitleLabel.text = recipeList?.recipe_title
-//            recipePointLabel.text = "$ \(String(recipeList?.recipe_point ?? 0))"
-//        }else if recipe == nil && recipeList == nil{
-//            recipeConLabel.text = collection?.recipe_con
-//            recipeTitleLabel.text = collection?.recipe_title
-//            recipePointLabel.text = "$ \(String(collection?.recipe_point ?? 0))"
-//        }else{
-//            recipeConLabel.text = recipe?.recipe_con
-//            recipeTitleLabel.text = recipe?.recipe_title
-//            recipePointLabel.text = "$ \(String(recipe?.recipe_point ?? 0))"
-//        }
+        
+        
+        
+        if collection == nil && recipe == nil{
+            recipeConLabel.text = recipeList?.recipe_con
+            recipeTitleLabel.text = recipeList?.recipe_title
+            recipePointLabel.text = "$ \(String(recipeList?.recipe_point ?? 0))"
+        }else if recipe == nil && recipeList == nil{
+            recipeConLabel.text = collection?.recipe_con
+            recipeTitleLabel.text = collection?.recipe_title
+            recipePointLabel.text = "$ \(String(collection?.recipe_point ?? 0))"
+        }else{
+            recipeConLabel.text = recipe?.recipe_con
+            recipeTitleLabel.text = recipe?.recipe_title
+            recipePointLabel.text = "$ \(String(recipe?.recipe_point ?? 0))"
+        }
         
     }
     
@@ -51,36 +51,13 @@ class RecipeDetailViewController: UIViewController {
         showRecipeImage()
         showChefName()
         searchFollow()
-        getRecipeDetail()
-    }
-    
-    
-    func getRecipeDetail(){
-        var requestParam = [String: Any]()
-        requestParam["action"] = "getRecipeDetail"
-        requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
-        executeTask(url_server!, requestParam) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-//                    print("input: \(String(data: data!, encoding: .utf8)!)")
-                    if let result = try? JSONDecoder().decode(Recipe.self, from: data!){
-                        self.recipeDetail = result
-                        DispatchQueue.main.async {
-                            self.recipeConLabel.text = self.recipeDetail?.recipe_con
-                            self.recipeTitleLabel.text = self.recipeDetail?.recipe_title
-                            self.recipePointLabel.text = "$ \(String(self.recipeDetail?.recipe_point ?? 0))"
-                        }
-                    }
-                }
-            }
-        }
     }
     
     func searchFollow(){
         var requestParam = [String: Any]()
         requestParam["action"] = "searchFollow"
         requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+        requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -106,7 +83,7 @@ class RecipeDetailViewController: UIViewController {
     func showChefIcon(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserImageForRecipeDetail"
-        requestParam["chef_no"] = (blog?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
+        requestParam["chef_no"] = (recipeList?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
         requestParam["imageSize"] = 240
         var image: UIImage?
 //        let imageUrl = fileInCaches(fileName: recipe.)
@@ -140,10 +117,10 @@ class RecipeDetailViewController: UIViewController {
     func showRecipeImage(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getRecipeImage"
-        requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+        requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
         requestParam["imageSize"] = 720
         var image: UIImage?
-        let imageUrl = fileInCaches(fileName: ((blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no) ?? "")
+        let imageUrl = fileInCaches(fileName: ((recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no) ?? "")
         if self.fileManager.fileExists(atPath: imageUrl.path) {
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
@@ -180,7 +157,7 @@ class RecipeDetailViewController: UIViewController {
     func showChefName(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserNameforRecipeDetail"
-        requestParam["chef_no"] = (blog?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
+        requestParam["chef_no"] = (recipeList?.chef_no ?? collection?.chef_no) ?? recipe?.chef_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -200,7 +177,7 @@ class RecipeDetailViewController: UIViewController {
             var requestParam = [String: Any]()
             requestParam["action"] = "insertCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+            requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -220,7 +197,7 @@ class RecipeDetailViewController: UIViewController {
             var requestParam = [String: Any]()
             requestParam["action"] = "deleteCollect"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["recipe_no"] = (blog?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
+            requestParam["recipe_no"] = (recipeList?.recipe_no ?? collection?.recipe_no) ?? recipe?.recipe_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -238,40 +215,8 @@ class RecipeDetailViewController: UIViewController {
     }
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let post = segue.destination as! PostVC
-//        let con = recipeConLabel.text
-//        let title = recipeTitleLabel.text
-//        let point = recipePointLabel.text
-//        
-//        post.recipeTitle = title
-//        post.con = con
-//        post.point = point?.trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: CharacterSet(charactersIn: "$"))
-//        post.flag = 1
-//        post.image = recipeImageview.image
-//        post.recipe_no = recipe?.recipe_no ?? collection?.recipe_no ?? recipeList?.recipe_no
-//        }
     
     
-    @IBSegueAction func clickToMessage(_ coder: NSCoder) -> MessageTVC? {
-        let controller = MessageTVC(coder: coder)
-        controller?.recipe_no = recipe?.recipe_no ?? collection?.recipe_no ?? blog?.recipe_no
-        return controller
-    }
     
-    @IBSegueAction func clickToUpdate(_ coder: NSCoder) -> PostVC? {
-        let controller = PostVC(coder: coder)
-        let con = recipeConLabel.text
-        let title = recipeTitleLabel.text
-        let point = recipePointLabel.text
-        
-        controller?.recipeTitle = title
-        controller?.con = con
-        controller?.point = point?.trimmingCharacters(in: .whitespacesAndNewlines).trimmingCharacters(in: CharacterSet(charactersIn: "$"))
-        controller?.flag = 1
-        controller?.image = recipeImageview.image
-        controller?.recipe_no = recipe?.recipe_no ?? collection?.recipe_no ?? blog?.recipe_no
-        return controller
-    }
     
 }

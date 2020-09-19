@@ -17,11 +17,6 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var image:UIImage?
     let url_server = URL(string: common_url + "UberCook_Servlet")
     let recipe:Recipe? = nil
-    var flag:Int?
-    var recipeTitle:String?
-    var con:String?
-    var point:String?
-    var recipe_no:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +32,7 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         recipePointTextField.layer.cornerRadius = 5
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
         self.view.addGestureRecognizer(tap) // to Replace "TouchesBegan"
-                
-        if self.flag == 1 {
-            recipeTitleTextField.text = self.recipeTitle
-            recipeConTextView.text = self.con
-            recipePointTextField.text = self.point
-            recipeImageView.image = self.image
-        }
+        
 //        NotificationCenter.default.addObserver(
 //            self,
 //            selector: #selector(keyboardWillShow),
@@ -139,29 +128,34 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
      
     
     @IBAction func Insert(_ sender: Any) {
-        let alertController = UIAlertController(title: self.flag == 1 ? "修改食譜" : "上傳食譜",
-                                                message: self.flag == 1 ? "確定要修改此篇食譜嗎？" : "確定要上傳此篇食譜嗎？",
-                                                preferredStyle: .alert)
+        let alertController = UIAlertController(title: "上傳食譜", message: "確定要上傳此篇食譜嗎？", preferredStyle: .alert)
         /* 建立標題為"Ok"，樣式為.default(預設樣式)的按鈕 */
-        let ok = UIAlertAction(title: self.flag == 1 ? "修改" : "上傳", style: .default) {
+        let ok = UIAlertAction(title: "上傳", style: .default) {
             /* alertAction代表被點擊的按鈕 */
             (alertAction) in
-            
             let recipe_title = self.recipeTitleTextField.text == nil ? "" : self.recipeTitleTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let recipe_con = self.recipeConTextView.text == nil ? "" : self.recipeConTextView.text!
-            let recipe_point = Int(self.recipePointTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+            let recipe_point = Int(self.recipePointTextField.text ?? "0")
             let chef_no:String = self.userDefault.value(forKey: "chef_no") as! String
-            let recipeData = Recipe(self.recipe_no ?? "", recipe_title, recipe_con, recipe_point ?? 0, chef_no, 1)
+            let flag = 1
+            
+//            self.recipe?.recipe_no = ""
+//            self.recipe?.recipe_title = self.recipeTitleTextField.text ?? ""
+//            self.recipe?.recipe_con = self.recipeConTextView.text ?? ""
+//            self.recipe?.recipe_point = Int(self.recipePointTextField.text ?? "0")
+//            self.recipe?.chef_no = self.userDefault.value(forKey: "chef_no") as? String
+//            self.recipe?.flag = 1
+            
+            let recipeData = Recipe("", recipe_title, recipe_con, recipe_point!, chef_no, flag)
             
             var requestParam = [String: String]()
-            requestParam["action"] = self.flag == 1 ? "recipeUpdate" : "recipeInsert"
+            requestParam["action"] = "recipeInsert"
             requestParam["recipe"] = try! String(data: JSONEncoder().encode(recipeData), encoding: .utf8)
+//            print(self.recipe)
+//            requestParam["flag"] = flag
+            // 有圖才上傳
             if self.image != nil {
                 requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1)!.base64EncodedString()
-                let imageUrl = fileInCaches(fileName: self.recipe_no ?? "")
-                if let image = self.image?.jpegData(compressionQuality: 1.0) {
-                    try? image.write(to: imageUrl, options: .atomic)
-                }
             }
             executeTask(self.url_server!, requestParam) { (data, response, error) in
                 if error == nil {
@@ -169,6 +163,7 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                         if let result = String(data: data!, encoding: .utf8) {
                             if let count = Int(result) {
                                 DispatchQueue.main.async {
+                                    // 新增成功則回前頁
                                     if count != 0 {
                                         self.navigationController?.popViewController(animated: true)
                                     } else {

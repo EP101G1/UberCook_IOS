@@ -1,19 +1,21 @@
 //
-//  MessageCell.swift
+//  WaittingDetailTableViewCell.swift
 //  UberCook
 //
-//  Created by 超 on 2020/9/18.
+//  Created by Hsuan on 2020/9/18.
 //
 
 import UIKit
 
-class MessageCell: UITableViewCell {
+class WaittingDetailTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var messageUserImage: UIImageView!
-    @IBOutlet weak var messageUserNameLabel: UILabel!
-    @IBOutlet weak var messageUserConLabel: UILabel!
+    @IBOutlet weak var NameLabel: UILabel!
     
-
+    @IBOutlet weak var numberLabel: UILabel!
+    
+    
+    @IBOutlet weak var cashLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

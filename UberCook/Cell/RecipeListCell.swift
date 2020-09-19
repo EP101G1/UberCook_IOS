@@ -37,6 +37,7 @@ class RecipeListCell: UITableViewCell {
     
     
     @IBAction func clickCollection(_ sender: UIButton) {
+        print("123")
         if let index = index {
             completionHandler?(index)
         }

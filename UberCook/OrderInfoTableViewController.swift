@@ -1,63 +1,98 @@
 //
-//  MessageTVC.swift
+//  OrderInfoTableViewController.swift
 //  UberCook
 //
-//  Created by 超 on 2020/9/18.
+//  Created by Hsuan on 2020/9/18.
 //
 
 import UIKit
 
-class MessageTVC: UITableViewController {
+class OrderInfoTableViewController: UITableViewController {
     
-    let url_server = URL(string: common_url + "UberCook_Servlet")
-    var message = [Message]()
-    var recipe_no:String?
+    @IBOutlet weak var orderDateTextField: UITextField!
+    
+    @IBOutlet weak var OrderNameTextField: UITextField!
+    
+    
+    @IBOutlet weak var adrsTextField: UITextField!
+    
+    
+    @IBOutlet weak var phoneTextField: UITextField!
+    
+    @IBOutlet weak var remarkTextView: UITextView!
+    
+    
+    var orderList:Order?
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let controller = parent as? WaittingDetailViewController
+//        print("orderList", controller, controller?.orderList)
+        orderList = controller?.orderList
+        
+        
+        
+        
+    
+        
+//        var datestr = dateFormatString
+        let dateTostr = orderList?.order_date
+        orderDateTextField.text = dateConvertString(date: dateTostr!)
 
+        OrderNameTextField.text = orderList?.user_name
+        phoneTextField.text = orderList?.phone
+        remarkTextView.text = orderList?.remark
+        adrsTextField.text = orderList?.address
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+
+        
+
+    
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    func getMessage(){
-        var requestParam = [String: Any]()
-        requestParam["action"] = "getMessage"
-        requestParam["recipe_no"] = self.recipe_no
-        executeTask(url_server!, requestParam) { (data, response, error) in
-            if error == nil {
-                if data != nil {
-//                    print("input: \(String(data: data!, encoding: .utf8)!)")
-                    if let result = try? JSONDecoder().decode([Message].self, from: data!){
-                        self.message = result
-                    }
-                }
-            }
-        }
+    func dateConvertString(date:Date, dateFormat:String="yyyy-MM-dd HH:mm:ss") -> String { //date型態轉string
+        
+        let dateFormatter = DateFormatter() //設定時間格式
+
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return dateFormatter.string(from: date)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 1
+//    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return message.count
-    }
-
-
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath)
-        let msg = message[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
+        // Configure the cell...
 
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.

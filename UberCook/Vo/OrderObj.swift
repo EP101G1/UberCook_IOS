@@ -20,7 +20,7 @@ struct OrderObj:Encodable { //下載是decodable解碼 上傳就是encodable編�
         case orderList
     }
     
-    func encode(to encoder: Encoder) throws {
+    func encode(to encoder: Encoder) throws { //將日期傳至資料庫
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(action, forKey: .action)
@@ -63,7 +63,51 @@ struct Order:Codable {
     var address:String
     var phone:String
     var user_name:String
+    
+//    enum CodingKeys:CodingKey {
+//        case order_no
+//        case user_no
+//        case chef_no
+//        case remark
+//        case order_date
+//        case flag
+//        case deal_date
+//        case total_point
+//        case user_star
+//        case chef_star
+//        case address
+//        case phone
+//        case user_name
+//        
+//    }
+//    
+//    
+//    mutating func decode(to decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        
+//        order_no =  try container.decode(Int.self, forKey: .order_no)
+//        user_no = try container.decode(String.self, forKey: .user_no)
+//        chef_no = try container.decode(String.self, forKey: .chef_no)
+//        remark = try container.decode(String.self, forKey: .remark)
+//        let order_dateStr = try container.decode(String.self, forKey: .order_date)
+//        let deal_dateStr = try container.decode(String.self, forKey: .deal_date)
+//        let dateFormatter = DateFormatter.init()
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//        order_date = dateFormatter.date(from: order_dateStr)!
+//        deal_date = dateFormatter.date(from: deal_dateStr)!
+//        flag = try container.decode(Int.self, forKey: .flag)
+//        total_point = try container.decode(Int.self, forKey: .total_point)
+//        user_star = try container.decode(Double.self, forKey: .user_star)
+//        chef_star = try container.decode(Double.self, forKey: .chef_star)
+//        address = try container.decode(String.self, forKey: .address)
+//        phone = try container.decode(String.self, forKey: .phone)
+//        user_name = try container.decode(String.self, forKey: .user_name)
+//    }
+    
+    
+    
 }
+
 
 
 struct OrderList:Codable {
@@ -113,11 +157,11 @@ struct OrderList:Codable {
 //        }
 //
 //    }
-        
 
 
 
-    
+
+
 //    enum CodingKeys:CodingKey {
 //        case ORDER_NO
 //        case USER_NO
@@ -134,15 +178,15 @@ struct OrderList:Codable {
 //        case USER_NAME
 //
 //    }
-    
-    
-    
-    
 
 
 
-    
-    
+
+
+
+
+
+
 //    enum OrderList {
 //        case ORDER_NO
 //        case CHEF_NO
