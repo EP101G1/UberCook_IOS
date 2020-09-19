@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return self.orientationLock
     }
     
+    func clear(){
+        let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChefGoogleMapVC") as! ChefGoogleMapVC
+        window?.rootViewController = VC
+        window?.makeKeyAndVisible()
+    }
+    
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

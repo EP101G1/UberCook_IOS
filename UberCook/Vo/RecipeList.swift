@@ -17,8 +17,9 @@ class RecipeList: Codable{
     var recipe_con:String?
     var recipe_point:Int?
     var recipe_total:Int?
+    var flag:Int? = 0
     
-    init(_ user_no:String, _ chef_no:String, _ recipe_no:String, _ user_name:String, _ user_si:String, _ recipe_title:String, _ recipe_con:String, _ recipe_point:Int, _ recipe_total:Int) {
+    init(_ user_no:String, _ chef_no:String, _ recipe_no:String, _ user_name:String, _ user_si:String, _ recipe_title:String, _ recipe_con:String, _ recipe_point:Int, _ recipe_total:Int,_ flag:Int) {
         self.user_no = user_no
         self.chef_no = chef_no
         self.recipe_no = recipe_no
@@ -28,6 +29,7 @@ class RecipeList: Codable{
         self.recipe_con = recipe_con
         self.recipe_point = recipe_point
         self.recipe_total = recipe_total
+        self.flag = flag
     }
 
 }

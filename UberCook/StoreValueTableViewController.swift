@@ -30,10 +30,8 @@ class StoreValueTableViewController: UITableViewController {
     var index = 0
     let userDefault = UserDefaults()
     var userPoint : Int = 0
-<<<<<<< HEAD
     var newPoint : Int = 0
-=======
->>>>>>> f49dfa06078773101b09510cf414d9c747a01e87
+
     
     @IBOutlet weak var lbUserPoint: UILabel!
     override func viewDidLoad() {
