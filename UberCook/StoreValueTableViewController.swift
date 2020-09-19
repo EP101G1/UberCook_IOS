@@ -30,7 +30,6 @@ class StoreValueTableViewController: UITableViewController {
     var index = 0
     let userDefault = UserDefaults()
     var userPoint : Int = 0
-    var count : Int = 0
     var newPoint : Int = 0
     
     @IBOutlet weak var lbUserPoint: UILabel!

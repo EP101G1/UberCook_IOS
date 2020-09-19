@@ -16,12 +16,14 @@ class GoogleMapVC: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var permissionFlag: Bool!
     var currentLocation: CLLocation!
+    var chefLocation: CLLocationCoordinate2D!
     var googleMaps: GMSMapView!
     let userDefault = UserDefaults()
     var address: String!
     var latitude : Double!
     var longitude : Double!
-   
+    var message : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager = CLLocationManager()
@@ -31,6 +33,32 @@ class GoogleMapVC: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
+        addSocketCallBacks()
+    }
+    
+    //socket : receive chef currentLocation
+    func addSocketCallBacks() {
+        GlobalVariables.shared.socket.onText = { [self] (text: String) in
+            if let chatMessage = try? JSONDecoder().decode(ChatMessage.self, from: text.data(using: .utf8)!) {
+                //                let sender = chatMessage.sender
+                let type = chatMessage.type
+                if type == "map"{
+                    latitude = Double (chatMessage.message.prefix(0))
+                    longitude = Double(chatMessage.message.suffix(1))
+                    
+                    if chefLocation != nil {
+                        googleMaps.clear()
+                    }else{
+                        chefLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                        let marker = GMSMarker()
+                        marker.position = self.chefLocation
+                        marker.title = "chefLocation"
+                        marker.map = self.googleMaps
+                    }
+                    
+                }
+            }
+        }
     }
     
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
@@ -42,7 +70,6 @@ class GoogleMapVC: UIViewController, CLLocationManagerDelegate {
     }
     
     func recenterMaps(){
-        
         googleMaps = GMSMapView(frame: self.mapView.frame)
         googleMaps.settings.scrollGestures = true
         googleMaps.settings.zoomGestures = true
@@ -146,5 +173,5 @@ class GoogleMapVC: UIViewController, CLLocationManagerDelegate {
             self.present(alertController, animated: true, completion: nil)
         }
     }
-
+    
 }

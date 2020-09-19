@@ -17,17 +17,15 @@ class ChefGoogleMapVC: UIViewController, CLLocationManagerDelegate, GMSMapViewDe
     var permissionFlag: Bool!
     var currentLocation: CLLocation!
     var googleMaps: GMSMapView!
-    var polylineArray: [GMSPolyline] = []
     var origin: CLLocationCoordinate2D!
     var destination: CLLocationCoordinate2D!
-    var transferPolyline: String!
-    var pickupCoordinate: CLLocationCoordinate2D!
     var geocoder : CLGeocoder!
     let userDefault = UserDefaults()
     var address: String!
     var latitude : Double!
     var longitude : Double!
-    
+    var message : String!
+    var customer_User_no : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +37,23 @@ class ChefGoogleMapVC: UIViewController, CLLocationManagerDelegate, GMSMapViewDe
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 10
         locationManager.startUpdatingLocation()
+        SendReadChatMessage()
     }
-    
+     
+    //socket : chef send currentLocation to user
+    func SendReadChatMessage(){
+        let customer_User_no = userDefault.value(forKey: "customer_User_no") as! String
+        let message = String(currentLocation.coordinate.latitude)+","
+                    + String(currentLocation.coordinate.longitude)
+        let chatMessage = ChatMessage(chatRoom: 0,type: "map", sender: "", receiver: customer_User_no, message: message,read: "",base64: "",dateStr: "",myName: "")
+              
+        if let jsonData = try? JSONEncoder().encode(chatMessage) {
+            let text = String(data: jsonData, encoding: .utf8)
+            GlobalVariables.shared.socket.write(string: text!)
+            // debug用
+//            print("send messages: \(text!)")
+        }
+    }
     
 //        @IBAction func Direct(_ sender: Any) {
 //            //saddr：設定路線搜尋的的起點,如果值是空白,則會使用使用者的目前位置
@@ -56,6 +69,7 @@ class ChefGoogleMapVC: UIViewController, CLLocationManagerDelegate, GMSMapViewDe
 //            }
 //        }
     
+    //show myLocation
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
         let camera = GMSCameraPosition.camera(withLatitude: currentLocation.coordinate.latitude, longitude: currentLocation.coordinate.longitude, zoom: 15.0)
         googleMaps.camera = camera

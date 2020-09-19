@@ -212,7 +212,7 @@ class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDel
         let dformatter = DateFormatter()
         dformatter.dateFormat = "HH:mm:ss"
         
-        let chatMessage = ChatMessage(chatRoom: chatRoomNo!,type: "chat", sender: role_no, receiver: friend_no!, message: message!,read: "",base64: nil,dateStr: dformatter.string(from: now),myName: userDefault.value(forKey: "user_name") as! String);
+        let chatMessage = ChatMessage(chatRoom: chatRoomNo!,type: "chat", sender: role_no, receiver: friend_no!, message: message!,read: "",base64: nil,dateStr: dformatter.string(from: now),myName: userDefault.value(forKey: "user_name") as! String)
         
         if let jsonData = try? JSONEncoder().encode(chatMessage) {
             let text = String(data: jsonData, encoding: .utf8)

@@ -1,7 +1,7 @@
 struct  ChatMessage: Codable {
     var chatRoom: Int
     var type: String
-    var sender: String
+    var sender: String?
     var receiver: String
     var message: String
     var read: String
