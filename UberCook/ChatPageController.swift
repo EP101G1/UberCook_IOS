@@ -181,6 +181,7 @@ class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDel
             if(chatMessage?.type == "chat"){
                 cell.FriendPhoto.layer.cornerRadius = 25
                 cell.FriendPhoto.image = self.image
+                cell.FriendMsg.layer.cornerRadius = 10
                 cell.FriendMsg.text = chatMessage?.message
                 cell.FriendMsgState.text = chatMessage?.dateStr
             
@@ -189,8 +190,8 @@ class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDel
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "myChat", for: indexPath) as! MyChatCell
             if(chatMessage?.type == "chat"){
+                cell.MyMsg.layer.cornerRadius = 10
                 cell.MyMsg.text = chatMessage?.message
-                
                 cell.MyMsgState.text = chatMessage!.read + " " +  (chatMessage?.dateStr)!
             }
             return cell

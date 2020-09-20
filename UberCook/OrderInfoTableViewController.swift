@@ -76,8 +76,8 @@ class OrderInfoTableViewController: UITableViewController {
     
     @IBAction func ifAccept(_ sender: Any) {
         
-        let myuserNoQRcode = userDefault.value(forKey: "user_no") as! String
-        let data = myuserNoQRcode.data(using: String.Encoding.utf8)
+        let myuserNoQRcode = orderList?.user_no
+        let data = myuserNoQRcode?.data(using: String.Encoding.utf8)
         // CIFilter是圖片處理器，指定QR code產生器產生對應的CIImage
         guard let ciFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
         // key為"inputMessage"代表要設定輸入資料，而輸入資料設為data即為utf8編碼的文字
@@ -107,7 +107,7 @@ class OrderInfoTableViewController: UITableViewController {
         executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
-                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                   // print("input: \(String(data: data!, encoding: .utf8)!)")
                     if let result = String(data: data!, encoding: .utf8){
                         let resultInt = result.trimmingCharacters(in: .whitespacesAndNewlines)
 //                        print(resultInt)

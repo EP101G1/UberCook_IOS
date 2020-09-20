@@ -96,6 +96,17 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
                let point = try? decoder.decode(Int.self, from: data){
                 //                print(menuRecipeList[0].chefNo)
                 print(String(point))
+                DispatchQueue.main.async {
+                    let controller = UIAlertController(title: "確定要送出這筆訂單", message: "送出後無法取消訂單", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
+                        let totalOrderListView = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Home //根據storyboard去找下一頁id然後向下轉型成下一頁
+                        self.navigationController?.pushViewController(totalOrderListView, animated: true) //傳至下一頁
+                    }
+                    controller.addAction(okAction)
+                    let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                    controller.addAction(cancelAction)
+                    self.present(controller, animated: true, completion: nil)
+                }
             }else{
                 
             }
@@ -116,7 +127,7 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
         setBottomBorder()
         
       
-        for index in 0...nextMenuRecipeLists.count-1{
+        for index in 0..<nextMenuRecipeLists.count{
             self.sumtotal += (nextMenuRecipeLists[index].recipePoint) * (self.nextMenuRecipeLists[index].count!)
         }
         totalMoneyTextView.text = "$"+String(sumtotal)

@@ -49,7 +49,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        
+        addSocketCallBacks()
         self.userDefault.setValue(orderList?.user_no, forKey: "custom_no")
         self.userDefault.setValue(orderList?.address, forKey: "custom_adrs")
 
@@ -58,11 +58,50 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showOrderInfo()
+        if orderList?.flag != 1 {
+            userNoButton.isHidden = true
+            chefNoButton.isHidden = true
+            photoImageView.isHidden = true
+        }
       
 
     }
     
+    
+    @IBAction func OnClickEvaluationButton(_ sender: Any) {
+        
+    }
+    
+    
   
+    // 也可使用closure偵測WebSocket狀態
+    func addSocketCallBacks() {
+    
+        
+        GlobalVariables.shared.socket.onText = { [self] (text: String) in
+            if let chatMessage = try? JSONDecoder().decode(ChatMessage.self, from: text.data(using: .utf8)!) {
+                let type = chatMessage.type
+                // 接收到聊天訊息
+                
+                switch type {
+                case "QRCODE":
+                    if(chatMessage.message == orderList?.user_no ){
+                        photoImageView.isHidden = true
+                        EvaluationButton.isHidden = false
+                    }else{
+                        //秀alert說條碼不符
+                    }
+                    
+                default:
+                    print("default")
+                }
+               
+            }
+            
+            //print("\(self.tag) got some text: \(text)")
+        }
+
+    }
     
     func showOrderInfo(){
         
@@ -118,8 +157,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         requestParam["order_no"] = orderList?.order_no
         requestParam["imageSize"] = 1440
     
-        executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error)
-            in
+        executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error)in
             if let data = data,
                let image = UIImage(data: data){
                 self.image = image
@@ -130,6 +168,41 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         }
     
 }
+    
+    func changeFlag(qrCode:String){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "updateOrderFlag"
+        requestParam["order_no"] = orderList?.order_no
+        
+        executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+               let result = String(data: data!, encoding: .utf8)!
+               let resultInt = result.trimmingCharacters(in: .whitespacesAndNewlines)
+                    if let count = Int(resultInt){
+                        if count == 1{
+                            DispatchQueue.main.async {
+                                self.scanQrcodeButton.isHidden = true
+                                self.EvaluationButton.isHidden = false
+                                self.userNoButton.isHidden = true
+                                self.chefNoButton.isHidden = true
+                                self.photoImageView.isHidden = true
+                                let chatMessage = ChatMessage(chatRoom: 0,type: "QRCODE", sender: "", receiver: self.orderList!.chef_no, message: qrCode,read: "",base64: nil,dateStr: "",myName: self.userDefault.value(forKey: "user_name") as! String)
+                                
+                                if let jsonData = try? JSONEncoder().encode(chatMessage) {
+                                    let text = String(data: jsonData, encoding: .utf8)
+                                    GlobalVariables.shared.socket.write(string: text!)
+                                }
+                               
+                            }
+                        }
+                       
+                    }
+                }
+            }
+    }
+        
+    }
     
     
     @IBAction func pleaseScanQRcode(_ sender: Any) {
@@ -222,9 +295,24 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     }
     
     func scanSuccess(qrCode: String) {
+        print(userDefault.value(forKey: "user_no") as!String)
+        if qrCode == userDefault.value(forKey: "user_no") as!String {
+            changeFlag(qrCode: qrCode)
+        }else{
+            let controller = UIAlertController(title: "錯誤", message: "訂單不符 請重新掃描QR Code", preferredStyle: .alert)
+              let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)
+              controller.addAction(okAction)
+            self.present(controller, animated: true, completion: nil)
+
+        }
+        
+        
+    
         print("result: \(qrCode)")
         // 停止預覽
         preview(false)
+
+ 
         
     }
     
@@ -237,11 +325,17 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
                 captureSession.startRunning()
             }
         } else {
-            if (captureSession.isRunning) {
-                captureSession.stopRunning()
-                previewLayer.removeFromSuperlayer()
-                qrFrameView.removeFromSuperview()
+            
+            if let captureSession = captureSession {
+                if (captureSession.isRunning) {
+                    captureSession.stopRunning()
+                    previewLayer.removeFromSuperlayer()
+                    qrFrameView.removeFromSuperview()
+                }
             }
+            
+            
+           
         }
     }
     

@@ -31,8 +31,6 @@ class StartingDetailViewController: UIViewController,UITableViewDelegate,UITable
     
         executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
             let decoder = JSONDecoder()
-            
-            
             if error == nil {
                 if data != nil {
                 print("input: \(String(data: data!, encoding: .utf8)!)")

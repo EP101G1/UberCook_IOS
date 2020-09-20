@@ -34,7 +34,7 @@ class WaittingDetailViewController: UIViewController,UITableViewDelegate,UITable
         var requestParam = [String: Any]()
         requestParam["action"] = "getOrderLists"
         requestParam["order_no"] = orderList?.order_no
-        print( orderList?.order_no)
+        //print( orderList?.order_no)
     
         executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
             let decoder = JSONDecoder()
