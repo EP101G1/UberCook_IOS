@@ -2782,18 +2782,6 @@
                                         <segue destination="BKP-oF-4zx" kind="show" id="wsK-tm-25C"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKF-Je-rHM">
-                                    <rect key="frame" x="135" y="321" width="135" height="30"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="1J3-Qf-YmW"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Oj9-Ae-RV0"/>
-                                        <constraint firstAttribute="width" constant="135" id="yLy-3h-CS1"/>
-                                    </constraints>
-                                    <state key="normal" title="chefno Google Map"/>
-                                    <connections>
-                                        <segue destination="eL6-bL-Gco" kind="show" id="Gaa-xv-KdA"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haU-PA-gkP">
                                     <rect key="frame" x="185" y="415" width="35" height="33"/>
                                     <constraints>
@@ -2813,6 +2801,18 @@
                                     <state key="normal" title="請掃描QR Code"/>
                                     <connections>
                                         <action selector="pleaseScanQRcode:" destination="kOe-jD-Rwd" eventType="touchUpInside" id="9d1-nh-x4X"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKF-Je-rHM">
+                                    <rect key="frame" x="135" y="321" width="135" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="1J3-Qf-YmW"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Oj9-Ae-RV0"/>
+                                        <constraint firstAttribute="width" constant="135" id="yLy-3h-CS1"/>
+                                    </constraints>
+                                    <state key="normal" title="chefno Google Map"/>
+                                    <connections>
+                                        <segue destination="eL6-bL-Gco" kind="show" id="Gaa-xv-KdA"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -2891,6 +2891,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9F-Fu-mtc" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="326.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="會員地圖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ney-Ri-Q69">
+                                        <rect key="frame" x="216" y="50" width="70" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -2925,7 +2934,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="Icf-Cx-rwU"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="私廚地圖"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
