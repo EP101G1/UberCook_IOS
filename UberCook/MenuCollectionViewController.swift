@@ -153,7 +153,6 @@ class MenuCollectionViewController: UICollectionViewController {
         
         MenuController.shared.getRecipeImage(recipe_no: MenuRecipeLists[indexPath.row].recipeNo , imageSize: 500) { (image) in
             if let image = image{
-                
                 DispatchQueue.main.async {
                     cell.photoView.image = image
                 }

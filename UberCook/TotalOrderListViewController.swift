@@ -17,9 +17,7 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
     
     var nextMenuRecipeLists = [MenuRecipeList]()
     var chefNo:String?
-    
-    
-    
+
     
     var sumtotal = 0
     
@@ -61,7 +59,7 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
          */
         
         //把訂購人資訊包成物件
-        var orderinfo = Order(order_no: nil, user_no: self.userDefault.value(forKey: "user_no")as! String, chef_no: chefNo!, remark: remarksTextView.text, order_date: Date(), flag: 0, deal_date: datepickerview.date, total_point: sumtotal, user_star: nil, chef_star: nil, address: adrsTextField.text!, phone: phoneTextField.text!, user_name: nameTextField.text!)
+        let orderinfo = Order(order_no: nil, user_no: self.userDefault.value(forKey: "user_no")as! String, chef_no: chefNo!, remark: remarksTextView.text, order_date: Date(), flag: 0, deal_date: datepickerview.date, total_point: sumtotal, user_star: nil, chef_star: nil, address: adrsTextField.text!, phone: phoneTextField.text!, user_name: nameTextField.text!)
         
         
         
@@ -69,14 +67,14 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
         var orderListinfo = [OrderList]()
         for index in 0...nextMenuRecipeLists.count-1  {
             
-            var orderListoObj = OrderList(order_no: nil, recipe_no: nextMenuRecipeLists[index].recipeNo, point: nextMenuRecipeLists[index].recipePoint * nextMenuRecipeLists[index].count!, count: nextMenuRecipeLists[index].count!, recipe_title: nextMenuRecipeLists[index].recipeTitle)
+            let orderListoObj = OrderList(order_no: nil, recipe_no: nextMenuRecipeLists[index].recipeNo, point: nextMenuRecipeLists[index].recipePoint * nextMenuRecipeLists[index].count!, count: nextMenuRecipeLists[index].count!, recipe_title: nextMenuRecipeLists[index].recipeTitle)
             orderListinfo.append(orderListoObj) //把物件加進陣列
             
         }
         
         
         
-        var OrderInsertObj = OrderObj(action: "InsertOrder", userName: nameTextField.text, order: orderinfo, orderList: orderListinfo)
+       let OrderInsertObj = OrderObj(action: "InsertOrder", userName: nameTextField.text, order: orderinfo, orderList: orderListinfo)
         
         
         let baseURL = URL(string: "http://127.0.0.1:8080/UberCook_Server")!
@@ -105,6 +103,24 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
         
         
         
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        nameTextField.text = self.userDefault.value(forKey: "user_name") as? String
+        adrsTextField.text = self.userDefault.value(forKey: "user_adrs") as? String
+        phoneTextField.text = self.userDefault.value(forKey: "user_phone") as? String
+        
+        setBottomBorder()
+        
+      
+        for index in 0...nextMenuRecipeLists.count-1{
+            self.sumtotal += (nextMenuRecipeLists[index].recipePoint) * (self.nextMenuRecipeLists[index].count!)
+        }
+        totalMoneyTextView.text = "$"+String(sumtotal)
+       
     }
     
     
@@ -126,34 +142,15 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
         
         cell.numberLabel.text = String(self.nextMenuRecipeLists[indexPath.row].count!)
         
-        var subtotal:Int?
+        cell.cashLabel.text = "$  "+String(nextMenuRecipeLists[indexPath.row].recipePoint * nextMenuRecipeLists[indexPath.row].count!)
         
-        subtotal = (nextMenuRecipeLists[indexPath.row].recipePoint) * (self.nextMenuRecipeLists[indexPath.row].count!)
-        cell.cashLabel.text = "$  "+String(subtotal!)
-        
-        
-        self.sumtotal += subtotal!  //sumtotal = sumtotal+subtotal
-        totalMoneyTextView.text = "$"+String(sumtotal)
-        
-        //        print(sumtotal)
         
         return cell
     }
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        nameTextField.text = self.userDefault.value(forKey: "user_name") as? String
-        adrsTextField.text = self.userDefault.value(forKey: "user_adrs") as? String
-        phoneTextField.text = self.userDefault.value(forKey: "user_phone") as? String
-        setBottomBorder()
-        
-        
-        
-        //     print(nextMenuRecipeLists)
-    }
+   
     
     
     

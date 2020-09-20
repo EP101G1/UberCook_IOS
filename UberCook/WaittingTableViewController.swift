@@ -11,10 +11,17 @@ class WaittingTableViewController: UITableViewController {
     
     let userDefault = UserDefaults()
     var orderList = [Order]()
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getOrder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getOrder()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -74,7 +81,15 @@ class WaittingTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(WaittingTableViewCell.self)", for: indexPath) as! WaittingTableViewCell
         
         cell.idLabel.text = String(orderList[indexPath.row].order_no!)
-        cell.NameLebel.text = orderList[indexPath.row].user_name
+        
+        let ordercheffNo = orderList[indexPath.row].user_no
+        let myuserNo = userDefault.value(forKey: "user_no") as! String
+        if ordercheffNo == myuserNo {
+            cell.NameLebel.text = "待審核"
+        }else{
+            cell.NameLebel.text = orderList[indexPath.row].user_name
+        }
+        
         
        let dateTostr = orderList[indexPath.row].deal_date
         cell.dateLabel.text = dateConvertString(date: dateTostr)

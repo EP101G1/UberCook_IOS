@@ -11,16 +11,16 @@ class StartingTableViewController: UITableViewController {
     
     let userDefault = UserDefaults()
     var orderList = [Order]()
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getOrder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getOrder()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func getOrder(){
@@ -72,7 +72,15 @@ class StartingTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(StartingTableViewCell.self)", for: indexPath) as! StartingTableViewCell
 
         cell.idLabel.text = String(orderList[indexPath.row].order_no!)
-        cell.NameLabel.text = orderList[indexPath.row].user_name
+        
+        let ordercheffNo = orderList[indexPath.row].user_no
+        let myuserNo = userDefault.value(forKey: "user_no") as! String
+        if ordercheffNo == myuserNo {
+            cell.NameLabel.text = "進行中"
+        }else{
+            cell.NameLabel.text = orderList[indexPath.row].user_name
+        }
+        
         let dateTostr = orderList[indexPath.row].deal_date
         cell.DateLabel.text = dateConvertString(date: dateTostr)
 

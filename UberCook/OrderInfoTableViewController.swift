@@ -22,8 +22,14 @@ class OrderInfoTableViewController: UITableViewController {
     @IBOutlet weak var remarkTextView: UITextView!
     
     
-    var orderList:Order?
+    @IBOutlet weak var checkButton: UIButton!
     
+    
+    @IBOutlet weak var rejectButton: UIButton!
+    
+    var orderList:Order?
+    let userDefault = UserDefaults()
+    var image:UIImage?
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,13 +38,7 @@ class OrderInfoTableViewController: UITableViewController {
         let controller = parent as? WaittingDetailViewController
 //        print("orderList", controller, controller?.orderList)
         orderList = controller?.orderList
-        
-        
-        
-        
-    
-        
-//        var datestr = dateFormatString
+
         let dateTostr = orderList?.order_date
         orderDateTextField.text = dateConvertString(date: dateTostr!)
 
@@ -46,23 +46,24 @@ class OrderInfoTableViewController: UITableViewController {
         phoneTextField.text = orderList?.phone
         remarkTextView.text = orderList?.remark
         adrsTextField.text = orderList?.address
+        
+        let orderuserNo  = orderList?.user_no
+        let myuserNo = userDefault.value(forKey: "user_no") as! String
+         
+         if orderuserNo == myuserNo {
+            
+            checkButton.isHidden = true
+            rejectButton.isHidden = true
+         }else{
+            
+         }
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-
-        
-
-    
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     func dateConvertString(date:Date, dateFormat:String="yyyy-MM-dd HH:mm:ss") -> String { //date型態轉string
         
@@ -71,6 +72,66 @@ class OrderInfoTableViewController: UITableViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return dateFormatter.string(from: date)
     }
+    
+    
+    @IBAction func ifAccept(_ sender: Any) {
+        
+        let myuserNoQRcode = userDefault.value(forKey: "user_no") as! String
+        let data = myuserNoQRcode.data(using: String.Encoding.utf8)
+        // CIFilter是圖片處理器，指定QR code產生器產生對應的CIImage
+        guard let ciFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
+        // key為"inputMessage"代表要設定輸入資料，而輸入資料設為data即為utf8編碼的文字
+        ciFilter.setValue(data, forKey: "inputMessage")
+        // 取得產生好的QR code圖片，不過圖片很小
+        guard let ciImage_smallQR = ciFilter.outputImage else { return }
+        // QR code圖片很小，需要放大
+        let transform = CGAffineTransform(scaleX: 10, y: 10)
+        let ciImage_largeQR = ciImage_smallQR.transformed(by: transform)
+        // 將CIImage轉成UIImage顯示
+        let uiImage = UIImage(ciImage: ciImage_largeQR)
+        self.image = uiImage
+        
+        getAccept()
+    }
+    
+    func getAccept(){
+        var requestParam = [String: Any]()
+        requestParam["action"] = "dealOrder"
+        requestParam["order_no"] = orderList?.order_no
+        requestParam["user_no"] = orderList?.user_no
+        requestParam["ifAccept"] = true
+        requestParam["chef_name"] = userDefault.value(forKey: "user_name") as! String
+        if self.image != nil {
+            requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1)!.base64EncodedString()
+        }
+        executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
+            if error == nil {
+                if data != nil {
+                    print("input: \(String(data: data!, encoding: .utf8)!)")
+                    if let result = String(data: data!, encoding: .utf8){
+                        let resultInt = result.trimmingCharacters(in: .whitespacesAndNewlines)
+//                        print(resultInt)
+//                        print(resultInt.count)
+                        if let count = Int(resultInt){
+                            DispatchQueue.main.async {
+                                if count != 0 {
+                                   
+                                    self.navigationController?.popViewController(animated: true)
+                                } else {
+                                }
+                            }
+                        }
+                    }
+                    }
+                }
+            }
+        }
+    
+    
+    @IBAction func ifReject(_ sender: Any) {
+        
+    }
+    
 
     // MARK: - Table view data source
 

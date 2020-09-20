@@ -14,12 +14,15 @@ class StartingDetailViewController: UIViewController,UITableViewDelegate,UITable
     var orderList:Order?
     var orderinfoLists = [OrderList]()
     
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getOrder()
-
-        // Do any additional setup after loading the view.
     }
+    
     func getOrder(){
         var requestParam = [String: Any]()
         requestParam["action"] = "getOrderLists"
