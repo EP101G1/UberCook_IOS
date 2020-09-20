@@ -225,6 +225,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         print("result: \(qrCode)")
         // 停止預覽
         preview(false)
+        
     }
     
     // 是否開啟預覽畫面
@@ -238,6 +239,8 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         } else {
             if (captureSession.isRunning) {
                 captureSession.stopRunning()
+                previewLayer.removeFromSuperlayer()
+                qrFrameView.removeFromSuperview()
             }
         }
     }

@@ -1311,6 +1311,9 @@
                                     <constraint firstAttribute="width" constant="36" id="ML1-hb-rvI"/>
                                 </constraints>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="msgSend:" destination="nVw-bB-zDK" eventType="touchUpInside" id="4Yh-fE-POc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRp-ih-ebg">
                                 <rect key="frame" x="289" y="726" width="31" height="22"/>
@@ -1335,6 +1338,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K1X-LZ-tNg"/>
+                    <connections>
+                        <outlet property="chatTable" destination="3t4-6y-060" id="h4N-LH-XID"/>
+                        <outlet property="msgSendBtn" destination="E1b-MY-m2i" id="iWL-9J-BTe"/>
+                        <outlet property="msgTextField" destination="EUB-w8-P1h" id="t0C-ka-YaI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbT-ON-amj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
