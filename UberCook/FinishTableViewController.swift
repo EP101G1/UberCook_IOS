@@ -1,18 +1,16 @@
 //
-//  StartingTableViewController.swift
+//  FinishTableViewController.swift
 //  UberCook
 //
-//  Created by Hsuan on 2020/9/18.
+//  Created by Hsuan on 2020/9/21.
 //
 
 import UIKit
 
-class StartingTableViewController: UITableViewController {
+class FinishTableViewController: UITableViewController {
     
     let userDefault = UserDefaults()
     var orderList = [Order]()
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,6 +19,8 @@ class StartingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+      
     }
     
     func getOrder(){
@@ -28,7 +28,7 @@ class StartingTableViewController: UITableViewController {
         requestParam["action"] = "getOrder"
         requestParam["chef_no"] = self.userDefault.value(forKey: "chef_no") ?? 0
         requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam["flag"] = 1
+        requestParam["flag"] = 3
     
         executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
             let decoder = JSONDecoder()
@@ -68,21 +68,24 @@ class StartingTableViewController: UITableViewController {
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(StartingTableViewCell.self)", for: indexPath) as! StartingTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(FinishTableViewCell.self)", for: indexPath) as! FinishTableViewCell
+        
 
-        cell.idLabel.text = String(orderList[indexPath.row].order_no!)
+        cell.IdLabel.text = String(orderList[indexPath.row].order_no!)
         
         let ordercheffNo = orderList[indexPath.row].user_no
         let myuserNo = userDefault.value(forKey: "user_no") as! String
         if ordercheffNo == myuserNo {
-            cell.NameLabel.text = "進行中"
+            cell.NameLabel.text = "已完成"
         }else{
             cell.NameLabel.text = orderList[indexPath.row].user_name
         }
         
         let dateTostr = orderList[indexPath.row].deal_date
         cell.DateLabel.text = dateConvertString(date: dateTostr)
+
+
 
         return cell
     }
@@ -95,16 +98,16 @@ class StartingTableViewController: UITableViewController {
         return dateFormatter.string(from: date)
     }
     
-   
-    @IBSegueAction func TakeOrderlistToDetail(_ coder: NSCoder) -> StartingDetailViewController? {
-        let controller = StartingDetailViewController(coder: coder)
+    
+    @IBSegueAction func TakeFinishToDetail(_ coder: NSCoder) -> FinishDetailViewController? {
+        let controller = FinishDetailViewController(coder: coder)
         if let row = tableView.indexPathForSelectedRow?.row {
             controller?.orderList = orderList[row]
         }
         return controller
     }
     
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

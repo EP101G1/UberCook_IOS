@@ -35,7 +35,7 @@ class MenuController{
     
     static let shared = MenuController()
     
-    let baseURL = URL(string: "http://127.0.0.1:8080/UberCook_Server")!
+    let baseURL = URL(string: "http://192.168.196.137:8080/UberCook_Server")!
     
     func getMenuRecipeLists(chefNo:String,completion:@escaping ([MenuRecipeList]?) -> Void){
         let url = baseURL.appendingPathComponent("Order_Servlet") //連網址

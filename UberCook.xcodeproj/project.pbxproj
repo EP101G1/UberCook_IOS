@@ -27,6 +27,8 @@
 		33D29958250E034C0026F280 /* TPDirect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33D29957250E034C0026F280 /* TPDirect.framework */; };
 		B761D6CE2510663C00AA0071 /* FriendChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6CD2510663C00AA0071 /* FriendChatCell.swift */; };
 		B761D6D02510664900AA0071 /* MyChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B761D6CF2510664900AA0071 /* MyChatCell.swift */; };
+		C51845022517746D006DB8AD /* StarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51845002517746D006DB8AD /* StarType.swift */; };
+		C51845032517746D006DB8AD /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51845012517746D006DB8AD /* StarRateView.swift */; };
 		C51F73E025134F3C004FB72C /* WaittingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */; };
 		C51F73E225134F63004FB72C /* WaittingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */; };
 		C51F73E425138E1C004FB72C /* WaittingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51F73E325138E1C004FB72C /* WaittingDetailViewController.swift */; };
@@ -44,6 +46,9 @@
 		C5808F8E250F974100CF80FC /* TotalOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */; };
 		C5808F90250F9D3300CF80FC /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */; };
 		C5808F962511E24B00CF80FC /* OrderObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F952511E24B00CF80FC /* OrderObj.swift */; };
+		C5D32F0A2518AACD00BB86EF /* FinishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D32F092518AACD00BB86EF /* FinishTableViewCell.swift */; };
+		C5D32F0B2518AAE800BB86EF /* FinishTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D32F082518AA8D00BB86EF /* FinishTableViewController.swift */; };
+		C5D32F0D2518ABC400BB86EF /* FinishDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D32F0C2518ABC400BB86EF /* FinishDetailViewController.swift */; };
 		E5149528250A037600A7290D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149526250A037600A7290D /* ChatMessage.swift */; };
 		E5149529250A037600A7290D /* StateMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149527250A037600A7290D /* StateMessage.swift */; };
 		E514952B250A1B1E00A7290D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952A250A1B1E00A7290D /* Track.swift */; };
@@ -99,6 +104,9 @@
 		B761D6CD2510663C00AA0071 /* FriendChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendChatCell.swift; sourceTree = "<group>"; };
 		B761D6CF2510664900AA0071 /* MyChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatCell.swift; sourceTree = "<group>"; };
 		C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51845002517746D006DB8AD /* StarType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarType.swift; sourceTree = "<group>"; };
+		C51845012517746D006DB8AD /* StarRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
+		C5184504251774D7006DB8AD /* StarRateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarRateView.h; sourceTree = "<group>"; };
 		C51F73DF25134F3C004FB72C /* WaittingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingTableViewController.swift; sourceTree = "<group>"; };
 		C51F73E125134F63004FB72C /* WaittingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingTableViewCell.swift; sourceTree = "<group>"; };
 		C51F73E325138E1C004FB72C /* WaittingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaittingDetailViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +124,9 @@
 		C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderListViewController.swift; sourceTree = "<group>"; };
 		C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		C5808F952511E24B00CF80FC /* OrderObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderObj.swift; sourceTree = "<group>"; };
+		C5D32F082518AA8D00BB86EF /* FinishTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTableViewController.swift; sourceTree = "<group>"; };
+		C5D32F092518AACD00BB86EF /* FinishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinishTableViewCell.swift; path = /Users/hsuan/UberCookForIOS/UberCook/FinishTableViewCell.swift; sourceTree = "<absolute>"; };
+		C5D32F0C2518ABC400BB86EF /* FinishDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishDetailViewController.swift; sourceTree = "<group>"; };
 		E5149526250A037600A7290D /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		E5149527250A037600A7290D /* StateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMessage.swift; sourceTree = "<group>"; };
 		E514952A250A1B1E00A7290D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -238,6 +249,7 @@
 				B761D6CF2510664900AA0071 /* MyChatCell.swift */,
 				C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */,
 				C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */,
+				C5D32F092518AACD00BB86EF /* FinishTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -247,6 +259,7 @@
 			children = (
 				E59294EA24FA8E7B00C8F9A2 /* UberCook */,
 				E59294E924FA8E7B00C8F9A2 /* Products */,
+				C5184504251774D7006DB8AD /* StarRateView.h */,
 				E292FC1E03B7AAF3C1BEFD5D /* Pods */,
 				63D0FEB4905710840B7A6368 /* Frameworks */,
 			);
@@ -282,9 +295,11 @@
 				E5AF25C1250A01DA00FBAD9F /* Login.swift */,
 				33C8ADB12515C39800C5CEFA /* RecipesTVCViewController.swift */,
 				E59294F124FA8E7B00C8F9A2 /* Main.storyboard */,
+				C5D32F0C2518ABC400BB86EF /* FinishDetailViewController.swift */,
 				C51F73F12514D6AB004FB72C /* OrderListParentViewController.swift */,
 				33C8ADB32515C49500C5CEFA /* RecipeDetailViewController.swift */,
 				33B7174B2515B0470013A923 /* GoogleMapVC.swift */,
+				C5D32F082518AA8D00BB86EF /* FinishTableViewController.swift */,
 				C51F73EF2514C026004FB72C /* startingOrderInfoTableViewController.swift */,
 				C51F73ED2514A25F004FB72C /* StartingTableViewCell.swift */,
 				C51F73EB2514A0D1004FB72C /* StartingTableViewController.swift */,
@@ -298,6 +313,8 @@
 				C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */,
 				C52B5849250E3E3A000B312A /* MenuCollectionViewController.swift */,
 				33C8ADAD2515C2BA00C5CEFA /* ChatPageController.swift */,
+				C51845012517746D006DB8AD /* StarRateView.swift */,
+				C51845002517746D006DB8AD /* StarType.swift */,
 				E59294F424FA8E7E00C8F9A2 /* Assets.xcassets */,
 				E59294F924FA8E7E00C8F9A2 /* Info.plist */,
 				33D29957250E034C0026F280 /* TPDirect.framework */,
@@ -343,7 +360,7 @@
 				};
 			};
 			buildConfigurationList = E59294E324FA8E7B00C8F9A2 /* Build configuration list for PBXProject "UberCook" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -446,6 +463,7 @@
 				33C8ADB22515C39800C5CEFA /* RecipesTVCViewController.swift in Sources */,
 				33C8ADB82515C52500C5CEFA /* MessageTVC.swift in Sources */,
 				C51F73EC2514A0D1004FB72C /* StartingTableViewController.swift in Sources */,
+				C51845022517746D006DB8AD /* StarType.swift in Sources */,
 				E592950024FAA37700C8F9A2 /* Common.swift in Sources */,
 				33B7174A2515AF570013A923 /* ChefGoogleMapVC.swift in Sources */,
 				E589F8E225094E4D00169A6D /* User_name.swift in Sources */,
@@ -457,8 +475,10 @@
 				C51F73E225134F63004FB72C /* WaittingTableViewCell.swift in Sources */,
 				33C8ADAE2515C2BA00C5CEFA /* ChatPageController.swift in Sources */,
 				E5925C3124FFF2DE002D5C4D /* BlogHeardReusableView.swift in Sources */,
+				C51845032517746D006DB8AD /* StarRateView.swift in Sources */,
 				E5925C2D24FF9E5D002D5C4D /* BlogCollectionViewCell.swift in Sources */,
 				C52B584C250E3E7F000B312A /* MenuCollectionViewCell.swift in Sources */,
+				C5D32F0A2518AACD00BB86EF /* FinishTableViewCell.swift in Sources */,
 				C5808F8E250F974100CF80FC /* TotalOrderListViewController.swift in Sources */,
 				E5815F54250BB0A4000D149D /* CollectionTVC.swift in Sources */,
 				E592F705250BF60F003FDF2A /* CollectionCell.swift in Sources */,
@@ -470,6 +490,8 @@
 				E592F707250D33F0003FDF2A /* CashVC.swift in Sources */,
 				C51F73F22514D6AC004FB72C /* OrderListParentViewController.swift in Sources */,
 				33C8ADBC2515C59600C5CEFA /* MessageCell.swift in Sources */,
+				C5D32F0D2518ABC400BB86EF /* FinishDetailViewController.swift in Sources */,
+				C5D32F0B2518AAE800BB86EF /* FinishTableViewController.swift in Sources */,
 				33C8ADB02515C30400C5CEFA /* BlogViewController.swift in Sources */,
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
 				33C8ADB42515C49500C5CEFA /* RecipeDetailViewController.swift in Sources */,

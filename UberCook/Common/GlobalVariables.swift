@@ -10,7 +10,7 @@ import Starscream
 
 class GlobalVariables: NSObject {
     static let shared = GlobalVariables()
-    let socket_server = "ws://127.0.0.1:8080/UberCook_Server/TwoChatServer/"
+    let socket_server = "ws://192.168.196.137:8080/UberCook_Server/TwoChatServer/"
     var socket: WebSocket!
 }
 

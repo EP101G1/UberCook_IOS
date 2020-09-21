@@ -20,6 +20,8 @@ class StartingDetailViewController: UIViewController,UITableViewDelegate,UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(orderList?.user_no)
+        
         getOrder()
     }
     

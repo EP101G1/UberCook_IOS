@@ -8,11 +8,14 @@
 import UIKit
 import AVFoundation
 
+
 class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetadataOutputObjectsDelegate {
     
     var orderList:Order?
     let userDefault = UserDefaults()
     var image: UIImage?
+    var CommentStar:Float?
+    var ischef:Bool?
     
     @IBOutlet weak var OrderDateTextField: UITextField!
     
@@ -57,20 +60,104 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //print(orderList?.user_no)
+        
+        let controller = parent as? StartingDetailViewController
+//        print("orderList", controller, controller?.orderList)
+        orderList = controller?.orderList
+        
         showOrderInfo()
-        if orderList?.flag != 1 {
+        if orderList?.flag != 1 { //==2
             userNoButton.isHidden = true
             chefNoButton.isHidden = true
             photoImageView.isHidden = true
+            scanQrcodeButton.isHidden = true
+            EvaluationButton.isHidden = false
+        }else{ //==1
+            userNoButton.isHidden = true
+            chefNoButton.isHidden = true
+            photoImageView.isHidden = true
+            scanQrcodeButton.isHidden = true
+            
         }
       
 
     }
     
-    
+    //點選評價按鈕後的alert
     @IBAction func OnClickEvaluationButton(_ sender: Any) {
+        let starView = StarRateView(frame: CGRect(x: 10, y: 80, width: 240, height: 40),totalStarCount: 5, currentStarCount: 0, starSpace: 10)
+        
+        starView.show { (score) in
+            self.CommentStar = Float(score)
+        }
+        
+    
+        let controller = UIAlertController(title: "評分", message: "請為對方此次交易評分", preferredStyle: .alert)
+        
+        let height:NSLayoutConstraint = NSLayoutConstraint(item: controller.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.60) //放大alert
+        
+        let okAction = UIAlertAction(title: "確定發送", style: .default) { (_) in
+            self.completeComment()
+           
+           
+
+//            let totalOrderListView = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Home //根據storyboard去找下一頁id然後向下轉型成下一頁
+//            self.navigationController?.pushViewController(totalOrderListView, animated: true) //傳至下一頁
+        }
+        controller.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        controller.addAction(cancelAction)
+        self.present(controller, animated: true, completion: nil)
+        controller.view.addConstraint(height)
+        controller.view.addSubview(starView)
+       
+    }
+    
+    func completeComment(){
+       let orderUser = orderList?.user_no
+       let user = userDefault.value(forKey: "user_no")as!String
+
+        var requestParam = [String: Any]()
+            requestParam["action"] = "dealOrder"
+            requestParam["order_no"] = orderList?.order_no
+        if orderUser == user{
+            requestParam["user_no"] = orderList?.user_no
+            ischef = false
+        }else{
+            requestParam["user_no"] = orderList?.chef_no
+            ischef = true
+        }
+        requestParam["user_name"] = userDefault.value(forKey: "user_name") as!String
+        requestParam["isChef"] = ischef
+        requestParam["star"] = CommentStar
+        requestParam["total"] = orderList?.total_point
+            
+            
+            
+            executeTask(URL(string: common_url + "Order_Servlet")!, requestParam) { (data, response, error) in
+                if error == nil {
+                    if data != nil {
+                   let result = String(data: data!, encoding: .utf8)!
+                   let resultInt = result.trimmingCharacters(in: .whitespacesAndNewlines)
+                        if let count = Int(resultInt){
+                            if count != 0{
+                                DispatchQueue.main.async {
+                                   
+                                    self.EvaluationButton.isHidden = true
+                                   
+                                }
+                            }
+                           
+                        
+                    }
+                }
+        }
+            
+        }
         
     }
+        
     
     
   
@@ -87,6 +174,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
                 case "QRCODE":
                     if(chatMessage.message == orderList?.user_no ){
                         photoImageView.isHidden = true
+                        scanQrcodeButton.isHidden = true
                         EvaluationButton.isHidden = false
                     }else{
                         //秀alert說條碼不符
