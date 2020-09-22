@@ -70,19 +70,22 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
 //        print("orderList", controller, controller?.orderList)
         orderList = controller?.orderList
         
-        if orderList?.flag != 1 { //==2
+        if orderList?.flag == 2 {
             userNoButton.isHidden = true
             chefNoButton.isHidden = true
             photoImageView.isHidden = true
             scanQrcodeButton.isHidden = true
             EvaluationButton.isHidden = false
-        }else{ //==1
+            
+        }else  {
             userNoButton.isHidden = false
             chefNoButton.isHidden = false
             photoImageView.isHidden = false
             scanQrcodeButton.isHidden = false
+            EvaluationButton.isHidden = true
             
         }
+        
         
         showOrderInfo()
       
@@ -151,6 +154,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
                                 DispatchQueue.main.async {
                                    
                                     self.EvaluationButton.isHidden = true
+                                    self.chefNoButton.isHidden = true
                                    
                                 }
                             }
@@ -197,7 +201,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
 
     }
     
-    func showOrderInfo(){
+    func   showOrderInfo(){
         
         let controller = parent as? StartingDetailViewController
        // print("orderList", controller, controller?.orderList) 確定有無帶到資料
@@ -213,26 +217,6 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         adrsTextField.text = orderList?.address
         
         
-        
-        
-        
-        let orderuserNo  = orderList?.user_no
-        let myuserNo = userDefault.value(forKey: "user_no") as! String
-        
-        if orderuserNo == myuserNo {
-            
-            chefNoButton.isHidden = true
-            photoImageView.isHidden = true
-            EvaluationButton.isHidden = true
-         
-
-        }else{
-            userNoButton.isHidden = true
-            EvaluationButton.isHidden = true
-            scanQrcodeButton.isHidden = true
-            getQRcode()
-            
-        }
         
     }
     
@@ -284,7 +268,8 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
                                 self.userNoButton.isHidden = true
                                 self.chefNoButton.isHidden = true
                                 self.photoImageView.isHidden = true
-                                let chatMessage = ChatMessage(chatRoom: 0,type: "QRCODE", sender: "", receiver: self.orderList!.chef_no, message: qrCode,read: "",base64: nil,dateStr: "",myName: self.userDefault.value(forKey: "user_name") as! String)
+                                
+                                var chatMessage = ChatMessage(chatRoom: 0,type: "QRCODE", sender: "", receiver: self.orderList!.chef_no, message: qrCode,read: "",base64: nil,dateStr: "",myName: self.userDefault.value(forKey: "user_name") as! String)
                                 
                                 if let jsonData = try? JSONEncoder().encode(chatMessage) {
                                     let text = String(data: jsonData, encoding: .utf8)
@@ -380,10 +365,12 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
             // 讓手機震動
             AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             scanSuccess(qrCode: qrString)
+            print(qrString)
             // 取得QR code座標資訊
             if let barCodeObject = previewLayer.transformedMetadataObject(for: metadataObject) {
                 // 成功解析就將QR code圖片框起來
                 qrFrameView.frame = barCodeObject.bounds
+               
             }
         } else {
             // 無法轉成條碼資訊就將圖框隱藏
@@ -395,6 +382,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         print(userDefault.value(forKey: "user_no") as!String)
         if qrCode == userDefault.value(forKey: "user_no") as!String {
             changeFlag(qrCode: qrCode)
+            self.EvaluationButton.isHidden = false
         }else{
             let controller = UIAlertController(title: "錯誤", message: "訂單不符 請重新掃描QR Code", preferredStyle: .alert)
               let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)

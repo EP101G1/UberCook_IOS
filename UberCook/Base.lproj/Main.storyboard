@@ -2851,7 +2851,7 @@
                                         <segue destination="BKP-oF-4zx" kind="show" id="wsK-tm-25C"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haU-PA-gkP">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haU-PA-gkP">
                                     <rect key="frame" x="84" y="425" width="241" height="32"/>
                                     <color key="backgroundColor" name="tiffanyGreen"/>
                                     <constraints>
@@ -2896,7 +2896,7 @@
                                         <segue destination="eL6-bL-Gco" kind="show" id="Gaa-xv-KdA"/>
                                     </connections>
                                 </button>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yaS-xl-tOs">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yaS-xl-tOs">
                                     <rect key="frame" x="111" y="362" width="200" height="161.5"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="200" id="Hsk-wM-7fv"/>
@@ -2915,10 +2915,14 @@
                                 <constraint firstAttribute="trailing" secondItem="FKF-Je-rHM" secondAttribute="trailing" constant="57" id="Kxp-ba-S51"/>
                                 <constraint firstAttribute="bottom" secondItem="j8S-tJ-wEI" secondAttribute="bottom" constant="77" id="PTN-el-DGF"/>
                                 <constraint firstItem="yaS-xl-tOs" firstAttribute="top" secondItem="FKF-Je-rHM" secondAttribute="bottom" constant="18" id="RUX-Ug-78K"/>
+                                <constraint firstItem="haU-PA-gkP" firstAttribute="top" secondItem="VR1-Rx-6Yf" secondAttribute="bottom" constant="81" id="Wgx-xI-prr"/>
                                 <constraint firstItem="FKF-Je-rHM" firstAttribute="leading" secondItem="n0x-44-QhB" secondAttribute="leading" constant="57" id="Y6g-gC-BvX"/>
                                 <constraint firstItem="j8S-tJ-wEI" firstAttribute="top" secondItem="VR1-Rx-6Yf" secondAttribute="bottom" constant="81" id="bDb-QH-bmr"/>
                                 <constraint firstAttribute="bottom" secondItem="yaS-xl-tOs" secondAttribute="bottom" constant="10" id="bcm-MN-aNk"/>
+                                <constraint firstAttribute="trailing" secondItem="haU-PA-gkP" secondAttribute="trailing" constant="89" id="nCB-5M-lP6"/>
                                 <constraint firstItem="VR1-Rx-6Yf" firstAttribute="top" secondItem="Szh-Wm-OfZ" secondAttribute="bottom" constant="8" symbolic="YES" id="otp-KJ-Def"/>
+                                <constraint firstAttribute="bottom" secondItem="haU-PA-gkP" secondAttribute="bottom" constant="78" id="qRC-0U-Ces"/>
+                                <constraint firstItem="haU-PA-gkP" firstAttribute="leading" secondItem="n0x-44-QhB" secondAttribute="leading" constant="84" id="x8r-Td-Mrx"/>
                                 <constraint firstAttribute="trailing" secondItem="VR1-Rx-6Yf" secondAttribute="trailing" constant="57" id="yG0-zb-cXM"/>
                             </constraints>
                         </view>
