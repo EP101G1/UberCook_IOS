@@ -14,6 +14,7 @@ import AVFoundation
 class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
     
     let userDefault = UserDefaults()
+    let baseURL = URL(string: "http://192.168.196.216:8080/UberCook_Server")!
     
     var nextMenuRecipeLists = [MenuRecipeList]()
     var chefNo:String?
@@ -77,7 +78,6 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
        let OrderInsertObj = OrderObj(action: "InsertOrder", userName: nameTextField.text, order: orderinfo, orderList: orderListinfo)
         
         
-        let baseURL = URL(string: "http://127.0.0.1:8080/UberCook_Server")!
         let url = baseURL.appendingPathComponent("Order_Servlet") //連網址
         var request = URLRequest(url: url) //送請求
         request.httpMethod = "POST" //包post

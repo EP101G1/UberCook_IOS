@@ -34,6 +34,9 @@ class OrderInfoTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.checkButton.layer.cornerRadius = 5
+        self.rejectButton.layer.cornerRadius = 5
+        
         
         let controller = parent as? WaittingDetailViewController
 //        print("orderList", controller, controller?.orderList)

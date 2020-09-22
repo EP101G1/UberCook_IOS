@@ -13,8 +13,8 @@ let merchantId = "huangx10a_LINEPAY"
 //實機
 //let common_url = "http://172.20.10.3:8080/UberCook_Server/"
 // 模擬器
-//let common_url = "http://192.168.196.157:8080/UberCook_Server/"
-let common_url = "http://192.168.196.137:8080/UberCook_Server/"
+//let common_url = "http://127.0.0.1:8080/UberCook_Server/"
+let common_url = "http://192.168.196.216:8080/UberCook_Server/"
 
 
 

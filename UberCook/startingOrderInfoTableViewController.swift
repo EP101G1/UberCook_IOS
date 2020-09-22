@@ -51,9 +51,13 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        self.userNoButton.layer.cornerRadius = 5
+        self.EvaluationButton.layer.cornerRadius = 5
+        self.chefNoButton.layer.cornerRadius = 5
+        self.scanQrcodeButton.layer.cornerRadius = 5
+        
         addSocketCallBacks()
-        self.userDefault.setValue(orderList?.user_no, forKey: "custom_no")
+        self.userDefault.setValue(orderList?.user_no, forKey: "customer_User_no")
         self.userDefault.setValue(orderList?.address, forKey: "custom_adrs")
 
        
@@ -66,7 +70,6 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
 //        print("orderList", controller, controller?.orderList)
         orderList = controller?.orderList
         
-        showOrderInfo()
         if orderList?.flag != 1 { //==2
             userNoButton.isHidden = true
             chefNoButton.isHidden = true
@@ -74,12 +77,15 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
             scanQrcodeButton.isHidden = true
             EvaluationButton.isHidden = false
         }else{ //==1
-            userNoButton.isHidden = true
-            chefNoButton.isHidden = true
-            photoImageView.isHidden = true
-            scanQrcodeButton.isHidden = true
+            userNoButton.isHidden = false
+            chefNoButton.isHidden = false
+            photoImageView.isHidden = false
+            scanQrcodeButton.isHidden = false
             
         }
+        
+        showOrderInfo()
+      
       
 
     }
@@ -205,6 +211,9 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         phoneTextField.text = orderList?.phone
         remarkTextView.text = orderList?.remark
         adrsTextField.text = orderList?.address
+        
+        
+        
         
         
         let orderuserNo  = orderList?.user_no
