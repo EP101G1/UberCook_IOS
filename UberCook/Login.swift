@@ -19,7 +19,7 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("USER : \(self.userDefault.dictionaryRepresentation())")
         // Do any additional setup after loading the view.
     }
     

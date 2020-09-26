@@ -49,7 +49,7 @@ class WaittingTableViewController: UITableViewController {
             
             if error == nil {
                 if data != nil {
-                print("input: \(String(data: data!, encoding: .utf8)!)")
+//                print("input: \(String(data: data!, encoding: .utf8)!)")
                     if let result = try? decoder.decode([Order].self, from: data!){
                         self.orderList = result
 //                        print("\(self.orderList[0].deal_date) + !!!!!!!!!")

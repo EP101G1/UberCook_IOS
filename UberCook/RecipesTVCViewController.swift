@@ -125,7 +125,7 @@ class RecipesTVCViewController: UIViewController, UITableViewDelegate, UITableVi
         cell?.completionHandler = {(index) in
             self.index = index
             
-            switch self.recipeList[self.index].flag {
+            switch self.recipeList[index].flag {
             case 0:
                 var requestParam = [String: Any]()
                 requestParam["action"] = "insertCollect"

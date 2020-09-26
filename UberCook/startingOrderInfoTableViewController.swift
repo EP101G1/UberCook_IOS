@@ -57,9 +57,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         self.scanQrcodeButton.layer.cornerRadius = 5
         
         addSocketCallBacks()
-        self.userDefault.setValue(orderList?.user_no, forKey: "customer_User_no")
-        self.userDefault.setValue(orderList?.address, forKey: "custom_adrs")
-
+       
        
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +67,9 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         let controller = parent as? StartingDetailViewController
 //        print("orderList", controller, controller?.orderList)
         orderList = controller?.orderList
+        
+        self.userDefault.setValue(orderList?.user_no, forKey: "customer_User_no")
+        self.userDefault.setValue(orderList?.address, forKey: "custom_adrs")
         
         if orderList?.flag == 2 {
             userNoButton.isHidden = true
@@ -88,7 +89,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         
         
         showOrderInfo()
-      
+        getQRcode()
       
 
     }
@@ -104,11 +105,11 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     
         let controller = UIAlertController(title: "評分", message: "請為對方此次交易評分", preferredStyle: .alert)
         
-        let height:NSLayoutConstraint = NSLayoutConstraint(item: controller.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.60) //放大alert
+        let height:NSLayoutConstraint = NSLayoutConstraint(item: controller.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.4) //放大alert
         
         let okAction = UIAlertAction(title: "確定發送", style: .default) { (_) in
             self.completeComment()
-           
+            self.navigationController?.popViewController(animated: true)
            
 
 //            let totalOrderListView = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Home //根據storyboard去找下一頁id然後向下轉型成下一頁
@@ -124,6 +125,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     }
     
     func completeComment(){
+        
        let orderUser = orderList?.user_no
        let user = userDefault.value(forKey: "user_no")as!String
 
@@ -155,6 +157,7 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
                                    
                                     self.EvaluationButton.isHidden = true
                                     self.chefNoButton.isHidden = true
+                                    self.userNoButton.isHidden = true
                                    
                                 }
                             }
@@ -185,6 +188,8 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
                     if(chatMessage.message == orderList?.user_no ){
                         photoImageView.isHidden = true
                         scanQrcodeButton.isHidden = true
+                        chefNoButton.isHidden = true
+                        userNoButton.isHidden = true
                         EvaluationButton.isHidden = false
                     }else{
                         //秀alert說條碼不符
@@ -216,7 +221,15 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
         remarkTextView.text = orderList?.remark
         adrsTextField.text = orderList?.address
         
-        
+        let myOrderuserno = orderList?.user_no
+        let userno = userDefault.value(forKey: "user_no") as!String
+        if myOrderuserno == userno {
+            photoImageView.isHidden = true
+            chefNoButton.isHidden = true
+        }else{
+            userNoButton.isHidden = true
+            scanQrcodeButton.isHidden = true
+        }
         
     }
     
@@ -379,10 +392,17 @@ class startingOrderInfoTableViewController: UITableViewController,AVCaptureMetad
     }
     
     func scanSuccess(qrCode: String) {
-        print(userDefault.value(forKey: "user_no") as!String)
-        if qrCode == userDefault.value(forKey: "user_no") as!String {
+        //print(userDefault.value(forKey: "user_no") as!String)
+        let UserNo = userDefault.value(forKey: "user_no") as!String
+        let orderstr = String(orderList!.order_no!)
+        let MatchStr = orderstr + "," + UserNo
+        print(qrCode + "----")
+        print(MatchStr + "####")
+        if qrCode == MatchStr {
+            
             changeFlag(qrCode: qrCode)
             self.EvaluationButton.isHidden = false
+            
         }else{
             let controller = UIAlertController(title: "錯誤", message: "訂單不符 請重新掃描QR Code", preferredStyle: .alert)
               let okAction = UIAlertAction(title: "確定", style: .default, handler: nil)

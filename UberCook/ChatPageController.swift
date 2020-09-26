@@ -85,7 +85,7 @@ class ChatPageController : UIViewController,UITableViewDataSource,UITableViewDel
             let decoder = JSONDecoder()
             if error == nil {
                 if data != nil {
-                print("input: \(String(data: data!, encoding: .utf8)!)")
+//                print("input: \(String(data: data!, encoding: .utf8)!)")
                     if let result = try? decoder.decode([ChatMessage].self, from: data!){
                         self.chatMessageList = result
                         DispatchQueue.main.async {

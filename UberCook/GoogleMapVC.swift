@@ -43,19 +43,19 @@ class GoogleMapVC: UIViewController, CLLocationManagerDelegate {
                 //                let sender = chatMessage.sender
                 let type = chatMessage.type
                 if type == "map"{
-                    latitude = Double (chatMessage.message.prefix(0))
-                    longitude = Double(chatMessage.message.suffix(1))
+                    //print("chatMessage.message\(chatMessage.message)")
+                    let pointArr = chatMessage.message.components(separatedBy: ",")
+                    latitude = Double (pointArr[0])
+                    longitude = Double(pointArr[1])
                     
                     if chefLocation != nil {
                         googleMaps.clear()
-                    }else{
-                        chefLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                        let marker = GMSMarker()
-                        marker.position = self.chefLocation
-                        marker.title = "chefLocation"
-                        marker.map = self.googleMaps
                     }
-                    
+                    chefLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                    let marker = GMSMarker()
+                    marker.position = self.chefLocation
+                    marker.title = "chefLocation"
+                    marker.map = self.googleMaps
                 }
             }
         }

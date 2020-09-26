@@ -8,6 +8,8 @@
 import UIKit
 import AdSupport
 import TPDirect
+import GoogleMaps
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        GMSPlacesClient.provideAPIKey("AIzaSyCRK1Iozkdnpu9ojMqwEOTqduzz6SFDTtE")
+        GMSServices.provideAPIKey("AIzaSyCRK1Iozkdnpu9ojMqwEOTqduzz6SFDTtE")
         TPDSetup.setWithAppId(appId, withAppKey: appKey, with: TPDServerType.sandBox)
         // 使用IDFA，之後上架申請時，要勾選有使用廣告識別碼
         let IDFA = ASIdentifierManager.shared().advertisingIdentifier.uuidString

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		228D4FABF3C34AF29F4C6DA2 /* Pods_UberCook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C13B862B7C1F638E25B2E140 /* Pods_UberCook.framework */; };
-		33B7174A2515AF570013A923 /* ChefGoogleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B717492515AF570013A923 /* ChefGoogleMapVC.swift */; };
 		33B7174C2515B0470013A923 /* GoogleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7174B2515B0470013A923 /* GoogleMapVC.swift */; };
 		33B7174F2515B1860013A923 /* Order_Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7174D2515B1860013A923 /* Order_Point.swift */; };
 		33B717502515B1860013A923 /* MapPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7174E2515B1860013A923 /* MapPath.swift */; };
@@ -17,7 +16,6 @@
 		33C8ADB22515C39800C5CEFA /* RecipesTVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8ADB12515C39800C5CEFA /* RecipesTVCViewController.swift */; };
 		33C8ADB42515C49500C5CEFA /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8ADB32515C49500C5CEFA /* RecipeDetailViewController.swift */; };
 		33C8ADB62515C4F100C5CEFA /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8ADB52515C4F100C5CEFA /* PostVC.swift */; };
-		33C8ADB82515C52500C5CEFA /* MessageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8ADB72515C52500C5CEFA /* MessageTVC.swift */; };
 		33C8ADBA2515C55000C5CEFA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8ADB92515C55000C5CEFA /* Message.swift */; };
 		33C8ADBC2515C59600C5CEFA /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8ADBB2515C59600C5CEFA /* MessageCell.swift */; };
 		33D2994E250DF02D0026F280 /* StoreValueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */; };
@@ -46,7 +44,6 @@
 		C5808F8E250F974100CF80FC /* TotalOrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8D250F974100CF80FC /* TotalOrderListViewController.swift */; };
 		C5808F90250F9D3300CF80FC /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */; };
 		C5808F962511E24B00CF80FC /* OrderObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5808F952511E24B00CF80FC /* OrderObj.swift */; };
-		C5D32F0A2518AACD00BB86EF /* FinishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D32F092518AACD00BB86EF /* FinishTableViewCell.swift */; };
 		C5D32F0B2518AAE800BB86EF /* FinishTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D32F082518AA8D00BB86EF /* FinishTableViewController.swift */; };
 		C5D32F0D2518ABC400BB86EF /* FinishDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D32F0C2518ABC400BB86EF /* FinishDetailViewController.swift */; };
 		E5149528250A037600A7290D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5149526250A037600A7290D /* ChatMessage.swift */; };
@@ -54,7 +51,10 @@
 		E514952B250A1B1E00A7290D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952A250A1B1E00A7290D /* Track.swift */; };
 		E514952D250B499F00A7290D /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952C250B499E00A7290D /* FavoriteTableViewCell.swift */; };
 		E514952F250B4A1800A7290D /* FavoriteTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E514952E250B4A1800A7290D /* FavoriteTVC.swift */; };
+		E51DDDAC251B02BE005EFA58 /* MessageTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51DDDAB251B02BE005EFA58 /* MessageTVC.swift */; };
+		E51DDDAE251B3D0B005EFA58 /* PersonalVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51DDDAD251B3D0B005EFA58 /* PersonalVCViewController.swift */; };
 		E529F70225037E610079A593 /* Caches.swift in Sources */ = {isa = PBXBuildFile; fileRef = E529F70125037E610079A593 /* Caches.swift */; };
+		E56A8609251A1FEF00D9BB82 /* FinishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A8608251A1FEF00D9BB82 /* FinishTableViewCell.swift */; };
 		E5815F52250BB07A000D149D /* TrackTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5815F51250BB07A000D149D /* TrackTVC.swift */; };
 		E5815F54250BB0A4000D149D /* CollectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5815F53250BB0A4000D149D /* CollectionTVC.swift */; };
 		E589F8E225094E4D00169A6D /* User_name.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589F8E125094E4D00169A6D /* User_name.swift */; };
@@ -79,11 +79,11 @@
 		E592F705250BF60F003FDF2A /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F704250BF60F003FDF2A /* CollectionCell.swift */; };
 		E592F707250D33F0003FDF2A /* CashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E592F706250D33EF003FDF2A /* CashVC.swift */; };
 		E5AF25C2250A01DA00FBAD9F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AF25C1250A01DA00FBAD9F /* Login.swift */; };
+		E5B2EB86251CE90500102F29 /* ChefGoogleMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B2EB85251CE90500102F29 /* ChefGoogleMapVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A179A3B26CE5E7A8DFCE1F0 /* Pods-UberCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCook.release.xcconfig"; path = "Target Support Files/Pods-UberCook/Pods-UberCook.release.xcconfig"; sourceTree = "<group>"; };
-		33B717492515AF570013A923 /* ChefGoogleMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefGoogleMapVC.swift; sourceTree = "<group>"; };
 		33B7174B2515B0470013A923 /* GoogleMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapVC.swift; sourceTree = "<group>"; };
 		33B7174D2515B1860013A923 /* Order_Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order_Point.swift; sourceTree = "<group>"; };
 		33B7174E2515B1860013A923 /* MapPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPath.swift; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 		33C8ADB12515C39800C5CEFA /* RecipesTVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTVCViewController.swift; sourceTree = "<group>"; };
 		33C8ADB32515C49500C5CEFA /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		33C8ADB52515C4F100C5CEFA /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
-		33C8ADB72515C52500C5CEFA /* MessageTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; };
 		33C8ADB92515C55000C5CEFA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		33C8ADBB2515C59600C5CEFA /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreValueTableViewController.swift; sourceTree = "<group>"; };
@@ -125,14 +124,16 @@
 		C5808F8F250F9D3300CF80FC /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		C5808F952511E24B00CF80FC /* OrderObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderObj.swift; sourceTree = "<group>"; };
 		C5D32F082518AA8D00BB86EF /* FinishTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTableViewController.swift; sourceTree = "<group>"; };
-		C5D32F092518AACD00BB86EF /* FinishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinishTableViewCell.swift; path = /Users/hsuan/UberCookForIOS/UberCook/FinishTableViewCell.swift; sourceTree = "<absolute>"; };
 		C5D32F0C2518ABC400BB86EF /* FinishDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishDetailViewController.swift; sourceTree = "<group>"; };
 		E5149526250A037600A7290D /* ChatMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		E5149527250A037600A7290D /* StateMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMessage.swift; sourceTree = "<group>"; };
 		E514952A250A1B1E00A7290D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E514952C250B499E00A7290D /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		E514952E250B4A1800A7290D /* FavoriteTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTVC.swift; sourceTree = "<group>"; };
+		E51DDDAB251B02BE005EFA58 /* MessageTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTVC.swift; sourceTree = "<group>"; };
+		E51DDDAD251B3D0B005EFA58 /* PersonalVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalVCViewController.swift; sourceTree = "<group>"; };
 		E529F70125037E610079A593 /* Caches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caches.swift; sourceTree = "<group>"; };
+		E56A8608251A1FEF00D9BB82 /* FinishTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishTableViewCell.swift; sourceTree = "<group>"; };
 		E5815F51250BB07A000D149D /* TrackTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTVC.swift; sourceTree = "<group>"; };
 		E5815F53250BB0A4000D149D /* CollectionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTVC.swift; sourceTree = "<group>"; };
 		E589F8E125094E4D00169A6D /* User_name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_name.swift; sourceTree = "<group>"; };
@@ -159,6 +160,7 @@
 		E592F704250BF60F003FDF2A /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		E592F706250D33EF003FDF2A /* CashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashVC.swift; sourceTree = "<group>"; };
 		E5AF25C1250A01DA00FBAD9F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E5B2EB85251CE90500102F29 /* ChefGoogleMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefGoogleMapVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,7 +251,7 @@
 				B761D6CF2510664900AA0071 /* MyChatCell.swift */,
 				C52B584B250E3E7F000B312A /* MenuCollectionViewCell.swift */,
 				C5808F8B250F94FC00CF80FC /* TotalOrderListTableViewCell.swift */,
-				C5D32F092518AACD00BB86EF /* FinishTableViewCell.swift */,
+				E56A8608251A1FEF00D9BB82 /* FinishTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -283,15 +285,16 @@
 				E59294EB24FA8E7B00C8F9A2 /* AppDelegate.swift */,
 				33C8ADAF2515C30400C5CEFA /* BlogViewController.swift */,
 				33D2994D250DF02D0026F280 /* StoreValueTableViewController.swift */,
-				33C8ADB72515C52500C5CEFA /* MessageTVC.swift */,
 				E59294ED24FA8E7B00C8F9A2 /* SceneDelegate.swift */,
 				E592950524FABD7700C8F9A2 /* Home.swift */,
+				E51DDDAB251B02BE005EFA58 /* MessageTVC.swift */,
 				E514952E250B4A1800A7290D /* FavoriteTVC.swift */,
 				E5815F51250BB07A000D149D /* TrackTVC.swift */,
 				E5815F53250BB0A4000D149D /* CollectionTVC.swift */,
 				E592F706250D33EF003FDF2A /* CashVC.swift */,
-				33B717492515AF570013A923 /* ChefGoogleMapVC.swift */,
+				E51DDDAD251B3D0B005EFA58 /* PersonalVCViewController.swift */,
 				33C8ADB52515C4F100C5CEFA /* PostVC.swift */,
+				E5B2EB85251CE90500102F29 /* ChefGoogleMapVC.swift */,
 				E5AF25C1250A01DA00FBAD9F /* Login.swift */,
 				33C8ADB12515C39800C5CEFA /* RecipesTVCViewController.swift */,
 				E59294F124FA8E7B00C8F9A2 /* Main.storyboard */,
@@ -461,11 +464,10 @@
 				C51F73E025134F3C004FB72C /* WaittingTableViewController.swift in Sources */,
 				C51F73EE2514A25F004FB72C /* StartingTableViewCell.swift in Sources */,
 				33C8ADB22515C39800C5CEFA /* RecipesTVCViewController.swift in Sources */,
-				33C8ADB82515C52500C5CEFA /* MessageTVC.swift in Sources */,
 				C51F73EC2514A0D1004FB72C /* StartingTableViewController.swift in Sources */,
 				C51845022517746D006DB8AD /* StarType.swift in Sources */,
 				E592950024FAA37700C8F9A2 /* Common.swift in Sources */,
-				33B7174A2515AF570013A923 /* ChefGoogleMapVC.swift in Sources */,
+				E56A8609251A1FEF00D9BB82 /* FinishTableViewCell.swift in Sources */,
 				E589F8E225094E4D00169A6D /* User_name.swift in Sources */,
 				C52B584E250E3EBB000B312A /* MenuController.swift in Sources */,
 				33C8ADB62515C4F100C5CEFA /* PostVC.swift in Sources */,
@@ -478,10 +480,10 @@
 				C51845032517746D006DB8AD /* StarRateView.swift in Sources */,
 				E5925C2D24FF9E5D002D5C4D /* BlogCollectionViewCell.swift in Sources */,
 				C52B584C250E3E7F000B312A /* MenuCollectionViewCell.swift in Sources */,
-				C5D32F0A2518AACD00BB86EF /* FinishTableViewCell.swift in Sources */,
 				C5808F8E250F974100CF80FC /* TotalOrderListViewController.swift in Sources */,
 				E5815F54250BB0A4000D149D /* CollectionTVC.swift in Sources */,
 				E592F705250BF60F003FDF2A /* CollectionCell.swift in Sources */,
+				E51DDDAE251B3D0B005EFA58 /* PersonalVCViewController.swift in Sources */,
 				E529F70225037E610079A593 /* Caches.swift in Sources */,
 				E592F701250BD778003FDF2A /* TrackCell.swift in Sources */,
 				C51F73E425138E1C004FB72C /* WaittingDetailViewController.swift in Sources */,
@@ -494,6 +496,7 @@
 				C5D32F0B2518AAE800BB86EF /* FinishTableViewController.swift in Sources */,
 				33C8ADB02515C30400C5CEFA /* BlogViewController.swift in Sources */,
 				E592950624FABD7700C8F9A2 /* Home.swift in Sources */,
+				E5B2EB86251CE90500102F29 /* ChefGoogleMapVC.swift in Sources */,
 				33C8ADB42515C49500C5CEFA /* RecipeDetailViewController.swift in Sources */,
 				33B7174C2515B0470013A923 /* GoogleMapVC.swift in Sources */,
 				C52B584A250E3E3A000B312A /* MenuCollectionViewController.swift in Sources */,
@@ -506,6 +509,7 @@
 				E592950824FADED000C8F9A2 /* ChefLeader.swift in Sources */,
 				C51F73E82514613D004FB72C /* OrderInfoTableViewController.swift in Sources */,
 				E5925C2F24FFA0B9002D5C4D /* Blog.swift in Sources */,
+				E51DDDAC251B02BE005EFA58 /* MessageTVC.swift in Sources */,
 				E592F703250BF308003FDF2A /* Collection.swift in Sources */,
 				C5808F962511E24B00CF80FC /* OrderObj.swift in Sources */,
 				E5149528250A037600A7290D /* ChatMessage.swift in Sources */,
@@ -669,7 +673,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9456Y9Y96Q;
+				DEVELOPMENT_TEAM = W37DT8NA6G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UberCook",
@@ -679,7 +683,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.hsuann.UberCook;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.chao.UberCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -695,7 +699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9456Y9Y96Q;
+				DEVELOPMENT_TEAM = W37DT8NA6G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UberCook",
@@ -705,7 +709,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.hsuann.UberCook;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.chao.UberCook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

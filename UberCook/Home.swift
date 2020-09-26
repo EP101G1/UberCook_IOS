@@ -33,7 +33,8 @@ class Home: UIViewController, UICollectionViewDelegate, UICollectionViewDataSour
         fullScreenSize = UIScreen.main.bounds.size
         collectionView.backgroundColor = UIColor.white
         collectionView2.backgroundColor = UIColor.white
-      
+        print("USER : \(self.userDefault.dictionaryRepresentation())")
+
         GlobalVariables.shared.socket = WebSocket(url: URL(string: socket_server + user_no)!)
         addSocketCallBacks()
         GlobalVariables.shared.socket.connect()

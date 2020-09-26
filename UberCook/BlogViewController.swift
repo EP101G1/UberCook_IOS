@@ -39,6 +39,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         getTrack()
         searchTrack()
         checkChatRoom()
+        getBlog()
         title = chefLeader?.user_name ?? track?.user_name
     }
     
@@ -65,9 +66,10 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func getTrack(){
+        let chef_no = userDefault.value(forKey: "chef_no")
         var requestParam = [String: Any]()
         requestParam["action"] = "getFollows"
-        requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no
+        requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no ?? chef_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -81,9 +83,10 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func getBlog(){
+        let chef_no = userDefault.value(forKey: "chef_no")
         var requestParam = [String: Any]()
         requestParam["action"] = "getBlog"
-        requestParam["chef_no_blog"] = chefLeader?.chef_no ?? track?.chef_no
+        requestParam["chef_no_blog"] = chefLeader?.chef_no ?? track?.chef_no ?? chef_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             let decoder = JSONDecoder()
             if error == nil {
@@ -101,10 +104,11 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func searchTrack(){
+        let chef_no = userDefault.value(forKey: "chef_no")
         var requestParam = [String: Any]()
         requestParam["action"] = "searchTrack"
         requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-        requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no
+        requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no ?? chef_no
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
@@ -168,18 +172,44 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.reusableView = collectionView.dequeueReusableSupplementaryView(
             ofKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: "header", for: indexPath) as? BlogHeardReusableView
+        let user_name = userDefault.value(forKey: "user_name") as! String
+        let user_si = userDefault.value(forKey: "user_si") as! String
         reusableView?.chefImageView.layer.cornerRadius = (reusableView?.chefImageView.frame.height)! / 2
-        reusableView?.chefSi.text = chefLeader?.user_si ?? track?.user_si
-        reusableView?.chefName.text = chefLeader?.user_name ?? track?.user_name
+        reusableView?.chefSi.text = chefLeader?.user_si ?? track?.user_si ?? user_si
+        reusableView?.chefName.text = chefLeader?.user_name ?? track?.user_name ?? user_name
         reusableView?.postLabel.text = String(blogList.count)
         reusableView?.followLabel.text = String(self.trackNum)
         let chef_no = userDefault.value(forKey: "chef_no") as? String
-        if chefLeader?.chef_no == chef_no || track?.chef_no == chef_no{
-            reusableView?.postButton.isHidden = false
-            reusableView?.chatButton.isHidden = true
-            reusableView?.trackButton.isHidden = true
-            reusableView?.reserveButton.isHidden = true
-        }
+        
+        
+        
+      
+            if chefLeader?.chef_no == chef_no && track?.chef_no == nil{
+                print("111111")
+                reusableView?.postButton.isHidden = false
+                reusableView?.chatButton.isHidden = true
+                reusableView?.trackButton.isHidden = true
+                reusableView?.reserveButton.isHidden = true
+            }else if chefLeader?.chef_no == nil && track?.chef_no == chef_no{
+                print("222222")
+                reusableView?.postButton.isHidden = true
+                reusableView?.chatButton.isHidden = false
+                reusableView?.trackButton.isHidden = false
+                reusableView?.reserveButton.isHidden = false
+            }else if chefLeader?.chef_no != chef_no && track?.chef_no == nil && chefLeader?.chef_no != nil{
+                print("333333")
+                reusableView?.postButton.isHidden = true
+                reusableView?.chatButton.isHidden = false
+                reusableView?.trackButton.isHidden = false
+                reusableView?.reserveButton.isHidden = false
+            }else if chefLeader?.chef_no == nil && track?.chef_no == nil{
+                reusableView?.postButton.isHidden = false
+                reusableView?.chatButton.isHidden = true
+                reusableView?.trackButton.isHidden = true
+                reusableView?.reserveButton.isHidden = true
+            }
+        
+        
         test = indexPath
         
         if flag == 0 {
@@ -195,13 +225,14 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
 //        print("line_2 : \(line)")
         
         
-        
+        let user_no = userDefault.value(forKey: "user_no") as! String
         var requestParam = [String: Any]()
         requestParam["action"] = "getUserImage"
-        requestParam["user_no"] = chefLeader?.user_no ?? track?.user_no
+        requestParam["user_no"] = chefLeader?.user_no ?? track?.user_no ?? user_no
         requestParam["imageSize"] = 1440
+        requestParam["notJoin"] = "yes"
         var image: UIImage?
-        let imageUrl = fileInCaches(fileName: (chefLeader?.user_no ?? track?.user_no) ?? "")
+        let imageUrl = fileInCaches(fileName: (chefLeader?.user_no ?? track?.user_no) ?? user_no)
         if self.fileManager.fileExists(atPath: imageUrl.path) {
             if let imageCaches = try? Data(contentsOf: imageUrl) {
                 image = UIImage(data: imageCaches)
@@ -230,7 +261,7 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let chefBlog = self.storyboard?.instantiateViewController(withIdentifier: "RecipesTVCViewController") as! RecipesTVCViewController
-        let blog = blogList[indexPath.row]
+//        let blog = blogList[indexPath.row]
         chefBlog.blog = blogList
         chefBlog.indexForRow = indexPath.row
         chefBlog.user_name = chefLeader?.user_name
@@ -244,10 +275,11 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func clickTrack(_ sender: Any) {
         if flag == 0 {
             self.flag = 1
+            let chef_no = userDefault.value(forKey: "chef_no")
             var requestParam = [String: Any]()
             requestParam["action"] = "insertFollow"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no
+            requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no ?? chef_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -265,10 +297,11 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }else{
             self.flag = 0
+            let chef_no = userDefault.value(forKey: "chef_no")
             var requestParam = [String: Any]()
             requestParam["action"] = "deleteFollow"
             requestParam["user_no"] = self.userDefault.value(forKey: "user_no")
-            requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no
+            requestParam["chef_no"] = chefLeader?.chef_no ?? track?.chef_no ?? chef_no
             executeTask(url_server!, requestParam) { (data, response, error) in
                 if error == nil {
                     if data != nil {
@@ -332,7 +365,8 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBSegueAction func toChatPage(_ coder: NSCoder) -> ChatPageController? {
         let controller = ChatPageController(coder: coder)
-        controller?.friend_no = chefLeader?.chef_no  ?? track?.chef_no
+        let chef_no = userDefault.value(forKey: "chef_no") as! String
+        controller?.friend_no = chefLeader?.chef_no  ?? track?.chef_no ?? chef_no
         controller?.chatRoomNo = self.chatRoomNo
         controller?.friend_name = chefLeader?.user_name ?? track?.user_name
         controller?.NoForSelectPhoto = chefLeader?.user_no ?? track?.user_no
@@ -344,7 +378,8 @@ class BlogViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBSegueAction func TakeChefNoToMenuOrderList(_ coder: NSCoder) -> MenuCollectionViewController? {
         let controller = MenuCollectionViewController(coder: coder)
-        controller?.chefNo = chefLeader?.chef_no  ?? track?.chef_no
+        let chef_no = userDefault.value(forKey: "chef_no") as! String
+        controller?.chefNo = chefLeader?.chef_no  ?? track?.chef_no ?? chef_no
      
            
         return controller

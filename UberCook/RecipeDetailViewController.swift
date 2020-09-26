@@ -19,6 +19,7 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeImageview: UIImageView!
     @IBOutlet weak var chefNameLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var updateButton: UIBarButtonItem!
     let userDefault = UserDefaults()
     var recipeDetail:Recipe?
     var recipe:Recipe?
@@ -30,6 +31,7 @@ class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
         fullScreenSize = UIScreen.main.bounds.size
         getRecipeDetail()
+        checkChefDetail()
 //        if collection == nil && recipe == nil{
 //            recipeConLabel.text = recipeList?.recipe_con
 //            recipeTitleLabel.text = recipeList?.recipe_title
@@ -52,6 +54,18 @@ class RecipeDetailViewController: UIViewController {
         showChefName()
         searchFollow()
         getRecipeDetail()
+    }
+    
+    
+    func checkChefDetail(){
+        let chef_no = userDefault.value(forKey: "chef_no") as! String
+        if chef_no == blog?.chef_no! || chef_no == collection?.chef_no || chef_no == recipe?.chef_no! {
+            updateButton.isEnabled = true
+            updateButton.tintColor = UIColor.systemBlue
+        }else{
+            updateButton.tintColor = UIColor.clear
+            updateButton.isEnabled = false
+        }
     }
     
     
@@ -184,7 +198,7 @@ class RecipeDetailViewController: UIViewController {
         executeTask(url_server!, requestParam) { (data, response, error) in
             if error == nil {
                 if data != nil {
-                    print("input: \(String(data: data!, encoding: .utf8)!)")
+//                    print("input: \(String(data: data!, encoding: .utf8)!)")
                         DispatchQueue.main.async {
                             self.chefNameLabel.text = "\(String(decoding: data!, as: UTF8.self))"
                         }

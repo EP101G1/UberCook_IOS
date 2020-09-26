@@ -14,7 +14,7 @@ import AVFoundation
 class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
     
     let userDefault = UserDefaults()
-    let baseURL = URL(string: "http://192.168.196.216:8080/UberCook_Server")!
+    let baseURL = URL(string: "http://192.168.50.35:8080/UberCook_Server")!
     
     var nextMenuRecipeLists = [MenuRecipeList]()
     var chefNo:String?
@@ -77,6 +77,7 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
         
        let OrderInsertObj = OrderObj(action: "InsertOrder", userName: nameTextField.text, order: orderinfo, orderList: orderListinfo)
         
+      
         
         let url = baseURL.appendingPathComponent("Order_Servlet") //連網址
         var request = URLRequest(url: url) //送請求
@@ -94,13 +95,17 @@ class TotalOrderListViewController: UIViewController,UITableViewDataSource,UITab
             
             if let data = data,
                let point = try? decoder.decode(Int.self, from: data){
-                //                print(menuRecipeList[0].chefNo)
+                  //              print(menuRecipeList[0].chefNo)
                 print(String(point))
                 DispatchQueue.main.async {
                     let controller = UIAlertController(title: "確定要送出這筆訂單", message: "送出後無法取消訂單", preferredStyle: .alert)
                     let okAction = UIAlertAction(title: "確定", style: .default) { (_) in
                         let totalOrderListView = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Home //根據storyboard去找下一頁id然後向下轉型成下一頁
                         self.navigationController?.pushViewController(totalOrderListView, animated: true) //傳至下一頁
+                        let controllersuccess = UIAlertController(title: "預約成功", message: "請至進行中查看您的訂單", preferredStyle: .alert)
+                                               let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                               controllersuccess.addAction(okAction)
+                                               self.present(controllersuccess, animated: true, completion: nil)
                     }
                     controller.addAction(okAction)
                     let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)

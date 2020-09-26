@@ -101,6 +101,51 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
 //                )
 //            }
 //        }
+    @IBAction func Magic(_ sender: Any) {
+        recipePointTextField.text = String(100)
+        recipeTitleTextField.text = "健康油條"
+        recipeConTextView.text = "原料\n" +
+        "普通麵粉 300克（高筋麵粉更好一些，不要用低筋麵粉）, 清水 170~180克（麵粉的吸水性不同，清水要分次倒入，涼水就可以，希望發酵快些的可以用溫水）, 酵母粉 5克, 小蘇打 2克, 食用油 15克, 鹽 3克（淡淡的，喜歡正常鹹味的可以放5~6鹽）\n" +
+        "\n" +
+        "步驟\n" +
+        "1將麵粉放入盆中，放入酵母粉、小蘇打和鹽拌勻\n" +
+        "\n" +
+        "\n" +
+        "2倒入清水攪成小面絮，然後揉成光滑的麵糰。因為麵粉的吸水性不同清水可以分次倒入，揉好的麵糰非常柔軟，但是絕不是稀得沾手的那種，和耳垂一樣柔軟就可以\n" +
+        "\n" +
+        "\n" +
+        "3再放入15克食用油（我一般用色拉油，別的植物油都可以），將油揉進麵糰中，剛開始感覺麵糰會滑膩膩的，揉一揉就看不到油了，只是感覺麵糰非常的滋潤\n" +
+        "\n" +
+        "\n" +
+        "4將揉好的麵糰放入盆中蓋上餳(靜置）10分鐘後，再揉一揉就可以蓋上發酵了\n" +
+        "\n" +
+        "\n" +
+        "5將麵糰發成2倍大，發大一些也沒關係\n" +
+        "\n" +
+        "\n" +
+        "6用手撥開麵糰會發現有很多的孔洞，面發的很柔軟但不是很稀的狀態，從盆中取出，因為麵糰里有油，不會粘的，用手在盆里抹一下就會全部取出\n" +
+        "\n" +
+        "\n" +
+        "7將面板上用手抹一層油，這樣手上也有油就不會沾了，將發好的面放到面板上揉幾下成團即可\n" +
+        "\n" +
+        "\n" +
+        "8然後用擀麵杖擀成0.5厘米厚的大片(不要太薄，不然炸出來裡面不柔軟），然後用刀切成10厘米長3厘米寬的長條，也可以根據你鍋的大小切成適合你的長度和寬度，300克麵粉大約可以做12根油條（我先用了一點麵糰炸了油餅，所以圖上是九根的量）\n" +
+        "\n" +
+        "\n" +
+        "9將切好的條先靜置幾分鐘再接著做，這樣會炸得更蓬鬆，我有的時候著急不靜置直接做效果也不錯，自己看著辦吧！取兩條面摞在一起然後將筷子豎著放到面片的中間，用手按壓筷子的兩頭將面片中間壓上一條印，壓得稍微深一些炸的時候兩條面片才不會分開\n" +
+        "\n" +
+        "\n" +
+        "10拎著面片的兩頭抻長一點，再兩手反方向擰一下\n" +
+        "\n" +
+        "\n" +
+        "11直接放入燒到7、8成熱的油鍋中（擀麵片之前就可以點火熱油了），可以先用一小塊面放入油鍋里試一下，麵糰放進去就浮上來說明油溫就可以了\n" +
+        "\n" +
+        "\n" +
+        "12油條生坯放進油鍋中立刻就會浮上來，要用筷子撥弄著翻轉，中大火炸制，不要用小火，那樣炸出來的油條外皮會很硬，等到油條的兩面都成金黃色就可以撈出來，豎著放置會將多餘的油控一控\n" +
+        "\n" +
+        "\n" +
+        "13用此麵糰炸油餅也可以，只需將發好的麵糰分成30克左右的小團，擀開成0.3左右的圓形薄片，中間豎著劃兩刀拎起放入油鍋中炸上色即可，油溫和炸油條一樣"
+    }
     
     @objc func keyboardWillHide(note: NSNotification) {
             /* 鍵盤隱藏時將畫面下移回原樣 */
@@ -151,11 +196,13 @@ class PostVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             let recipe_con = self.recipeConTextView.text == nil ? "" : self.recipeConTextView.text!
             let recipe_point = Int(self.recipePointTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines))
             let chef_no:String = self.userDefault.value(forKey: "chef_no") as! String
+            
             let recipeData = Recipe(self.recipe_no ?? "", recipe_title, recipe_con, recipe_point ?? 0, chef_no, 1)
             
             var requestParam = [String: String]()
             requestParam["action"] = self.flag == 1 ? "recipeUpdate" : "recipeInsert"
             requestParam["recipe"] = try! String(data: JSONEncoder().encode(recipeData), encoding: .utf8)
+            requestParam["flag"] = "1"
             if self.image != nil {
                 requestParam["imageBase64"] = self.image!.jpegData(compressionQuality: 1)!.base64EncodedString()
                 let imageUrl = fileInCaches(fileName: self.recipe_no ?? "")
